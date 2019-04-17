@@ -7,15 +7,5 @@ namespace Reg_A_Lot
 {
     class Login
     {
-
-        public void Logon()
-        {
-
-        }
-
-        public void Logout()
-        {
-
-        }
     }
 }
