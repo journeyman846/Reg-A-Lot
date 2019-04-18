@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace Reg_A_Lot
@@ -16,7 +15,7 @@ namespace Reg_A_Lot
             
         public LoginForm()
         {
-            // somePerson = new Person();
+            
             InitializeComponent();
             pictureBox1.Image = Image.FromFile("../../Resources/college.jpg");
             pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
@@ -30,27 +29,32 @@ namespace Reg_A_Lot
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\James\source\repos\Reg-A-Lot\Reg-A-Lot\Reg-A-Lot\reg_db.mdf;Integrated Security=True");
-
-            // SqlCommand cmd = new SqlCommand("Select Role from User Where username=@username and password=@password", connection);
-            SqlDataAdapter sda = new SqlDataAdapter("Select Role from Users Where Username='" + textBox1.Text + "' and Password='" + textBox2.Text + "'", connection);
-            
-            connection.Open();
-            DataTable ds = new DataTable();
-            sda.Fill(ds);
-            if(ds.Rows.Count == 1)
+            try
             {
-                MessageBox.Show("You have logged in as " + ds.Rows[0][0].ToString());
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\James\source\repos\Reg-A-Lot\Reg-A-Lot\Reg-A-Lot\reg_db.mdf;Integrated Security=True");
+
+                SqlDataAdapter sda = new SqlDataAdapter("Select Role from Users Where Username='" + unameBox.Text + "' and Password='" + pwdBox.Text + "'", connection);
+
+                connection.Open();
+                DataTable ds = new DataTable();
+                sda.Fill(ds);
+                if (ds.Rows.Count == 1)
+                {
+                    MessageBox.Show("You have logged in as " + ds.Rows[0][0].ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Username/Password not found. Please try again.");
+                }
+                connection.Close();
             }
-            else
+            catch
             {
-                MessageBox.Show("Username/Password not found. Please try again.");
+                MessageBox.Show("Could not connect to the database. Try again later.");
             }
-            connection.Close();
-            
+
+
         }
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             
