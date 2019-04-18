@@ -1,0 +1,1 @@
+﻿Select Role from User Where Username='" + textBox1.Text + "' and Password='" + textBox2.Text + "'"

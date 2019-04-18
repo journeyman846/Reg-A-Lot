@@ -16,5 +16,12 @@ namespace Reg_A_Lot
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            this.Hide();
+            login.Show();
+        }
     }
 }
