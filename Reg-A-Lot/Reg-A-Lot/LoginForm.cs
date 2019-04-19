@@ -32,11 +32,9 @@ namespace Reg_A_Lot
             try
             {
                 SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\James\source\repos\Reg-A-Lot\Reg-A-Lot\Reg-A-Lot\reg_db.mdf;Integrated Security=True");
-
+                Database database = new Database();
                 SqlDataAdapter sda = new SqlDataAdapter("Select Role from Users Where Username='" + unameBox.Text + "' and Password='" + pwdBox.Text + "'", connection);
-                
                 connection.Open();
-
                 DataTable ds = new DataTable();
                 sda.Fill(ds);
 
@@ -66,7 +64,7 @@ namespace Reg_A_Lot
                 }
                 else if(role == "Administrator")
                 {
-                    StudentForm login = new StudentForm();
+                    AdminForm login = new AdminForm();
                     this.Hide();
                     login.Show();
                 }

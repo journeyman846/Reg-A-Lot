@@ -12,10 +12,13 @@ namespace Reg_A_Lot
     public partial class AdminForm : Form
     {
         private int childFormNumber = 0;
-
+        Database database = new Database();
+        DataTable dataTable = new DataTable();
         public AdminForm()
         {
             InitializeComponent();
+            dataTable = database.Read("Select * From Users");
+            dataGridView1.DataSource = dataTable;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -101,6 +104,19 @@ namespace Reg_A_Lot
             {
                 childForm.Close();
             }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            
+             
+            dataTable = database.Read("Select * From Users where ID='" + textBox1.Text + "'");
+            textBox2.Text = dataTable.Rows[0][0].ToString();
+            textBox3.Text = dataTable.Rows[0][1].ToString();
+            textBox4.Text = dataTable.Rows[0][2].ToString();
+
+            
+
         }
     }
 }
