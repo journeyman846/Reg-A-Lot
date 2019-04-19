@@ -102,5 +102,7 @@ namespace Reg_A_Lot
                 childForm.Close();
             }
         }
+
+        
     }
 }

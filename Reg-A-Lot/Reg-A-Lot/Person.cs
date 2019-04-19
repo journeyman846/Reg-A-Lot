@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Reg_A_Lot
 {
-    class Person
+    abstract class Person
     {
         
 
