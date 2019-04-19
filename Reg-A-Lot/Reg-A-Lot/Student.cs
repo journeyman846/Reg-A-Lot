@@ -12,7 +12,7 @@ namespace Reg_A_Lot
         // Students need to be able to register for classes
         // Students will need to have access to quickly determine course availability and assigned professors
         // Student schedule information is protected from unauthorized access.
-        Person somePerson = new Person();
+        
 
         public Student()
         {
