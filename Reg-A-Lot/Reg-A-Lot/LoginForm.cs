@@ -47,11 +47,30 @@ namespace Reg_A_Lot
                     MessageBox.Show("Username/Password not found. Please try again.");
                 }
                 connection.Close();
+                var role = ds.Rows[0][0].ToString();
+
+                if (role == "Student")
+                {
+                    StudentForm login = new StudentForm();
+                    this.Hide();
+                    login.Show();
+                }
+                else if (role == "Professor")
+                {
+
+                }
+                else if(role == "Administrator")
+                {
+                    AdminForm login = new AdminForm();
+                    this.Hide();
+                    login.Show();
+                }
             }
             catch
             {
                 MessageBox.Show("Could not connect to the database. Try again later.");
             }
+            
 
 
         }
