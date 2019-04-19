@@ -22,6 +22,7 @@ namespace Reg_A_Lot
             LoginForm login = new LoginForm();
             this.Hide();
             login.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
