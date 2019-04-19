@@ -23,5 +23,12 @@ namespace Reg_A_Lot
             this.Hide();
             login.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StudentForm login = new StudentForm();
+            this.Hide();
+            login.Show();
+        }
     }
 }

@@ -7,6 +7,8 @@ namespace Reg_A_Lot
 {
     class Person
     {
+        
+
         // Creating the characteristics of 'Person'
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,6 +18,7 @@ namespace Reg_A_Lot
         public int PhoneNumber { get; set; }
         public int FaxNumber { get; set; }
         public string Email { get; set; }
+        
 
     }
 }
