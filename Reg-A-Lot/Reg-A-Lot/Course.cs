@@ -12,8 +12,9 @@ namespace Reg_A_Lot
         public string Level {get; set;}
         public string TimeSlot {get; set;}
         
-        public register()
+       /* public register()
             {
+            
 }
 
         public void drop()
@@ -21,7 +22,7 @@ namespace Reg_A_Lot
 }
         public checkIfFull()
             {
-}
+}*/
 
     }
 }

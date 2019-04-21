@@ -15,31 +15,37 @@ namespace Reg_A_Lot
         public DataTable Read(string query)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            // SqlCommand sda = new SqlCommand(query, connection);
             connection.Open();
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(query, connection);
-            var result = "";
             sda.Fill(dt);
-            /*
-            
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    result = row[0].ToString();
-
-                }
-            }*/
             return dt;
         }
         public void InsertUser(string username, string password, string role)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            List<Registrar> registrars = new List<Registrar>();
-            // Registrar registrar = new Registrar();
-            registrars.Add(new Registrar { Username = username, Password = password, Role = role });
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Users Values (@Username, @Password, @Role)", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@Username", username);
+            sqlCommand.Parameters.AddWithValue("@Password", password);
+            sqlCommand.Parameters.AddWithValue("@Role", role);
+            sqlCommand.ExecuteScalar();
+            
+        }
+
+        public void UpdateUser(string username, string password, string role, int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Users Set Username='" + username + "', Password='" + password + "', Role='" + role + "' where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.ExecuteScalar();
+        }
+        public void DeleteUser(int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Users where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.ExecuteScalar();
             
         }
 
@@ -48,3 +54,4 @@ namespace Reg_A_Lot
 
 
 }
+ 
