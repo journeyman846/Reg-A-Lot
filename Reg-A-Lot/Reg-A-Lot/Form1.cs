@@ -11,10 +11,11 @@ namespace Reg_A_Lot
 {
     public partial class Form1 : Form
     {
-        // Person somePerson;
+        
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();                          
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,11 +23,26 @@ namespace Reg_A_Lot
             LoginForm login = new LoginForm();
             this.Hide();
             login.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             StudentForm login = new StudentForm();
+            this.Hide();
+            login.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            AdminForm login = new AdminForm();
+            this.Hide();
+            login.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProfessorForm login = new ProfessorForm();
             this.Hide();
             login.Show();
         }

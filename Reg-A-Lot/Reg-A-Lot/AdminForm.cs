@@ -6,16 +6,23 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Reg_A_Lot
 {
     public partial class AdminForm : Form
     {
         private int childFormNumber = 0;
+        Database database = new Database();
+        DataTable dataTable = new DataTable();
+        SqlCommand cmd = new SqlCommand();
 
         public AdminForm()
         {
             InitializeComponent();
+            RefreshDataGrid();
+
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -65,16 +72,6 @@ namespace Reg_A_Lot
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -101,6 +98,95 @@ namespace Reg_A_Lot
             {
                 childForm.Close();
             }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(idBox.Text, out id))
+            {
+                try
+                {
+                    dataTable = database.Read("Select * From Users where ID='" + id + "'");
+                    usernameBox.Text = dataTable.Rows[0][1].ToString();
+                    passwordBox.Text = dataTable.Rows[0][2].ToString();
+                    roleBox.Text = dataTable.Rows[0][3].ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("That is not a valid ID number.");
+            }
+
+
+        }
+        private void RefreshDataGrid()
+        {
+            dataTable = database.Read("Select * From Users");
+            dataGridView1.DataSource = dataTable;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text);
+            MessageBox.Show("User added successfully!");
+            RefreshDataGrid();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(idBox.Text, out id))
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete user " + id + "?", "Delete User", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        database.DeleteUser(id);
+                        MessageBox.Show("User " + id + " Deleted!");
+                        RefreshDataGrid();
+                    }
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("That is not a valid ID number.");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(idBox.Text, out id))
+            {
+                try
+                {
+                    database.UpdateUser(usernameBox.Text, passwordBox.Text, roleBox.Text, id);
+                    MessageBox.Show("User " + id + " Updated!");
+                    RefreshDataGrid();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("That is not a valid ID number.");
+            }
+
         }
     }
 }
