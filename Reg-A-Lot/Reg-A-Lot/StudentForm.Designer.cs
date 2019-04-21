@@ -29,50 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.printPreviewToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.reg_dbDataSet1 = new Reg_A_Lot.reg_dbDataSet();
             this.reg_dbDataSet2 = new Reg_A_Lot.reg_dbDataSet();
-            this.lblStudentFName = new System.Windows.Forms.Label();
+            this.lblStudentFirstName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.menuStrip.SuspendLayout();
-            this.toolStrip.SuspendLayout();
+            this.lblStudentLastName = new System.Windows.Forms.Label();
+            this.lblStudentAge = new System.Windows.Forms.Label();
+            this.lblStudentAddress = new System.Windows.Forms.Label();
+            this.lblStudentPhone = new System.Windows.Forms.Label();
+            this.lblStudentEmail = new System.Windows.Forms.Label();
+            this.lblStudentFormBreak = new System.Windows.Forms.Label();
+            this.lblStudentUsername = new System.Windows.Forms.Label();
+            this.lblStudentPassword = new System.Windows.Forms.Label();
+            this.txtStudentFirstName = new System.Windows.Forms.TextBox();
+            this.txtStudentLastName = new System.Windows.Forms.TextBox();
+            this.txtStudentAge = new System.Windows.Forms.TextBox();
+            this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtStudentEmail = new System.Windows.Forms.TextBox();
+            this.txtStudentAddress = new System.Windows.Forms.TextBox();
+            this.txtStudentPassword = new System.Windows.Forms.TextBox();
+            this.txtStudentUserName = new System.Windows.Forms.TextBox();
+            this.btnStudentRegister = new System.Windows.Forms.Button();
+            this.lblStudentConfirmPassword = new System.Windows.Forms.Label();
+            this.txtStudentConfirmPassword = new System.Windows.Forms.TextBox();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).BeginInit();
@@ -81,315 +64,30 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenu,
-            this.editMenu,
-            this.viewMenu,
-            this.toolsMenu});
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1141, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip.Size = new System.Drawing.Size(1142, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
-            // fileMenu
-            // 
-            this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.printToolStripMenuItem,
-            this.printPreviewToolStripMenuItem,
-            this.printSetupToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.exitToolStripMenuItem});
-            this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
-            this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(126, 20);
-            this.fileMenu.Text = "Student Information";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "&New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
-            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openToolStripMenuItem.Text = "&Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "&Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsToolStripMenuItem.Text = "Save &As";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
-            // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
-            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.printToolStripMenuItem.Text = "&Print";
-            // 
-            // printPreviewToolStripMenuItem
-            // 
-            this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
-            this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
-            // 
-            // printSetupToolStripMenuItem
-            // 
-            this.printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
-            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.printSetupToolStripMenuItem.Text = "Print Setup";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
-            // 
-            // editMenu
-            // 
-            this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.cutToolStripMenuItem,
-            this.copyToolStripMenuItem,
-            this.pasteToolStripMenuItem,
-            this.toolStripSeparator7,
-            this.selectAllToolStripMenuItem});
-            this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(39, 20);
-            this.editMenu.Text = "&Edit";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
-            this.undoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.undoToolStripMenuItem.Text = "&Undo";
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
-            this.redoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.redoToolStripMenuItem.Text = "&Redo";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(161, 6);
-            // 
-            // cutToolStripMenuItem
-            // 
-            this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
-            this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.cutToolStripMenuItem.Text = "Cu&t";
-            this.cutToolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
-            this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.copyToolStripMenuItem.Text = "&Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
-            // 
-            // pasteToolStripMenuItem
-            // 
-            this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
-            this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.pasteToolStripMenuItem.Text = "&Paste";
-            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(161, 6);
-            // 
-            // selectAllToolStripMenuItem
-            // 
-            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.selectAllToolStripMenuItem.Text = "Select &All";
-            // 
-            // viewMenu
-            // 
-            this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolBarToolStripMenuItem,
-            this.statusBarToolStripMenuItem});
-            this.viewMenu.Name = "viewMenu";
-            this.viewMenu.Size = new System.Drawing.Size(44, 20);
-            this.viewMenu.Text = "&View";
-            // 
-            // toolBarToolStripMenuItem
-            // 
-            this.toolBarToolStripMenuItem.Checked = true;
-            this.toolBarToolStripMenuItem.CheckOnClick = true;
-            this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.toolBarToolStripMenuItem.Text = "&Toolbar";
-            this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
-            // 
-            // statusBarToolStripMenuItem
-            // 
-            this.statusBarToolStripMenuItem.Checked = true;
-            this.statusBarToolStripMenuItem.CheckOnClick = true;
-            this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.statusBarToolStripMenuItem.Text = "&Status Bar";
-            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
-            // 
-            // toolsMenu
-            // 
-            this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionsToolStripMenuItem});
-            this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
-            this.toolsMenu.Text = "&Tools";
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.optionsToolStripMenuItem.Text = "&Options";
-            // 
-            // toolStrip
-            // 
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripButton,
-            this.toolStripSeparator1,
-            this.printToolStripButton,
-            this.printPreviewToolStripButton,
-            this.toolStripSeparator2,
-            this.helpToolStripButton});
-            this.toolStrip.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1141, 25);
-            this.toolStrip.TabIndex = 1;
-            this.toolStrip.Text = "ToolStrip";
-            // 
-            // saveToolStripButton
-            // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.saveToolStripButton.Text = "Save";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // printToolStripButton
-            // 
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printToolStripButton.Text = "Print";
-            // 
-            // printPreviewToolStripButton
-            // 
-            this.printPreviewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printPreviewToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripButton.Image")));
-            this.printPreviewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printPreviewToolStripButton.Name = "printPreviewToolStripButton";
-            this.printPreviewToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printPreviewToolStripButton.Text = "Print Preview";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // helpToolStripButton
-            // 
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
-            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.helpToolStripButton.Text = "Help";
-            // 
             // statusStrip
             // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 651);
+            this.statusStrip.Location = new System.Drawing.Point(0, 672);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1141, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1142, 30);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(60, 25);
             this.toolStripStatusLabel.Text = "Status";
             // 
             // reg_dbDataSet1
@@ -402,43 +100,217 @@
             this.reg_dbDataSet2.DataSetName = "reg_dbDataSet";
             this.reg_dbDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lblStudentFName
+            // lblStudentFirstName
             // 
-            this.lblStudentFName.AutoSize = true;
-            this.lblStudentFName.Location = new System.Drawing.Point(6, 28);
-            this.lblStudentFName.Name = "lblStudentFName";
-            this.lblStudentFName.Size = new System.Drawing.Size(63, 13);
-            this.lblStudentFName.TabIndex = 4;
-            this.lblStudentFName.Text = "First Name: ";
+            this.lblStudentFirstName.AutoSize = true;
+            this.lblStudentFirstName.Location = new System.Drawing.Point(236, 43);
+            this.lblStudentFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStudentFirstName.Name = "lblStudentFirstName";
+            this.lblStudentFirstName.Size = new System.Drawing.Size(94, 20);
+            this.lblStudentFirstName.TabIndex = 4;
+            this.lblStudentFirstName.Text = "First Name: ";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblStudentFName);
-            this.groupBox1.Location = new System.Drawing.Point(116, 95);
+            this.groupBox1.Controls.Add(this.txtStudentConfirmPassword);
+            this.groupBox1.Controls.Add(this.lblStudentConfirmPassword);
+            this.groupBox1.Controls.Add(this.btnStudentRegister);
+            this.groupBox1.Controls.Add(this.txtStudentUserName);
+            this.groupBox1.Controls.Add(this.txtStudentPhoneNumber);
+            this.groupBox1.Controls.Add(this.txtStudentPassword);
+            this.groupBox1.Controls.Add(this.txtStudentAge);
+            this.groupBox1.Controls.Add(this.txtStudentAddress);
+            this.groupBox1.Controls.Add(this.txtStudentLastName);
+            this.groupBox1.Controls.Add(this.txtStudentEmail);
+            this.groupBox1.Controls.Add(this.txtStudentFirstName);
+            this.groupBox1.Controls.Add(this.lblStudentPassword);
+            this.groupBox1.Controls.Add(this.lblStudentUsername);
+            this.groupBox1.Controls.Add(this.lblStudentFormBreak);
+            this.groupBox1.Controls.Add(this.lblStudentEmail);
+            this.groupBox1.Controls.Add(this.lblStudentPhone);
+            this.groupBox1.Controls.Add(this.lblStudentAddress);
+            this.groupBox1.Controls.Add(this.lblStudentAge);
+            this.groupBox1.Controls.Add(this.lblStudentLastName);
+            this.groupBox1.Controls.Add(this.lblStudentFirstName);
+            this.groupBox1.Location = new System.Drawing.Point(50, 53);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(945, 461);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(1010, 614);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student\'s Information";
             // 
+            // lblStudentLastName
+            // 
+            this.lblStudentLastName.AutoSize = true;
+            this.lblStudentLastName.Location = new System.Drawing.Point(236, 87);
+            this.lblStudentLastName.Name = "lblStudentLastName";
+            this.lblStudentLastName.Size = new System.Drawing.Size(90, 20);
+            this.lblStudentLastName.TabIndex = 5;
+            this.lblStudentLastName.Text = "Last Name:";
+            // 
+            // lblStudentAge
+            // 
+            this.lblStudentAge.AutoSize = true;
+            this.lblStudentAge.Location = new System.Drawing.Point(236, 130);
+            this.lblStudentAge.Name = "lblStudentAge";
+            this.lblStudentAge.Size = new System.Drawing.Size(42, 20);
+            this.lblStudentAge.TabIndex = 6;
+            this.lblStudentAge.Text = "Age:";
+            // 
+            // lblStudentAddress
+            // 
+            this.lblStudentAddress.AutoSize = true;
+            this.lblStudentAddress.Location = new System.Drawing.Point(236, 255);
+            this.lblStudentAddress.Name = "lblStudentAddress";
+            this.lblStudentAddress.Size = new System.Drawing.Size(68, 20);
+            this.lblStudentAddress.TabIndex = 7;
+            this.lblStudentAddress.Text = "Address";
+            // 
+            // lblStudentPhone
+            // 
+            this.lblStudentPhone.AutoSize = true;
+            this.lblStudentPhone.Location = new System.Drawing.Point(236, 172);
+            this.lblStudentPhone.Name = "lblStudentPhone";
+            this.lblStudentPhone.Size = new System.Drawing.Size(119, 20);
+            this.lblStudentPhone.TabIndex = 8;
+            this.lblStudentPhone.Text = "Phone Number:";
+            // 
+            // lblStudentEmail
+            // 
+            this.lblStudentEmail.AutoSize = true;
+            this.lblStudentEmail.Location = new System.Drawing.Point(236, 215);
+            this.lblStudentEmail.Name = "lblStudentEmail";
+            this.lblStudentEmail.Size = new System.Drawing.Size(52, 20);
+            this.lblStudentEmail.TabIndex = 9;
+            this.lblStudentEmail.Text = "Email:";
+            // 
+            // lblStudentFormBreak
+            // 
+            this.lblStudentFormBreak.AutoSize = true;
+            this.lblStudentFormBreak.Location = new System.Drawing.Point(28, 301);
+            this.lblStudentFormBreak.Name = "lblStudentFormBreak";
+            this.lblStudentFormBreak.Size = new System.Drawing.Size(936, 20);
+            this.lblStudentFormBreak.TabIndex = 10;
+            this.lblStudentFormBreak.Text = "_________________________________________________________________________________" +
+    "______________________";
+            // 
+            // lblStudentUsername
+            // 
+            this.lblStudentUsername.AutoSize = true;
+            this.lblStudentUsername.Location = new System.Drawing.Point(236, 364);
+            this.lblStudentUsername.Name = "lblStudentUsername";
+            this.lblStudentUsername.Size = new System.Drawing.Size(87, 20);
+            this.lblStudentUsername.TabIndex = 11;
+            this.lblStudentUsername.Text = "Username:";
+            // 
+            // lblStudentPassword
+            // 
+            this.lblStudentPassword.AutoSize = true;
+            this.lblStudentPassword.Location = new System.Drawing.Point(236, 405);
+            this.lblStudentPassword.Name = "lblStudentPassword";
+            this.lblStudentPassword.Size = new System.Drawing.Size(82, 20);
+            this.lblStudentPassword.TabIndex = 12;
+            this.lblStudentPassword.Text = "Password:";
+            // 
+            // txtStudentFirstName
+            // 
+            this.txtStudentFirstName.Location = new System.Drawing.Point(394, 43);
+            this.txtStudentFirstName.Name = "txtStudentFirstName";
+            this.txtStudentFirstName.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentFirstName.TabIndex = 13;
+            // 
+            // txtStudentLastName
+            // 
+            this.txtStudentLastName.Location = new System.Drawing.Point(394, 87);
+            this.txtStudentLastName.Name = "txtStudentLastName";
+            this.txtStudentLastName.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentLastName.TabIndex = 13;
+            // 
+            // txtStudentAge
+            // 
+            this.txtStudentAge.Location = new System.Drawing.Point(394, 128);
+            this.txtStudentAge.Name = "txtStudentAge";
+            this.txtStudentAge.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentAge.TabIndex = 13;
+            // 
+            // txtStudentPhoneNumber
+            // 
+            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(394, 172);
+            this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
+            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentPhoneNumber.TabIndex = 13;
+            // 
+            // txtStudentEmail
+            // 
+            this.txtStudentEmail.Location = new System.Drawing.Point(394, 215);
+            this.txtStudentEmail.Name = "txtStudentEmail";
+            this.txtStudentEmail.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentEmail.TabIndex = 13;
+            // 
+            // txtStudentAddress
+            // 
+            this.txtStudentAddress.Location = new System.Drawing.Point(394, 255);
+            this.txtStudentAddress.Multiline = true;
+            this.txtStudentAddress.Name = "txtStudentAddress";
+            this.txtStudentAddress.Size = new System.Drawing.Size(336, 43);
+            this.txtStudentAddress.TabIndex = 13;
+            // 
+            // txtStudentPassword
+            // 
+            this.txtStudentPassword.Location = new System.Drawing.Point(394, 405);
+            this.txtStudentPassword.Name = "txtStudentPassword";
+            this.txtStudentPassword.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentPassword.TabIndex = 13;
+            // 
+            // txtStudentUserName
+            // 
+            this.txtStudentUserName.Location = new System.Drawing.Point(394, 364);
+            this.txtStudentUserName.Name = "txtStudentUserName";
+            this.txtStudentUserName.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentUserName.TabIndex = 13;
+            // 
+            // btnStudentRegister
+            // 
+            this.btnStudentRegister.Location = new System.Drawing.Point(394, 494);
+            this.btnStudentRegister.Name = "btnStudentRegister";
+            this.btnStudentRegister.Size = new System.Drawing.Size(285, 44);
+            this.btnStudentRegister.TabIndex = 14;
+            this.btnStudentRegister.Text = "Register";
+            this.btnStudentRegister.UseVisualStyleBackColor = true;
+            this.btnStudentRegister.Click += new System.EventHandler(this.btnStudentRegister_Click);
+            // 
+            // lblStudentConfirmPassword
+            // 
+            this.lblStudentConfirmPassword.AutoSize = true;
+            this.lblStudentConfirmPassword.Location = new System.Drawing.Point(236, 449);
+            this.lblStudentConfirmPassword.Name = "lblStudentConfirmPassword";
+            this.lblStudentConfirmPassword.Size = new System.Drawing.Size(141, 20);
+            this.lblStudentConfirmPassword.TabIndex = 15;
+            this.lblStudentConfirmPassword.Text = "Confirm Password:";
+            // 
+            // txtStudentConfirmPassword
+            // 
+            this.txtStudentConfirmPassword.Location = new System.Drawing.Point(394, 449);
+            this.txtStudentConfirmPassword.Name = "txtStudentConfirmPassword";
+            this.txtStudentConfirmPassword.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentConfirmPassword.TabIndex = 16;
+            // 
             // StudentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1141, 673);
+            this.ClientSize = new System.Drawing.Size(1142, 702);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StudentForm";
-            this.Text = "StudentForm";
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
+            this.Text = "Student Registration Form";
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).EndInit();
@@ -453,46 +325,32 @@
 
 
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem printSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem fileMenu;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editMenu;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolBarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton saveToolStripButton;
-        private System.Windows.Forms.ToolStripButton printToolStripButton;
-        private System.Windows.Forms.ToolStripButton printPreviewToolStripButton;
-        private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
         private reg_dbDataSet reg_dbDataSet1;
         private reg_dbDataSet reg_dbDataSet2;
-        private System.Windows.Forms.Label lblStudentFName;
+        private System.Windows.Forms.Label lblStudentFirstName;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblStudentPhone;
+        private System.Windows.Forms.Label lblStudentAddress;
+        private System.Windows.Forms.Label lblStudentAge;
+        private System.Windows.Forms.Label lblStudentLastName;
+        private System.Windows.Forms.TextBox txtStudentConfirmPassword;
+        private System.Windows.Forms.Label lblStudentConfirmPassword;
+        private System.Windows.Forms.Button btnStudentRegister;
+        private System.Windows.Forms.TextBox txtStudentUserName;
+        private System.Windows.Forms.TextBox txtStudentPhoneNumber;
+        private System.Windows.Forms.TextBox txtStudentPassword;
+        private System.Windows.Forms.TextBox txtStudentAge;
+        private System.Windows.Forms.TextBox txtStudentAddress;
+        private System.Windows.Forms.TextBox txtStudentLastName;
+        private System.Windows.Forms.TextBox txtStudentEmail;
+        private System.Windows.Forms.TextBox txtStudentFirstName;
+        private System.Windows.Forms.Label lblStudentPassword;
+        private System.Windows.Forms.Label lblStudentUsername;
+        private System.Windows.Forms.Label lblStudentFormBreak;
+        private System.Windows.Forms.Label lblStudentEmail;
     }
 }
 

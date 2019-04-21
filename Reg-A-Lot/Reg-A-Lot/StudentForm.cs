@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Reg_A_Lot
 {
@@ -103,6 +104,9 @@ namespace Reg_A_Lot
             }
         }
 
-        
+        private void btnStudentRegister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
