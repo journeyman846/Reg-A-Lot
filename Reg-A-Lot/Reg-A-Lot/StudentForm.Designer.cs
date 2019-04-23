@@ -37,25 +37,25 @@
             this.reg_dbDataSet2 = new Reg_A_Lot.reg_dbDataSet();
             this.lblStudentFirstName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblStudentLastName = new System.Windows.Forms.Label();
-            this.lblStudentAge = new System.Windows.Forms.Label();
-            this.lblStudentAddress = new System.Windows.Forms.Label();
-            this.lblStudentPhone = new System.Windows.Forms.Label();
-            this.lblStudentEmail = new System.Windows.Forms.Label();
-            this.lblStudentFormBreak = new System.Windows.Forms.Label();
-            this.lblStudentUsername = new System.Windows.Forms.Label();
-            this.lblStudentPassword = new System.Windows.Forms.Label();
-            this.txtStudentFirstName = new System.Windows.Forms.TextBox();
-            this.txtStudentLastName = new System.Windows.Forms.TextBox();
-            this.txtStudentAge = new System.Windows.Forms.TextBox();
-            this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtStudentEmail = new System.Windows.Forms.TextBox();
-            this.txtStudentAddress = new System.Windows.Forms.TextBox();
-            this.txtStudentPassword = new System.Windows.Forms.TextBox();
-            this.txtStudentUserName = new System.Windows.Forms.TextBox();
             this.btnStudentRegister = new System.Windows.Forms.Button();
-            this.lblStudentConfirmPassword = new System.Windows.Forms.Label();
-            this.txtStudentConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtStudentUserName = new System.Windows.Forms.TextBox();
+            this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtStudentPassword = new System.Windows.Forms.TextBox();
+            this.txtStudentAge = new System.Windows.Forms.TextBox();
+            this.txtStudentAddress = new System.Windows.Forms.TextBox();
+            this.txtStudentLastName = new System.Windows.Forms.TextBox();
+            this.txtStudentEmail = new System.Windows.Forms.TextBox();
+            this.txtStudentFirstName = new System.Windows.Forms.TextBox();
+            this.lblStudentPassword = new System.Windows.Forms.Label();
+            this.lblStudentUsername = new System.Windows.Forms.Label();
+            this.lblStudentFormBreak = new System.Windows.Forms.Label();
+            this.lblStudentEmail = new System.Windows.Forms.Label();
+            this.lblStudentPhone = new System.Windows.Forms.Label();
+            this.lblStudentAddress = new System.Windows.Forms.Label();
+            this.lblStudentAge = new System.Windows.Forms.Label();
+            this.lblStudentLastName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).BeginInit();
@@ -103,7 +103,7 @@
             // lblStudentFirstName
             // 
             this.lblStudentFirstName.AutoSize = true;
-            this.lblStudentFirstName.Location = new System.Drawing.Point(236, 43);
+            this.lblStudentFirstName.Location = new System.Drawing.Point(32, 37);
             this.lblStudentFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStudentFirstName.Name = "lblStudentFirstName";
             this.lblStudentFirstName.Size = new System.Drawing.Size(94, 20);
@@ -112,8 +112,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtStudentConfirmPassword);
-            this.groupBox1.Controls.Add(this.lblStudentConfirmPassword);
+            this.groupBox1.Controls.Add(this.checkedListBox1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnStudentRegister);
             this.groupBox1.Controls.Add(this.txtStudentUserName);
             this.groupBox1.Controls.Add(this.txtStudentPhoneNumber);
@@ -141,161 +141,162 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student\'s Information";
             // 
-            // lblStudentLastName
+            // btnStudentRegister
             // 
-            this.lblStudentLastName.AutoSize = true;
-            this.lblStudentLastName.Location = new System.Drawing.Point(236, 87);
-            this.lblStudentLastName.Name = "lblStudentLastName";
-            this.lblStudentLastName.Size = new System.Drawing.Size(90, 20);
-            this.lblStudentLastName.TabIndex = 5;
-            this.lblStudentLastName.Text = "Last Name:";
+            this.btnStudentRegister.Location = new System.Drawing.Point(389, 545);
+            this.btnStudentRegister.Name = "btnStudentRegister";
+            this.btnStudentRegister.Size = new System.Drawing.Size(285, 44);
+            this.btnStudentRegister.TabIndex = 14;
+            this.btnStudentRegister.Text = "Submit Information and Register";
+            this.btnStudentRegister.UseVisualStyleBackColor = true;
+            this.btnStudentRegister.Click += new System.EventHandler(this.btnStudentRegister_Click);
             // 
-            // lblStudentAge
+            // txtStudentUserName
             // 
-            this.lblStudentAge.AutoSize = true;
-            this.lblStudentAge.Location = new System.Drawing.Point(236, 130);
-            this.lblStudentAge.Name = "lblStudentAge";
-            this.lblStudentAge.Size = new System.Drawing.Size(42, 20);
-            this.lblStudentAge.TabIndex = 6;
-            this.lblStudentAge.Text = "Age:";
+            this.txtStudentUserName.Location = new System.Drawing.Point(633, 106);
+            this.txtStudentUserName.Name = "txtStudentUserName";
+            this.txtStudentUserName.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentUserName.TabIndex = 13;
             // 
-            // lblStudentAddress
+            // txtStudentPhoneNumber
             // 
-            this.lblStudentAddress.AutoSize = true;
-            this.lblStudentAddress.Location = new System.Drawing.Point(236, 255);
-            this.lblStudentAddress.Name = "lblStudentAddress";
-            this.lblStudentAddress.Size = new System.Drawing.Size(68, 20);
-            this.lblStudentAddress.TabIndex = 7;
-            this.lblStudentAddress.Text = "Address";
+            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(190, 166);
+            this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
+            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentPhoneNumber.TabIndex = 13;
             // 
-            // lblStudentPhone
+            // txtStudentPassword
             // 
-            this.lblStudentPhone.AutoSize = true;
-            this.lblStudentPhone.Location = new System.Drawing.Point(236, 172);
-            this.lblStudentPhone.Name = "lblStudentPhone";
-            this.lblStudentPhone.Size = new System.Drawing.Size(119, 20);
-            this.lblStudentPhone.TabIndex = 8;
-            this.lblStudentPhone.Text = "Phone Number:";
+            this.txtStudentPassword.Location = new System.Drawing.Point(633, 157);
+            this.txtStudentPassword.Name = "txtStudentPassword";
+            this.txtStudentPassword.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentPassword.TabIndex = 13;
             // 
-            // lblStudentEmail
+            // txtStudentAge
             // 
-            this.lblStudentEmail.AutoSize = true;
-            this.lblStudentEmail.Location = new System.Drawing.Point(236, 215);
-            this.lblStudentEmail.Name = "lblStudentEmail";
-            this.lblStudentEmail.Size = new System.Drawing.Size(52, 20);
-            this.lblStudentEmail.TabIndex = 9;
-            this.lblStudentEmail.Text = "Email:";
+            this.txtStudentAge.Location = new System.Drawing.Point(190, 122);
+            this.txtStudentAge.Name = "txtStudentAge";
+            this.txtStudentAge.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentAge.TabIndex = 13;
+            // 
+            // txtStudentAddress
+            // 
+            this.txtStudentAddress.Location = new System.Drawing.Point(633, 40);
+            this.txtStudentAddress.Multiline = true;
+            this.txtStudentAddress.Name = "txtStudentAddress";
+            this.txtStudentAddress.Size = new System.Drawing.Size(336, 43);
+            this.txtStudentAddress.TabIndex = 13;
+            // 
+            // txtStudentLastName
+            // 
+            this.txtStudentLastName.Location = new System.Drawing.Point(190, 81);
+            this.txtStudentLastName.Name = "txtStudentLastName";
+            this.txtStudentLastName.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentLastName.TabIndex = 13;
+            // 
+            // txtStudentEmail
+            // 
+            this.txtStudentEmail.Location = new System.Drawing.Point(190, 213);
+            this.txtStudentEmail.Name = "txtStudentEmail";
+            this.txtStudentEmail.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentEmail.TabIndex = 13;
+            // 
+            // txtStudentFirstName
+            // 
+            this.txtStudentFirstName.Location = new System.Drawing.Point(190, 37);
+            this.txtStudentFirstName.Name = "txtStudentFirstName";
+            this.txtStudentFirstName.Size = new System.Drawing.Size(336, 26);
+            this.txtStudentFirstName.TabIndex = 13;
+            // 
+            // lblStudentPassword
+            // 
+            this.lblStudentPassword.AutoSize = true;
+            this.lblStudentPassword.Location = new System.Drawing.Point(543, 157);
+            this.lblStudentPassword.Name = "lblStudentPassword";
+            this.lblStudentPassword.Size = new System.Drawing.Size(82, 20);
+            this.lblStudentPassword.TabIndex = 12;
+            this.lblStudentPassword.Text = "Password:";
+            // 
+            // lblStudentUsername
+            // 
+            this.lblStudentUsername.AutoSize = true;
+            this.lblStudentUsername.Location = new System.Drawing.Point(543, 106);
+            this.lblStudentUsername.Name = "lblStudentUsername";
+            this.lblStudentUsername.Size = new System.Drawing.Size(87, 20);
+            this.lblStudentUsername.TabIndex = 11;
+            this.lblStudentUsername.Text = "Username:";
             // 
             // lblStudentFormBreak
             // 
             this.lblStudentFormBreak.AutoSize = true;
-            this.lblStudentFormBreak.Location = new System.Drawing.Point(28, 301);
+            this.lblStudentFormBreak.Location = new System.Drawing.Point(32, 262);
             this.lblStudentFormBreak.Name = "lblStudentFormBreak";
             this.lblStudentFormBreak.Size = new System.Drawing.Size(936, 20);
             this.lblStudentFormBreak.TabIndex = 10;
             this.lblStudentFormBreak.Text = "_________________________________________________________________________________" +
     "______________________";
             // 
-            // lblStudentUsername
+            // lblStudentEmail
             // 
-            this.lblStudentUsername.AutoSize = true;
-            this.lblStudentUsername.Location = new System.Drawing.Point(236, 364);
-            this.lblStudentUsername.Name = "lblStudentUsername";
-            this.lblStudentUsername.Size = new System.Drawing.Size(87, 20);
-            this.lblStudentUsername.TabIndex = 11;
-            this.lblStudentUsername.Text = "Username:";
+            this.lblStudentEmail.AutoSize = true;
+            this.lblStudentEmail.Location = new System.Drawing.Point(32, 213);
+            this.lblStudentEmail.Name = "lblStudentEmail";
+            this.lblStudentEmail.Size = new System.Drawing.Size(52, 20);
+            this.lblStudentEmail.TabIndex = 9;
+            this.lblStudentEmail.Text = "Email:";
             // 
-            // lblStudentPassword
+            // lblStudentPhone
             // 
-            this.lblStudentPassword.AutoSize = true;
-            this.lblStudentPassword.Location = new System.Drawing.Point(236, 405);
-            this.lblStudentPassword.Name = "lblStudentPassword";
-            this.lblStudentPassword.Size = new System.Drawing.Size(82, 20);
-            this.lblStudentPassword.TabIndex = 12;
-            this.lblStudentPassword.Text = "Password:";
+            this.lblStudentPhone.AutoSize = true;
+            this.lblStudentPhone.Location = new System.Drawing.Point(32, 166);
+            this.lblStudentPhone.Name = "lblStudentPhone";
+            this.lblStudentPhone.Size = new System.Drawing.Size(119, 20);
+            this.lblStudentPhone.TabIndex = 8;
+            this.lblStudentPhone.Text = "Phone Number:";
             // 
-            // txtStudentFirstName
+            // lblStudentAddress
             // 
-            this.txtStudentFirstName.Location = new System.Drawing.Point(394, 43);
-            this.txtStudentFirstName.Name = "txtStudentFirstName";
-            this.txtStudentFirstName.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentFirstName.TabIndex = 13;
+            this.lblStudentAddress.AutoSize = true;
+            this.lblStudentAddress.Location = new System.Drawing.Point(543, 43);
+            this.lblStudentAddress.Name = "lblStudentAddress";
+            this.lblStudentAddress.Size = new System.Drawing.Size(72, 20);
+            this.lblStudentAddress.TabIndex = 7;
+            this.lblStudentAddress.Text = "Address:";
             // 
-            // txtStudentLastName
+            // lblStudentAge
             // 
-            this.txtStudentLastName.Location = new System.Drawing.Point(394, 87);
-            this.txtStudentLastName.Name = "txtStudentLastName";
-            this.txtStudentLastName.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentLastName.TabIndex = 13;
+            this.lblStudentAge.AutoSize = true;
+            this.lblStudentAge.Location = new System.Drawing.Point(32, 124);
+            this.lblStudentAge.Name = "lblStudentAge";
+            this.lblStudentAge.Size = new System.Drawing.Size(42, 20);
+            this.lblStudentAge.TabIndex = 6;
+            this.lblStudentAge.Text = "Age:";
             // 
-            // txtStudentAge
+            // lblStudentLastName
             // 
-            this.txtStudentAge.Location = new System.Drawing.Point(394, 128);
-            this.txtStudentAge.Name = "txtStudentAge";
-            this.txtStudentAge.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentAge.TabIndex = 13;
+            this.lblStudentLastName.AutoSize = true;
+            this.lblStudentLastName.Location = new System.Drawing.Point(32, 81);
+            this.lblStudentLastName.Name = "lblStudentLastName";
+            this.lblStudentLastName.Size = new System.Drawing.Size(90, 20);
+            this.lblStudentLastName.TabIndex = 5;
+            this.lblStudentLastName.Text = "Last Name:";
             // 
-            // txtStudentPhoneNumber
+            // label1
             // 
-            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(394, 172);
-            this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
-            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentPhoneNumber.TabIndex = 13;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 313);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(359, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Please select the courses you want to register for:";
             // 
-            // txtStudentEmail
+            // checkedListBox1
             // 
-            this.txtStudentEmail.Location = new System.Drawing.Point(394, 215);
-            this.txtStudentEmail.Name = "txtStudentEmail";
-            this.txtStudentEmail.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentEmail.TabIndex = 13;
-            // 
-            // txtStudentAddress
-            // 
-            this.txtStudentAddress.Location = new System.Drawing.Point(394, 255);
-            this.txtStudentAddress.Multiline = true;
-            this.txtStudentAddress.Name = "txtStudentAddress";
-            this.txtStudentAddress.Size = new System.Drawing.Size(336, 43);
-            this.txtStudentAddress.TabIndex = 13;
-            // 
-            // txtStudentPassword
-            // 
-            this.txtStudentPassword.Location = new System.Drawing.Point(394, 405);
-            this.txtStudentPassword.Name = "txtStudentPassword";
-            this.txtStudentPassword.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentPassword.TabIndex = 13;
-            // 
-            // txtStudentUserName
-            // 
-            this.txtStudentUserName.Location = new System.Drawing.Point(394, 364);
-            this.txtStudentUserName.Name = "txtStudentUserName";
-            this.txtStudentUserName.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentUserName.TabIndex = 13;
-            // 
-            // btnStudentRegister
-            // 
-            this.btnStudentRegister.Location = new System.Drawing.Point(394, 494);
-            this.btnStudentRegister.Name = "btnStudentRegister";
-            this.btnStudentRegister.Size = new System.Drawing.Size(285, 44);
-            this.btnStudentRegister.TabIndex = 14;
-            this.btnStudentRegister.Text = "Register";
-            this.btnStudentRegister.UseVisualStyleBackColor = true;
-            this.btnStudentRegister.Click += new System.EventHandler(this.btnStudentRegister_Click);
-            // 
-            // lblStudentConfirmPassword
-            // 
-            this.lblStudentConfirmPassword.AutoSize = true;
-            this.lblStudentConfirmPassword.Location = new System.Drawing.Point(236, 449);
-            this.lblStudentConfirmPassword.Name = "lblStudentConfirmPassword";
-            this.lblStudentConfirmPassword.Size = new System.Drawing.Size(141, 20);
-            this.lblStudentConfirmPassword.TabIndex = 15;
-            this.lblStudentConfirmPassword.Text = "Confirm Password:";
-            // 
-            // txtStudentConfirmPassword
-            // 
-            this.txtStudentConfirmPassword.Location = new System.Drawing.Point(394, 449);
-            this.txtStudentConfirmPassword.Name = "txtStudentConfirmPassword";
-            this.txtStudentConfirmPassword.Size = new System.Drawing.Size(336, 26);
-            this.txtStudentConfirmPassword.TabIndex = 16;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(160, 373);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(612, 151);
+            this.checkedListBox1.TabIndex = 16;
             // 
             // StudentForm
             // 
@@ -336,21 +337,21 @@
         private System.Windows.Forms.Label lblStudentAddress;
         private System.Windows.Forms.Label lblStudentAge;
         private System.Windows.Forms.Label lblStudentLastName;
-        private System.Windows.Forms.TextBox txtStudentConfirmPassword;
-        private System.Windows.Forms.Label lblStudentConfirmPassword;
         private System.Windows.Forms.Button btnStudentRegister;
-        private System.Windows.Forms.TextBox txtStudentUserName;
         private System.Windows.Forms.TextBox txtStudentPhoneNumber;
-        private System.Windows.Forms.TextBox txtStudentPassword;
         private System.Windows.Forms.TextBox txtStudentAge;
         private System.Windows.Forms.TextBox txtStudentAddress;
         private System.Windows.Forms.TextBox txtStudentLastName;
         private System.Windows.Forms.TextBox txtStudentEmail;
         private System.Windows.Forms.TextBox txtStudentFirstName;
-        private System.Windows.Forms.Label lblStudentPassword;
-        private System.Windows.Forms.Label lblStudentUsername;
         private System.Windows.Forms.Label lblStudentFormBreak;
         private System.Windows.Forms.Label lblStudentEmail;
+        private System.Windows.Forms.TextBox txtStudentUserName;
+        private System.Windows.Forms.TextBox txtStudentPassword;
+        private System.Windows.Forms.Label lblStudentPassword;
+        private System.Windows.Forms.Label lblStudentUsername;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
