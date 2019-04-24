@@ -14,7 +14,8 @@ namespace Reg_A_Lot
     {
         private int childFormNumber = 0;
         Database database = new Database();
-        DataTable dataTable = new DataTable();
+        DataTable userTable = new DataTable();
+        DataTable courseTable = new DataTable();
         SqlCommand cmd = new SqlCommand();
 
         public AdminForm()
@@ -107,10 +108,10 @@ namespace Reg_A_Lot
             {
                 try
                 {
-                    dataTable = database.Read("Select * From Users where ID='" + id + "'");
-                    usernameBox.Text = dataTable.Rows[0][1].ToString();
-                    passwordBox.Text = dataTable.Rows[0][2].ToString();
-                    roleBox.Text = dataTable.Rows[0][3].ToString();
+                    userTable = database.Read("Select * From Users where ID='" + id + "'");
+                    usernameBox.Text = userTable.Rows[0][1].ToString();
+                    passwordBox.Text = userTable.Rows[0][2].ToString();
+                    roleBox.Text = userTable.Rows[0][3].ToString();
                 }
                 catch
                 {
@@ -127,8 +128,13 @@ namespace Reg_A_Lot
         }
         private void RefreshDataGrid()
         {
-            dataTable = database.Read("Select * From Users");
-            dataGridView1.DataSource = dataTable;
+            userTable = database.Read("Select * From Users");
+            courseTable = database.Read("Select * From Courses");
+            dataGridView1.DataSource = userTable;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView2.DataSource = courseTable;
+            dataGridView2.RowHeadersVisible = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -188,5 +194,38 @@ namespace Reg_A_Lot
             }
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var courseID = 0;
+            var courseNumber = 0;
+            if (int.TryParse(CourseIDBox.Text, out courseID))
+            {
+                
+                if (int.TryParse(CourseNumberBox.Text, out courseNumber))
+                {
+                    database.InsertCourse(courseID, CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Course Number must be a number");
+                }
+                   
+            }
+            else
+            {
+                MessageBox.Show("Course ID must be a number");
+            }
+
+            MessageBox.Show("Course added successfully!");
+            RefreshDataGrid();
+
+        }
     }
+    
 }

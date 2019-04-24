@@ -48,6 +48,21 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
             
         }
+        public void InsertCourse(int courseID, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CourseID, @CoursePrefix, @CourseNumber, @CourseName, @CourseTimes, @CourseSeats, @Professor)", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@CourseID", courseID);
+            sqlCommand.Parameters.AddWithValue("@CoursePrefix", coursePrefix);
+            sqlCommand.Parameters.AddWithValue("@CourseNumber", courseNumber);
+            sqlCommand.Parameters.AddWithValue("@CourseName", courseName);
+            sqlCommand.Parameters.AddWithValue("@CourseTimes", courseTimes);
+            sqlCommand.Parameters.AddWithValue("@CourseSeats", courseSeats);
+            sqlCommand.Parameters.AddWithValue("@Professor", professor);
+            sqlCommand.ExecuteScalar();
+
+        }
 
     }
 

@@ -93,6 +93,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>reg_dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="reg_dbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reg_dbDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs" />
     <Compile Include="StudentForm.cs">
       <SubType>Form</SubType>
@@ -154,6 +159,17 @@
     <None Include="reg_dbDataSet.xss">
       <DependentUpon>reg_dbDataSet.xsd</DependentUpon>
     </None>
+    <None Include="reg_dbDataSet1.xsc">
+      <DependentUpon>reg_dbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="reg_dbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>reg_dbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="reg_dbDataSet1.xss">
+      <DependentUpon>reg_dbDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="reg_db.mdf">
@@ -170,6 +186,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
