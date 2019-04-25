@@ -50,7 +50,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.roleBox = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.CourseIDBox = new System.Windows.Forms.TextBox();
+            this.CourseIDBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.CourseTimesBox = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.CourseNameBox = new System.Windows.Forms.TextBox();
             this.CourseProfessorBox = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CourseIDBox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -266,7 +266,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gray;
-            this.tabPage2.Controls.Add(this.CourseIDBox);
+            this.tabPage2.Controls.Add(this.CourseIDBox1);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.CourseTimesBox);
@@ -277,7 +277,7 @@
             this.tabPage2.Controls.Add(this.CourseNameBox);
             this.tabPage2.Controls.Add(this.CourseProfessorBox);
             this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.CourseIDBox);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button7);
@@ -294,12 +294,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Courses";
             // 
-            // CourseIDBox
+            // CourseIDBox1
             // 
-            this.CourseIDBox.Location = new System.Drawing.Point(126, 63);
-            this.CourseIDBox.Name = "CourseIDBox";
-            this.CourseIDBox.Size = new System.Drawing.Size(100, 20);
-            this.CourseIDBox.TabIndex = 43;
+            this.CourseIDBox1.Enabled = false;
+            this.CourseIDBox1.Location = new System.Drawing.Point(126, 63);
+            this.CourseIDBox1.Name = "CourseIDBox1";
+            this.CourseIDBox1.ReadOnly = true;
+            this.CourseIDBox1.Size = new System.Drawing.Size(100, 20);
+            this.CourseIDBox1.TabIndex = 43;
             // 
             // label8
             // 
@@ -385,14 +387,15 @@
             this.button4.TabIndex = 32;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // CourseIDBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(210, 7);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(102, 20);
-            this.textBox1.TabIndex = 22;
+            this.CourseIDBox.Location = new System.Drawing.Point(210, 7);
+            this.CourseIDBox.MaxLength = 5;
+            this.CourseIDBox.Name = "CourseIDBox";
+            this.CourseIDBox.Size = new System.Drawing.Size(102, 20);
+            this.CourseIDBox.TabIndex = 22;
             // 
             // button5
             // 
@@ -402,6 +405,7 @@
             this.button5.TabIndex = 31;
             this.button5.Text = "Update";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -411,6 +415,7 @@
             this.button6.TabIndex = 23;
             this.button6.Text = "Search";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -546,7 +551,7 @@
         private System.Windows.Forms.TextBox CourseNameBox;
         private System.Windows.Forms.ComboBox CourseProfessorBox;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox CourseIDBox;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -559,7 +564,7 @@
         private System.Windows.Forms.TextBox CourseSeatsBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox CourseIDBox;
+        private System.Windows.Forms.TextBox CourseIDBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
     }

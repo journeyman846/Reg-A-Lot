@@ -25,83 +25,8 @@ namespace Reg_A_Lot
 
 
         }
-
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
+             
+                private void searchButton_Click(object sender, EventArgs e)
         {
             var id = 0;
             if (int.TryParse(idBox.Text, out id))
@@ -202,30 +127,116 @@ namespace Reg_A_Lot
 
         private void button7_Click(object sender, EventArgs e)
         {
-            var courseID = 0;
+            
             var courseNumber = 0;
-            if (int.TryParse(CourseIDBox.Text, out courseID))
-            {
-                
+                            
                 if (int.TryParse(CourseNumberBox.Text, out courseNumber))
                 {
-                    database.InsertCourse(courseID, CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
+                    database.InsertCourse(CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
                 }
                 else
                 {
                     MessageBox.Show("Course Number must be a number");
                 }
                    
-            }
-            else
-            {
-                MessageBox.Show("Course ID must be a number");
-            }
+            
+          
 
             MessageBox.Show("Course added successfully!");
             RefreshDataGrid();
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            var courseNumber = 0;
+            if (int.TryParse(CourseIDBox.Text, out id))
+            {
+                if (int.TryParse(CourseNumberBox.Text, out courseNumber))
+                {
+                    try
+                  {
+                        database.UpdateCourse(id, CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
+                        MessageBox.Show("User " + id + " Updated!");
+                        RefreshDataGrid();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ID not found.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("That is not a valid ID number.");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Course ID must be a number");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+            {
+                var id = 0;
+                if (int.TryParse(CourseIDBox.Text, out id))
+                {
+                    try
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete course " + id + "?", "Delete Course", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            database.DeleteCourse(id);
+                            MessageBox.Show("Course " + id + " Deleted!");
+                            RefreshDataGrid();
+                        }
+
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ID not found.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("That is not a valid ID number.");
+                }
+
+
+                MessageBox.Show("Course deleted successfully!");
+                RefreshDataGrid(); }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(CourseIDBox.Text, out id))
+            {
+                try
+                {
+                    courseTable = database.Read("Select * From courses where ID='" + id + "'");
+                    CourseIDBox1.Text = courseTable.Rows[0][0].ToString();
+                    CoursePrefixBox.Text = courseTable.Rows[0][1].ToString();
+                    CourseNumberBox.Text = courseTable.Rows[0][2].ToString();
+                    CourseNameBox.Text = courseTable.Rows[0][3].ToString();
+                    CourseTimesBox.Text = courseTable.Rows[0][4].ToString();
+                    CourseSeatsBox.Text = courseTable.Rows[0][5].ToString();
+                    CourseProfessorBox.Text = courseTable.Rows[0][5].ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("That is not a valid ID number.");
+            }
+        }
+    }
     }
     
-}
+

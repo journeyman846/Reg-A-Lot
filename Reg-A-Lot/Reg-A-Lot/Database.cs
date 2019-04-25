@@ -48,20 +48,33 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
             
         }
-        public void InsertCourse(int courseID, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
+        public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CourseID, @CoursePrefix, @CourseNumber, @CourseName, @CourseTimes, @CourseSeats, @Professor)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CoursePrefix, @CourseNumber, @CourseName, @Times, @CourseSeats, @Professor)", connection);
             connection.Open();
-            sqlCommand.Parameters.AddWithValue("@CourseID", courseID);
             sqlCommand.Parameters.AddWithValue("@CoursePrefix", coursePrefix);
             sqlCommand.Parameters.AddWithValue("@CourseNumber", courseNumber);
             sqlCommand.Parameters.AddWithValue("@CourseName", courseName);
-            sqlCommand.Parameters.AddWithValue("@CourseTimes", courseTimes);
-            sqlCommand.Parameters.AddWithValue("@CourseSeats", courseSeats);
+            sqlCommand.Parameters.AddWithValue("@Times", courseTimes);
+            sqlCommand.Parameters.AddWithValue("@Seats", courseSeats);
             sqlCommand.Parameters.AddWithValue("@Professor", professor);
             sqlCommand.ExecuteScalar();
 
+        }
+        public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Courses Set CoursePrefix='" + coursePrefix + "', CourseNumber='" + courseNumber + "', CourseName='" + courseName + "', Times='" + courseTimes + "', Seats='" + courseSeats + "', Professor='" + professor + "' where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.ExecuteScalar();
+        }
+        public void DeleteCourse(int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Courses where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.ExecuteScalar();
         }
 
     }
