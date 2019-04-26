@@ -109,7 +109,7 @@ namespace Reg_A_Lot
             studentRegistration.Email = txtStudentEmail;
             studentRegistration.Address = txtStudentAddress;
             studentRegistration.PhoneNumber = txtStudentPhoneNumber;
-           
+
 
             connection.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =| DataDirectory |\reg_db.mdf; Integrated Security = True";
             connection.Open();
@@ -119,14 +119,15 @@ namespace Reg_A_Lot
                 insertNewStudent.CommandText = "insert into dbo.Student (\"FirstName\", \"LastName\", \"Age\", \"Email\", \"Address\", \"PhoneNumber\") values (@FName, @LName, @Age, @Email, @Address, @PhoneNumber);";
                 insertNewStudent.Parameters.Add(new SqlParameter("FName", studentRegistration.FirstName));
                 insertNewStudent.Parameters.Add(new SqlParameter("LName", studentRegistration.LastName));
-                insertNewStudent.Parameters.Add{new SqlParameter("Age", studentRegistration.Age));
-                insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
-                insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
-                insertNewStudent.Parameters.Add(new SqlParameter("PhoneNumber", studentRegistration.PhoneNumber));
-                insertNewStudent.ExecuteNonQuery();
+                insertNewStudent.Parameters.Add{ new SqlParameter("Age", studentRegistration.Age);
+                    insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
+                    insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
+                    insertNewStudent.Parameters.Add(new SqlParameter("PhoneNumber", studentRegistration.PhoneNumber));
+                    insertNewStudent.ExecuteNonQuery();
+                }
+
+
             }
-
-
         }
     }
 }
