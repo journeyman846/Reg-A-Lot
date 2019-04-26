@@ -12,7 +12,6 @@ namespace Reg_A_Lot
 {
     public partial class AdminForm : Form
     {
-        private int childFormNumber = 0;
         Database database = new Database();
         DataTable userTable = new DataTable();
         DataTable courseTable = new DataTable();
@@ -46,7 +45,7 @@ namespace Reg_A_Lot
             }
             else
             {
-                MessageBox.Show("That is not a valid ID number.");
+                MessageBox.Show("Please enter a valid ID number.");
             }
 
 
@@ -93,7 +92,7 @@ namespace Reg_A_Lot
             }
             else
             {
-                MessageBox.Show("That is not a valid ID number.");
+                MessageBox.Show("Please enter a valid ID number.");
             }
         }
 
@@ -115,7 +114,7 @@ namespace Reg_A_Lot
             }
             else
             {
-                MessageBox.Show("That is not a valid ID number.");
+                MessageBox.Show("Please enter a valid ID number.");
             }
 
         }
@@ -136,7 +135,7 @@ namespace Reg_A_Lot
                 }
                 else
                 {
-                    MessageBox.Show("Course Number must be a number");
+                    MessageBox.Show("Please enter a valid ID number.");
                 }
                    
             
@@ -168,13 +167,13 @@ namespace Reg_A_Lot
                 }
                 else
                 {
-                    MessageBox.Show("That is not a valid ID number.");
+                    MessageBox.Show("Please enter a valid ID number.");
                 }
                 
             }
             else
             {
-                MessageBox.Show("Course ID must be a number");
+                MessageBox.Show("Please enter a valid ID number.");
             }
         }
 
@@ -202,7 +201,7 @@ namespace Reg_A_Lot
                 }
                 else
                 {
-                    MessageBox.Show("That is not a valid ID number.");
+                    MessageBox.Show("Please enter a valid ID number.");
                 }
 
 
@@ -233,7 +232,7 @@ namespace Reg_A_Lot
             }
             else
             {
-                MessageBox.Show("That is not a valid ID number.");
+                MessageBox.Show("Please enter a valid ID number.");
             }
         }
     }
