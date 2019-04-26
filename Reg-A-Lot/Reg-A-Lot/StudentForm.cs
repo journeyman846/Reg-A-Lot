@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace Reg_A_Lot
 {
@@ -94,10 +95,36 @@ namespace Reg_A_Lot
                 childForm.Close();
             }
         }
+        // Instantiating a SQL object
+        SqlConnection connection = new SqlConnection();
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
+            // Saving the student's registration information to the Student class variables
             Student studentRegistration = new Student();
+            studentRegistration.FirstName = txtStudentFirstName;
+            studentRegistration.LastName = txtStudentLastName;
+            studentRegistration.Age = txtStudentAge;
+            studentRegistration.Email = txtStudentEmail;
+            studentRegistration.Address = txtStudentAddress;
+            studentRegistration.PhoneNumber = txtStudentPhoneNumber;
+           
+
+            connection.ConnectionString = "";
+
+            using (SqlCommand insertNewStudent = connection.CreateCommand())
+            {
+                insertNewStudent.CommandText = "";
+                insertNewStudent.Parameters.Add();
+                insertNewStudent.Parameters.Add();
+                insertNewStudent.Parameters.Add();
+                insertNewStudent.Parameters.Add();
+                insertNewStudent.Parameters.Add();
+                insertNewStudent.Parameters.Add();
+                insertNewStudent.ExecuteNonQuery();
+            }
+
+
         }
     }
 }
