@@ -97,11 +97,12 @@ namespace Reg_A_Lot
         }
         // Instantiating a SQL object
         SqlConnection connection = new SqlConnection();
+        // Instantiating a Student object
+        Student studentRegistration = new Student();
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
             // Saving the student's registration information to the Student class variables
-            Student studentRegistration = new Student();
             studentRegistration.FirstName = txtStudentFirstName;
             studentRegistration.LastName = txtStudentLastName;
             studentRegistration.Age = txtStudentAge;
@@ -110,17 +111,18 @@ namespace Reg_A_Lot
             studentRegistration.PhoneNumber = txtStudentPhoneNumber;
            
 
-            connection.ConnectionString = "";
+            connection.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =| DataDirectory |\reg_db.mdf; Integrated Security = True";
+            connection.Open();
 
             using (SqlCommand insertNewStudent = connection.CreateCommand())
             {
-                insertNewStudent.CommandText = "";
-                insertNewStudent.Parameters.Add();
-                insertNewStudent.Parameters.Add();
-                insertNewStudent.Parameters.Add();
-                insertNewStudent.Parameters.Add();
-                insertNewStudent.Parameters.Add();
-                insertNewStudent.Parameters.Add();
+                insertNewStudent.CommandText = "insert into dbo.Student (\"FirstName\", \"LastName\", \"Age\", \"Email\", \"Address\", \"PhoneNumber\") values (@FName, @LName, @Age, @Email, @Address, @PhoneNumber);";
+                insertNewStudent.Parameters.Add(new SqlParameter("FName", studentRegistration.FirstName));
+                insertNewStudent.Parameters.Add(new SqlParameter("LName", studentRegistration.LastName));
+                insertNewStudent.Parameters.Add{new SqlParameter("Age", studentRegistration.Age));
+                insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
+                insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
+                insertNewStudent.Parameters.Add(new SqlParameter("PhoneNumber", studentRegistration.PhoneNumber));
                 insertNewStudent.ExecuteNonQuery();
             }
 
