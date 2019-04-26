@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 
 namespace Reg_A_Lot
 {
+
     public partial class StudentForm : Form
     {
         private int childFormNumber = 0;
@@ -96,7 +97,7 @@ namespace Reg_A_Lot
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
-
+            Student studentRegistration = new Student();
         }
     }
 }

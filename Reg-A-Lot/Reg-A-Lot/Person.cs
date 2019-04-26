@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Reg_A_Lot
 {
-    abstract class Person
+    class Person
     {
         
 
@@ -18,6 +18,8 @@ namespace Reg_A_Lot
         public int PhoneNumber { get; set; }
         public int FaxNumber { get; set; }
         public string Email { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         
 
     }

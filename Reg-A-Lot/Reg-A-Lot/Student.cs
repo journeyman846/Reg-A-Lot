@@ -16,7 +16,16 @@ namespace Reg_A_Lot
 
         public Student()
         {
-
+            // Local variables to store into the Student class from the inherited Person class
+            string firstName = FirstName;
+            string lastName = LastName;
+            string address = Address;
+            int age = Age;
+            int collegeID = CollegeID;
+            int phoneNumber = PhoneNumber;
+            string email = Email;
+            string userName = UserName;
+            string password = Password;
         }
 
 
