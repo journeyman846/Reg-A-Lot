@@ -127,6 +127,10 @@ namespace Reg_A_Lot
                     insertNewStudent.Parameters.Add(new SqlParameter("Phone", studentRegistration.PhoneNumber));
                     insertNewStudent.ExecuteNonQuery();
                 }
+            MessageBox.Show("Registration was successful!");
+            this.Close();
+            Form1 form1 = new Form1();
+            form1.Show();
 
 
             }
