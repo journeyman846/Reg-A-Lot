@@ -15,6 +15,7 @@ namespace Reg_A_Lot
         Database database = new Database();
         DataTable userTable = new DataTable();
         DataTable courseTable = new DataTable();
+        DataTable studentTable = new DataTable();
         SqlCommand cmd = new SqlCommand();
 
         public AdminForm()
@@ -54,10 +55,13 @@ namespace Reg_A_Lot
         {
             userTable = database.Read("Select * From Users");
             courseTable = database.Read("Select * From Courses");
+            studentTable = database.Read("Select * From Students");
             dataGridView1.DataSource = userTable;
             dataGridView1.RowHeadersVisible = false;
             dataGridView2.DataSource = courseTable;
             dataGridView2.RowHeadersVisible = false;
+            dataGridView3.DataSource = studentTable;
+            dataGridView3.RowHeadersVisible = false;
 
         }
 

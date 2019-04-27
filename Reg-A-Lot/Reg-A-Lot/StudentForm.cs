@@ -103,26 +103,28 @@ namespace Reg_A_Lot
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
             // Saving the student's registration information to the Student class variables
-            studentRegistration.FirstName = txtStudentFirstName;
-            studentRegistration.LastName = txtStudentLastName;
-            studentRegistration.Age = txtStudentAge;
-            studentRegistration.Email = txtStudentEmail;
-            studentRegistration.Address = txtStudentAddress;
-            studentRegistration.PhoneNumber = txtStudentPhoneNumber;
+            studentRegistration.FirstName = txtStudentFirstName.Text;
+            studentRegistration.LastName = txtStudentLastName.Text;
+            studentRegistration.Age = int.Parse(txtStudentAge.Text);
+            studentRegistration.Email = txtStudentEmail.Text;
+            studentRegistration.Address = txtStudentAddress.Text;
+            studentRegistration.PhoneNumber = txtStudentPhoneNumber.Text;
 
-
-            connection.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =| DataDirectory |\reg_db.mdf; Integrated Security = True";
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
             connection.Open();
+
 
             using (SqlCommand insertNewStudent = connection.CreateCommand())
             {
-                insertNewStudent.CommandText = "insert into dbo.Student (\"FirstName\", \"LastName\", \"Age\", \"Email\", \"Address\", \"PhoneNumber\") values (@FName, @LName, @Age, @Email, @Address, @PhoneNumber);";
-                insertNewStudent.Parameters.Add(new SqlParameter("FName", studentRegistration.FirstName));
-                insertNewStudent.Parameters.Add(new SqlParameter("LName", studentRegistration.LastName));
-                insertNewStudent.Parameters.Add{ new SqlParameter("Age", studentRegistration.Age);
+               
+
+                insertNewStudent.CommandText = "insert into Students (\"FirstName\", \"LastName\", \"Age\", \"Email\", \"Address\", \"Phone\") values (@FirstName, @LastName, @Age, @Email, @Address, @Phone);";
+                insertNewStudent.Parameters.Add(new SqlParameter("FirstName", studentRegistration.FirstName));
+                insertNewStudent.Parameters.Add(new SqlParameter("LastName", studentRegistration.LastName));
+                insertNewStudent.Parameters.Add(new SqlParameter("Age", studentRegistration.Age));
                     insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
                     insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
-                    insertNewStudent.Parameters.Add(new SqlParameter("PhoneNumber", studentRegistration.PhoneNumber));
+                    insertNewStudent.Parameters.Add(new SqlParameter("Phone", studentRegistration.PhoneNumber));
                     insertNewStudent.ExecuteNonQuery();
                 }
 
@@ -130,4 +132,4 @@ namespace Reg_A_Lot
             }
         }
     }
-}
+
