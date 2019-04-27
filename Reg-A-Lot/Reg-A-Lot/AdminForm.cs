@@ -25,8 +25,8 @@ namespace Reg_A_Lot
 
 
         }
-             
-                private void searchButton_Click(object sender, EventArgs e)
+
+        private void searchButton_Click(object sender, EventArgs e)
         {
             var id = 0;
             if (int.TryParse(idBox.Text, out id))
@@ -70,6 +70,9 @@ namespace Reg_A_Lot
             database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text);
             MessageBox.Show("User added successfully!");
             RefreshDataGrid();
+            usernameBox.Clear();
+            passwordBox.Clear();
+            roleBox.Items.Clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -85,6 +88,9 @@ namespace Reg_A_Lot
                         database.DeleteUser(id);
                         MessageBox.Show("User " + id + " Deleted!");
                         RefreshDataGrid();
+                        usernameBox.Clear();
+                        passwordBox.Clear();
+                        roleBox.SelectedItem = -1;
                     }
 
 
@@ -125,27 +131,35 @@ namespace Reg_A_Lot
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
-            var courseNumber = 0;
-                            
-                if (int.TryParse(CourseNumberBox.Text, out courseNumber))
-                {
-                    database.InsertCourse(CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid ID number.");
-                }
-                   
-            
-          
 
-            MessageBox.Show("Course added successfully!");
+            var courseNumber = 0;
+
+            if (int.TryParse(CourseNumberBox.Text, out courseNumber))
+            {
+                database.InsertCourse(CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
+                MessageBox.Show("Course added successfully!");
+                CourseIDBox1.Clear();
+                CoursePrefixBox.Clear();
+                CourseNumberBox.Clear();
+                CourseNameBox.Clear();
+                CourseTimesBox.Clear();
+                CourseSeatsBox.Clear();
+                CourseProfessorBox.Items.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+
+
+
+
+
             RefreshDataGrid();
 
         }
@@ -159,10 +173,17 @@ namespace Reg_A_Lot
                 if (int.TryParse(CourseNumberBox.Text, out courseNumber))
                 {
                     try
-                  {
+                    {
                         database.UpdateCourse(id, CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
                         MessageBox.Show("User " + id + " Updated!");
                         RefreshDataGrid();
+                        CourseIDBox1.Clear();
+                        CoursePrefixBox.Clear();
+                        CourseNumberBox.Clear();
+                        CourseNameBox.Clear();
+                        CourseTimesBox.Clear();
+                        CourseSeatsBox.Clear();
+                        CourseProfessorBox.Items.Clear();
                     }
                     catch
                     {
@@ -173,7 +194,7 @@ namespace Reg_A_Lot
                 {
                     MessageBox.Show("Please enter a valid ID number.");
                 }
-                
+
             }
             else
             {
@@ -182,35 +203,41 @@ namespace Reg_A_Lot
         }
 
         private void button4_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(CourseIDBox.Text, out id))
             {
-                var id = 0;
-                if (int.TryParse(CourseIDBox.Text, out id))
+                try
                 {
-                    try
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete course " + id + "?", "Delete Course", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete course " + id + "?", "Delete Course", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            database.DeleteCourse(id);
-                            MessageBox.Show("Course " + id + " Deleted!");
-                            RefreshDataGrid();
-                        }
+                        database.DeleteCourse(id);
+                        MessageBox.Show("Course " + id + " deleted successfully!");
+                        RefreshDataGrid();
+                        CourseIDBox1.Clear();
+                        CoursePrefixBox.Clear();
+                        CourseNumberBox.Clear();
+                        CourseNameBox.Clear();
+                        CourseTimesBox.Clear();
+                        CourseSeatsBox.Clear();
+                        CourseProfessorBox.Items.Clear();
+                    }
 
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show("ID not found.");
-                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Please enter a valid ID number.");
+                    MessageBox.Show("ID not found.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
 
-
-                MessageBox.Show("Course deleted successfully!");
-                RefreshDataGrid(); }
+            RefreshDataGrid();
+        }
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -226,7 +253,7 @@ namespace Reg_A_Lot
                     CourseNameBox.Text = courseTable.Rows[0][3].ToString();
                     CourseTimesBox.Text = courseTable.Rows[0][4].ToString();
                     CourseSeatsBox.Text = courseTable.Rows[0][5].ToString();
-                    CourseProfessorBox.Text = courseTable.Rows[0][5].ToString();
+                    CourseProfessorBox.Text = courseTable.Rows[0][6].ToString();
                 }
                 catch
                 {
@@ -239,7 +266,135 @@ namespace Reg_A_Lot
                 MessageBox.Show("Please enter a valid ID number.");
             }
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            var age = 0;
+
+            if (int.TryParse(StudentAgeBox.Text, out age))
+            {
+                database.InsertStudent(StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, StudentPhoneBox.Text);
+                StudentFirstNameBox.Clear();
+                StudentLastNameBox.Clear();
+                StudentAgeBox.Clear();
+                StudentEmailBox.Clear();
+                StudentAddressBox.Clear();
+                StudentPhoneBox.Clear();
+
+
+
+                MessageBox.Show("Student added successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid age.");
+            }
+            RefreshDataGrid();
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            var age = 0;
+            if (int.TryParse(StudentIDBox.Text, out id))
+            {
+                if (int.TryParse(StudentAgeBox.Text, out age))
+                {
+                    try
+                    {
+                        database.UpdateStudent(id, StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, StudentPhoneBox.Text);
+                        MessageBox.Show("Student " + id + " Updated!");
+                        RefreshDataGrid();
+                        StudentFirstNameBox.Clear();
+                        StudentLastNameBox.Clear();
+                        StudentAgeBox.Clear();
+                        StudentEmailBox.Clear();
+                        StudentAddressBox.Clear();
+                        StudentPhoneBox.Clear();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ID not found.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid age.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(StudentIDBox.Text, out id))
+            {
+                try
+                {
+                    studentTable = database.Read("Select * From students where ID='" + id + "'");
+                    StudentIDBox.Text = studentTable.Rows[0][0].ToString();
+                    StudentFirstNameBox.Text = studentTable.Rows[0][1].ToString();
+                    StudentLastNameBox.Text = studentTable.Rows[0][2].ToString();
+                    StudentAgeBox.Text = studentTable.Rows[0][3].ToString();
+                    StudentEmailBox.Text = studentTable.Rows[0][4].ToString();
+                    StudentAddressBox.Text = studentTable.Rows[0][5].ToString();
+                    StudentPhoneBox.Text = studentTable.Rows[0][6].ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            if (int.TryParse(StudentIDBox.Text, out id))
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete student " + id + "?", "Delete Student", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        database.DeleteStudent(id);
+                        MessageBox.Show("Student " + id + " deleted successfully!");
+                        RefreshDataGrid();
+                        StudentFirstNameBox.Clear();
+                        StudentLastNameBox.Clear();
+                        StudentAgeBox.Clear();
+                        StudentEmailBox.Clear();
+                        StudentAddressBox.Clear();
+                        StudentPhoneBox.Clear();
+                    }
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+
+            RefreshDataGrid();
+        }
     }
-    }
-    
+}
+
+
 

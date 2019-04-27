@@ -51,7 +51,7 @@ namespace Reg_A_Lot
         public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CoursePrefix, @CourseNumber, @CourseName, @Times, @CourseSeats, @Professor)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CoursePrefix, @CourseNumber, @CourseName, @Times, @Seats, @Professor)", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@CoursePrefix", coursePrefix);
             sqlCommand.Parameters.AddWithValue("@CourseNumber", courseNumber);
@@ -76,7 +76,34 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
+        public void InsertStudent(string firstName, string lastName, int age, string email, string address, string phone)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Students Values (@FirstName, @LastName, @Age, @Email, @Address, @Phone)", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
+            sqlCommand.Parameters.AddWithValue("@LastName", lastName);
+            sqlCommand.Parameters.AddWithValue("@Age", age);
+            sqlCommand.Parameters.AddWithValue("@Email", email);
+            sqlCommand.Parameters.AddWithValue("@Address", address);
+            sqlCommand.Parameters.AddWithValue("@Phone", phone);
+            sqlCommand.ExecuteScalar();
 
+        }
+        public void UpdateStudent(int id, string firstName, string lastName, int age, string email, string address, string phone)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Students Set FirstName='" + firstName + "', LastName='" + lastName + "', Age='" + age + "', Email='" + email + "', Address='" + address + "', Phone='" + phone + "' where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.ExecuteScalar();
+        }
+        public void DeleteStudent(int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Students where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.ExecuteScalar();
+        }
     }
 
 
