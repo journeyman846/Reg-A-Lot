@@ -104,7 +104,18 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
+        public void InsertProfessor(string firstName, string lastName)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Professors Values (@FirstName, @LastName)", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
+            sqlCommand.Parameters.AddWithValue("@LastName", lastName);
+            sqlCommand.ExecuteScalar();
+
+        }
     }
+    
 
 
 

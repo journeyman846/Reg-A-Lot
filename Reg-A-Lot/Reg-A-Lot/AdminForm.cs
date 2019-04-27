@@ -16,12 +16,17 @@ namespace Reg_A_Lot
         DataTable userTable = new DataTable();
         DataTable courseTable = new DataTable();
         DataTable studentTable = new DataTable();
+        DataTable professorsTable = new DataTable();
         SqlCommand cmd = new SqlCommand();
+        
 
         public AdminForm()
         {
             InitializeComponent();
             RefreshDataGrid();
+            CourseProfessorBox.DataSource = professorsTable;
+            CourseProfessorBox.ValueMember = "ID";
+            CourseProfessorBox.DisplayMember = "LastName";
 
 
         }
@@ -56,12 +61,15 @@ namespace Reg_A_Lot
             userTable = database.Read("Select * From Users");
             courseTable = database.Read("Select * From Courses");
             studentTable = database.Read("Select * From Students");
+            professorsTable = database.Read("Select * From Professors");
             dataGridView1.DataSource = userTable;
             dataGridView1.RowHeadersVisible = false;
             dataGridView2.DataSource = courseTable;
             dataGridView2.RowHeadersVisible = false;
             dataGridView3.DataSource = studentTable;
             dataGridView3.RowHeadersVisible = false;
+            dataGridView4.DataSource = professorsTable;
+            dataGridView4.RowHeadersVisible = false;
 
         }
 
@@ -90,7 +98,7 @@ namespace Reg_A_Lot
                         RefreshDataGrid();
                         usernameBox.Clear();
                         passwordBox.Clear();
-                        roleBox.SelectedItem = -1;
+                        roleBox.Items.Clear();
                     }
 
 
@@ -149,7 +157,7 @@ namespace Reg_A_Lot
                 CourseNameBox.Clear();
                 CourseTimesBox.Clear();
                 CourseSeatsBox.Clear();
-                CourseProfessorBox.Items.Clear();
+                // CourseProfessorBox.Items.Clear();
             }
             else
             {
@@ -183,7 +191,7 @@ namespace Reg_A_Lot
                         CourseNameBox.Clear();
                         CourseTimesBox.Clear();
                         CourseSeatsBox.Clear();
-                        CourseProfessorBox.Items.Clear();
+                        // CourseProfessorBox.Items.Clear();
                     }
                     catch
                     {
@@ -221,7 +229,7 @@ namespace Reg_A_Lot
                         CourseNameBox.Clear();
                         CourseTimesBox.Clear();
                         CourseSeatsBox.Clear();
-                        CourseProfessorBox.Items.Clear();
+                        // CourseProfessorBox.Items.Clear();
                     }
 
 
@@ -392,6 +400,16 @@ namespace Reg_A_Lot
             }
 
             RefreshDataGrid();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text);
+            MessageBox.Show("Professor added successfully");
+            RefreshDataGrid();
+            ProfessorFirstNameBox.Clear();
+            ProfessorLastNameBox.Clear();
+
         }
     }
 }

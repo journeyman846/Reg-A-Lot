@@ -92,6 +92,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.StudentAgeLabel = new System.Windows.Forms.Label();
+            this.ProfessorFirstNameBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.ProfessorLastNameBox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regdbDataSetBindingSource)).BeginInit();
@@ -101,7 +113,9 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -569,6 +583,18 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.Gray;
+            this.tabPage4.Controls.Add(this.ProfessorFirstNameBox);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.button12);
+            this.tabPage4.Controls.Add(this.textBox5);
+            this.tabPage4.Controls.Add(this.button13);
+            this.tabPage4.Controls.Add(this.button14);
+            this.tabPage4.Controls.Add(this.button15);
+            this.tabPage4.Controls.Add(this.ProfessorLastNameBox);
+            this.tabPage4.Controls.Add(this.label15);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.label18);
+            this.tabPage4.Controls.Add(this.dataGridView4);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage4.Name = "tabPage4";
@@ -757,6 +783,120 @@
             this.StudentAgeLabel.TabIndex = 51;
             this.StudentAgeLabel.Text = "Age";
             // 
+            // ProfessorFirstNameBox
+            // 
+            this.ProfessorFirstNameBox.Location = new System.Drawing.Point(168, 77);
+            this.ProfessorFirstNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ProfessorFirstNameBox.Name = "ProfessorFirstNameBox";
+            this.ProfessorFirstNameBox.Size = new System.Drawing.Size(132, 22);
+            this.ProfessorFirstNameBox.TabIndex = 82;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(89, 80);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 17);
+            this.label11.TabIndex = 83;
+            this.label11.Text = "First Name";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(404, 232);
+            this.button12.Margin = new System.Windows.Forms.Padding(4);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(100, 28);
+            this.button12.TabIndex = 75;
+            this.button12.Text = "Delete";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(280, 8);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.MaxLength = 5;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(135, 22);
+            this.textBox5.TabIndex = 66;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(296, 232);
+            this.button13.Margin = new System.Windows.Forms.Padding(4);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(100, 28);
+            this.button13.TabIndex = 74;
+            this.button13.Text = "Update";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(296, 40);
+            this.button14.Margin = new System.Windows.Forms.Padding(4);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(100, 28);
+            this.button14.TabIndex = 67;
+            this.button14.Text = "Search";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(188, 232);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(100, 28);
+            this.button15.TabIndex = 73;
+            this.button15.Text = "Add";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // ProfessorLastNameBox
+            // 
+            this.ProfessorLastNameBox.Location = new System.Drawing.Point(168, 107);
+            this.ProfessorLastNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ProfessorLastNameBox.Name = "ProfessorLastNameBox";
+            this.ProfessorLastNameBox.Size = new System.Drawing.Size(132, 22);
+            this.ProfessorLastNameBox.TabIndex = 68;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(186, 11);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(86, 17);
+            this.label15.TabIndex = 72;
+            this.label15.Text = "Professor ID";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(89, 112);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(76, 17);
+            this.label17.TabIndex = 70;
+            this.label17.Text = "Last Name";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(132, 140);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(0, 17);
+            this.label18.TabIndex = 71;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(9, 271);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(692, 218);
+            this.dataGridView4.TabIndex = 2;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -781,7 +921,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -851,6 +994,18 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label StudentAgeLabel;
+        private System.Windows.Forms.TextBox ProfessorFirstNameBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.TextBox ProfessorLastNameBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
 
