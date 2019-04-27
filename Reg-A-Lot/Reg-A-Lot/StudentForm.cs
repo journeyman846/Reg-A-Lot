@@ -122,10 +122,10 @@ namespace Reg_A_Lot
                 insertNewStudent.Parameters.Add(new SqlParameter("FirstName", studentRegistration.FirstName));
                 insertNewStudent.Parameters.Add(new SqlParameter("LastName", studentRegistration.LastName));
                 insertNewStudent.Parameters.Add(new SqlParameter("Age", studentRegistration.Age));
-                    insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
-                    insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
-                    insertNewStudent.Parameters.Add(new SqlParameter("Phone", studentRegistration.PhoneNumber));
-                    insertNewStudent.ExecuteNonQuery();
+                insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
+                insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
+                insertNewStudent.Parameters.Add(new SqlParameter("Phone", studentRegistration.PhoneNumber));
+                insertNewStudent.ExecuteNonQuery();
                 }
             MessageBox.Show("Registration was successful!");
             this.Close();

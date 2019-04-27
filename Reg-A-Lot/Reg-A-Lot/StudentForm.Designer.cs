@@ -37,6 +37,8 @@
             this.reg_dbDataSet2 = new Reg_A_Lot.reg_dbDataSet();
             this.lblStudentFirstName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clbStudentCourseRegistration = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnStudentRegister = new System.Windows.Forms.Button();
             this.txtStudentUserName = new System.Windows.Forms.TextBox();
             this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
@@ -54,8 +56,6 @@
             this.lblStudentAddress = new System.Windows.Forms.Label();
             this.lblStudentAge = new System.Windows.Forms.Label();
             this.lblStudentLastName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).BeginInit();
@@ -112,7 +112,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkedListBox1);
+            this.groupBox1.Controls.Add(this.clbStudentCourseRegistration);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnStudentRegister);
             this.groupBox1.Controls.Add(this.txtStudentUserName);
@@ -140,6 +140,31 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student\'s Information";
+            // 
+            // clbStudentCourseRegistration
+            // 
+            this.clbStudentCourseRegistration.CheckOnClick = true;
+            this.clbStudentCourseRegistration.FormattingEnabled = true;
+            this.clbStudentCourseRegistration.Items.AddRange(new object[] {
+            "item1",
+            "item2",
+            "item3",
+            "item4",
+            "item5"});
+            this.clbStudentCourseRegistration.Location = new System.Drawing.Point(160, 373);
+            this.clbStudentCourseRegistration.Name = "clbStudentCourseRegistration";
+            this.clbStudentCourseRegistration.ScrollAlwaysVisible = true;
+            this.clbStudentCourseRegistration.Size = new System.Drawing.Size(612, 151);
+            this.clbStudentCourseRegistration.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 313);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(359, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Please select the courses you want to register for:";
             // 
             // btnStudentRegister
             // 
@@ -281,23 +306,6 @@
             this.lblStudentLastName.TabIndex = 5;
             this.lblStudentLastName.Text = "Last Name:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 313);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Please select the courses you want to register for:";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(160, 373);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(612, 151);
-            this.checkedListBox1.TabIndex = 16;
-            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -350,7 +358,7 @@
         private System.Windows.Forms.TextBox txtStudentPassword;
         private System.Windows.Forms.Label lblStudentPassword;
         private System.Windows.Forms.Label lblStudentUsername;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox clbStudentCourseRegistration;
         private System.Windows.Forms.Label label1;
     }
 }
