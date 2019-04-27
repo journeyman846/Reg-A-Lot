@@ -101,11 +101,7 @@ namespace Reg_A_Lot
         SqlConnection connection = new SqlConnection();
         Student studentRegistration = new Student();
         Database database = new Database();
-        DataTable userTable = new DataTable();
-        DataTable courseTable = new DataTable();
-        DataTable studentTable = new DataTable();
-        DataTable professorsTable = new DataTable();
-        SqlCommand cmd = new SqlCommand();
+        
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
