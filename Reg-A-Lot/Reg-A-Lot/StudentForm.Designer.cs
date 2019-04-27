@@ -56,10 +56,12 @@
             this.lblStudentAddress = new System.Windows.Forms.Label();
             this.lblStudentAge = new System.Windows.Forms.Label();
             this.lblStudentLastName = new System.Windows.Forms.Label();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -144,6 +146,8 @@
             // clbStudentCourseRegistration
             // 
             this.clbStudentCourseRegistration.CheckOnClick = true;
+            this.clbStudentCourseRegistration.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.reg_dbDataSet1, "Sections.Id", true));
+            this.clbStudentCourseRegistration.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sectionsBindingSource, "Id", true));
             this.clbStudentCourseRegistration.FormattingEnabled = true;
             this.clbStudentCourseRegistration.Items.AddRange(new object[] {
             "item1",
@@ -306,6 +310,11 @@
             this.lblStudentLastName.TabIndex = 5;
             this.lblStudentLastName.Text = "Last Name:";
             // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.reg_dbDataSet1;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -326,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,6 +370,7 @@
         private System.Windows.Forms.Label lblStudentUsername;
         private System.Windows.Forms.CheckedListBox clbStudentCourseRegistration;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource sectionsBindingSource;
     }
 }
 
