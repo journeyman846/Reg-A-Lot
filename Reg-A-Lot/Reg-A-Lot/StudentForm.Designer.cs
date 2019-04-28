@@ -38,6 +38,7 @@
             this.lblStudentFirstName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clbStudentCourseRegistration = new System.Windows.Forms.CheckedListBox();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnStudentRegister = new System.Windows.Forms.Button();
             this.txtStudentUserName = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.lblStudentAddress = new System.Windows.Forms.Label();
             this.lblStudentAge = new System.Windows.Forms.Label();
             this.lblStudentLastName = new System.Windows.Forms.Label();
-            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).BeginInit();
@@ -160,6 +160,11 @@
             this.clbStudentCourseRegistration.ScrollAlwaysVisible = true;
             this.clbStudentCourseRegistration.Size = new System.Drawing.Size(612, 151);
             this.clbStudentCourseRegistration.TabIndex = 16;
+            // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.reg_dbDataSet1;
             // 
             // label1
             // 
@@ -309,11 +314,6 @@
             this.lblStudentLastName.Size = new System.Drawing.Size(90, 20);
             this.lblStudentLastName.TabIndex = 5;
             this.lblStudentLastName.Text = "Last Name:";
-            // 
-            // sectionsBindingSource
-            // 
-            this.sectionsBindingSource.DataMember = "Sections";
-            this.sectionsBindingSource.DataSource = this.reg_dbDataSet1;
             // 
             // StudentForm
             // 

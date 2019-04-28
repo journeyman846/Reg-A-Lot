@@ -115,30 +115,8 @@ namespace Reg_A_Lot
             studentRegistration.PhoneNumber = txtStudentPhoneNumber.Text;
             studentRegistration.UserName = txtStudentUserName.Text;
             studentRegistration.Password = txtStudentPassword.Text;
-
-            // Initializing the SQL connection object
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True";
-            connection.Open();
-
-
-            //using (SqlCommand insertNewStudent = connection.CreateCommand())
-            //{
-
-            //    // Inserting the student information to the student table in the database
-            //    insertNewStudent.CommandText = "insert into dbo.Students (\"FirstName\", \"LastName\", \"Age\", \"Email\", \"Address\", \"Phone\") values (@FirstName, @LastName, @Age, @Email, @Address, @Phone);";
-            //    insertNewStudent.Parameters.Add(new SqlParameter("FirstName", studentRegistration.FirstName));
-            //    insertNewStudent.Parameters.Add(new SqlParameter("LastName", studentRegistration.LastName));
-            //    insertNewStudent.Parameters.Add(new SqlParameter("Age", studentRegistration.Age));
-            //    insertNewStudent.Parameters.Add(new SqlParameter("Email", studentRegistration.Email));
-            //    insertNewStudent.Parameters.Add(new SqlParameter("Address", studentRegistration.Address));
-            //    insertNewStudent.Parameters.Add(new SqlParameter("Phone", studentRegistration.PhoneNumber));
-            //    insertNewStudent.ExecuteNonQuery();
-
-            //}
-
-            //using (SqlCommand insertNewStudentUserInfo = connection.CreateCommand())
-            //{
-
+            
+            // Adding the Student demographics to the Students table and clearing the text boxes
             database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
             txtStudentFirstName.Clear();
             txtStudentLastName.Clear();
@@ -147,18 +125,14 @@ namespace Reg_A_Lot
             txtStudentAddress.Clear();
             txtStudentPhoneNumber.Clear();
 
+            // Adding the Student UserName and Password to the Users Table and clearing the text boxes
             database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student");
             txtStudentUserName.Clear();
             txtStudentPassword.Clear();
-                
-            //    // Inserting the username and password of the associated student to the Users table in the database
-            //    insertNewStudentUserInfo.CommandText = "insert into dbo.Users (\"UserName\", \"Password\") values (@UserName, @Password);";
-            //    insertNewStudentUserInfo.Parameters.Add(new SqlParameter("UserName", studentRegistration.UserName));
-            //    insertNewStudentUserInfo.Parameters.Add(new SqlParameter("Password", studentRegistration.Password));
-            //}
+            
 
             // Displaying message box of successful student registration and opening Login Form
-            MessageBox.Show("Registration was successful!");
+            MessageBox.Show("Registration was successful! \n You are being redirected to Log in.");
             this.Close();
             Form1 form1 = new Form1();
             form1.Show();
