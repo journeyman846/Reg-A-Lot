@@ -37,8 +37,9 @@
             this.reg_dbDataSet2 = new Reg_A_Lot.reg_dbDataSet();
             this.lblStudentFirstName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.clbStudentCourseRegistration = new System.Windows.Forms.CheckedListBox();
-            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblCourseOne = new System.Windows.Forms.Label();
+            this.lblChosenCourses = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStudentRegister = new System.Windows.Forms.Button();
             this.txtStudentUserName = new System.Windows.Forms.TextBox();
@@ -57,6 +58,12 @@
             this.lblStudentAddress = new System.Windows.Forms.Label();
             this.lblStudentAge = new System.Windows.Forms.Label();
             this.lblStudentLastName = new System.Windows.Forms.Label();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblCourseTwo = new System.Windows.Forms.Label();
+            this.lblCourseThree = new System.Windows.Forms.Label();
+            this.lblCourseFour = new System.Windows.Forms.Label();
+            this.lblCourseFive = new System.Windows.Forms.Label();
+            this.lblCourseSix = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet2)).BeginInit();
@@ -114,7 +121,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.clbStudentCourseRegistration);
+            this.groupBox1.Controls.Add(this.lblCourseSix);
+            this.groupBox1.Controls.Add(this.lblCourseFive);
+            this.groupBox1.Controls.Add(this.lblCourseFour);
+            this.groupBox1.Controls.Add(this.lblCourseThree);
+            this.groupBox1.Controls.Add(this.lblCourseTwo);
+            this.groupBox1.Controls.Add(this.lblCourseOne);
+            this.groupBox1.Controls.Add(this.lblChosenCourses);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnStudentRegister);
             this.groupBox1.Controls.Add(this.txtStudentUserName);
@@ -143,28 +157,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student\'s Information";
             // 
-            // clbStudentCourseRegistration
+            // lblCourseOne
             // 
-            this.clbStudentCourseRegistration.CheckOnClick = true;
-            this.clbStudentCourseRegistration.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.reg_dbDataSet1, "Sections.Id", true));
-            this.clbStudentCourseRegistration.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sectionsBindingSource, "Id", true));
-            this.clbStudentCourseRegistration.FormattingEnabled = true;
-            this.clbStudentCourseRegistration.Items.AddRange(new object[] {
-            "item1",
-            "item2",
-            "item3",
-            "item4",
-            "item5"});
-            this.clbStudentCourseRegistration.Location = new System.Drawing.Point(160, 373);
-            this.clbStudentCourseRegistration.Name = "clbStudentCourseRegistration";
-            this.clbStudentCourseRegistration.ScrollAlwaysVisible = true;
-            this.clbStudentCourseRegistration.Size = new System.Drawing.Size(612, 151);
-            this.clbStudentCourseRegistration.TabIndex = 16;
+            this.lblCourseOne.AutoSize = true;
+            this.lblCourseOne.Location = new System.Drawing.Point(551, 352);
+            this.lblCourseOne.Name = "lblCourseOne";
+            this.lblCourseOne.Size = new System.Drawing.Size(69, 20);
+            this.lblCourseOne.TabIndex = 19;
+            this.lblCourseOne.Text = "Course1";
+            this.lblCourseOne.Visible = false;
             // 
-            // sectionsBindingSource
+            // lblChosenCourses
             // 
-            this.sectionsBindingSource.DataMember = "Sections";
-            this.sectionsBindingSource.DataSource = this.reg_dbDataSet1;
+            this.lblChosenCourses.AutoSize = true;
+            this.lblChosenCourses.Location = new System.Drawing.Point(547, 313);
+            this.lblChosenCourses.Name = "lblChosenCourses";
+            this.lblChosenCourses.Size = new System.Drawing.Size(250, 20);
+            this.lblChosenCourses.TabIndex = 18;
+            this.lblChosenCourses.Text = "The courses you have chosen are:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.reg_dbDataSet1;
+            this.comboBox1.DisplayMember = "Sections.Id";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(40, 352);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(355, 28);
+            this.comboBox1.TabIndex = 17;
             // 
             // label1
             // 
@@ -315,6 +335,61 @@
             this.lblStudentLastName.TabIndex = 5;
             this.lblStudentLastName.Text = "Last Name:";
             // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.reg_dbDataSet1;
+            // 
+            // lblCourseTwo
+            // 
+            this.lblCourseTwo.AutoSize = true;
+            this.lblCourseTwo.Location = new System.Drawing.Point(551, 400);
+            this.lblCourseTwo.Name = "lblCourseTwo";
+            this.lblCourseTwo.Size = new System.Drawing.Size(69, 20);
+            this.lblCourseTwo.TabIndex = 20;
+            this.lblCourseTwo.Text = "Course2";
+            this.lblCourseTwo.Visible = false;
+            // 
+            // lblCourseThree
+            // 
+            this.lblCourseThree.AutoSize = true;
+            this.lblCourseThree.Location = new System.Drawing.Point(551, 449);
+            this.lblCourseThree.Name = "lblCourseThree";
+            this.lblCourseThree.Size = new System.Drawing.Size(69, 20);
+            this.lblCourseThree.TabIndex = 21;
+            this.lblCourseThree.Text = "Course3";
+            this.lblCourseThree.Visible = false;
+            // 
+            // lblCourseFour
+            // 
+            this.lblCourseFour.AutoSize = true;
+            this.lblCourseFour.Location = new System.Drawing.Point(713, 352);
+            this.lblCourseFour.Name = "lblCourseFour";
+            this.lblCourseFour.Size = new System.Drawing.Size(69, 20);
+            this.lblCourseFour.TabIndex = 22;
+            this.lblCourseFour.Text = "Course4";
+            this.lblCourseFour.Visible = false;
+            // 
+            // lblCourseFive
+            // 
+            this.lblCourseFive.AutoSize = true;
+            this.lblCourseFive.Location = new System.Drawing.Point(713, 400);
+            this.lblCourseFive.Name = "lblCourseFive";
+            this.lblCourseFive.Size = new System.Drawing.Size(69, 20);
+            this.lblCourseFive.TabIndex = 23;
+            this.lblCourseFive.Text = "Course5";
+            this.lblCourseFive.Visible = false;
+            // 
+            // lblCourseSix
+            // 
+            this.lblCourseSix.AutoSize = true;
+            this.lblCourseSix.Location = new System.Drawing.Point(713, 449);
+            this.lblCourseSix.Name = "lblCourseSix";
+            this.lblCourseSix.Size = new System.Drawing.Size(69, 20);
+            this.lblCourseSix.TabIndex = 24;
+            this.lblCourseSix.Text = "Course6";
+            this.lblCourseSix.Visible = false;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -368,9 +443,16 @@
         private System.Windows.Forms.TextBox txtStudentPassword;
         private System.Windows.Forms.Label lblStudentPassword;
         private System.Windows.Forms.Label lblStudentUsername;
-        private System.Windows.Forms.CheckedListBox clbStudentCourseRegistration;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource sectionsBindingSource;
+        private System.Windows.Forms.Label lblCourseOne;
+        private System.Windows.Forms.Label lblChosenCourses;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblCourseThree;
+        private System.Windows.Forms.Label lblCourseTwo;
+        private System.Windows.Forms.Label lblCourseSix;
+        private System.Windows.Forms.Label lblCourseFive;
+        private System.Windows.Forms.Label lblCourseFour;
     }
 }
 

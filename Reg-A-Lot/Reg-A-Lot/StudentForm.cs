@@ -105,6 +105,11 @@ namespace Reg_A_Lot
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
+
+
+            // WRITE LOGICAL STATEMENTS FOR THE COURSE REGISTRATION AND 
+            // HAVE THEM ENABLE THE VISIBILITY OF THE LABELS AND ADD THE
+            // COURSE TO THEIR SCHEDULE
             
             // Saving the student's registration information to the Student class variables
             studentRegistration.FirstName = txtStudentFirstName.Text;
@@ -139,6 +144,8 @@ namespace Reg_A_Lot
 
 
             }
-        }
+
+        
+    }
     }
 
