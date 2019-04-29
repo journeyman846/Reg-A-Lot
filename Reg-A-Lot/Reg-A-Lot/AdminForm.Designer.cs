@@ -72,8 +72,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.StudentFirstNameBox = new System.Windows.Forms.TextBox();
             this.StudentFirstNameLabel = new System.Windows.Forms.Label();
             this.StudentEmailBox = new System.Windows.Forms.TextBox();
@@ -92,6 +90,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.StudentAgeLabel = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ProfessorFirstNameBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
@@ -113,8 +113,8 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +139,7 @@
             // idBox
             // 
             this.idBox.Location = new System.Drawing.Point(280, 9);
-            this.idBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idBox.Margin = new System.Windows.Forms.Padding(4);
             this.idBox.MaxLength = 5;
             this.idBox.Name = "idBox";
             this.idBox.Size = new System.Drawing.Size(135, 22);
@@ -148,7 +148,7 @@
             // searchButton
             // 
             this.searchButton.Location = new System.Drawing.Point(296, 41);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(100, 28);
             this.searchButton.TabIndex = 5;
@@ -169,7 +169,7 @@
             // usernameBox
             // 
             this.usernameBox.Location = new System.Drawing.Point(280, 85);
-            this.usernameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameBox.Margin = new System.Windows.Forms.Padding(4);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(132, 22);
             this.usernameBox.TabIndex = 9;
@@ -177,7 +177,7 @@
             // passwordBox
             // 
             this.passwordBox.Location = new System.Drawing.Point(280, 117);
-            this.passwordBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(132, 22);
             this.passwordBox.TabIndex = 10;
@@ -226,7 +226,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 270);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(691, 214);
             this.dataGridView1.TabIndex = 16;
@@ -234,7 +234,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(188, 234);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 17;
@@ -245,7 +245,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(296, 234);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 19;
@@ -256,7 +256,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(404, 234);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 20;
@@ -271,7 +271,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 4);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(717, 523);
@@ -294,9 +294,9 @@
             this.tabPage1.Controls.Add(this.Username);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(709, 494);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "User Edit";
@@ -310,7 +310,7 @@
             "Staff",
             "Administrator"});
             this.roleBox.Location = new System.Drawing.Point(280, 146);
-            this.roleBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roleBox.Margin = new System.Windows.Forms.Padding(4);
             this.roleBox.Name = "roleBox";
             this.roleBox.Size = new System.Drawing.Size(132, 24);
             this.roleBox.TabIndex = 21;
@@ -340,9 +340,9 @@
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(709, 494);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Courses";
@@ -351,7 +351,7 @@
             // 
             this.CourseIDBox1.Enabled = false;
             this.CourseIDBox1.Location = new System.Drawing.Point(168, 78);
-            this.CourseIDBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseIDBox1.Margin = new System.Windows.Forms.Padding(4);
             this.CourseIDBox1.Name = "CourseIDBox1";
             this.CourseIDBox1.ReadOnly = true;
             this.CourseIDBox1.Size = new System.Drawing.Size(132, 22);
@@ -380,7 +380,7 @@
             // CourseTimesBox
             // 
             this.CourseTimesBox.Location = new System.Drawing.Point(388, 78);
-            this.CourseTimesBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseTimesBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseTimesBox.Name = "CourseTimesBox";
             this.CourseTimesBox.Size = new System.Drawing.Size(132, 22);
             this.CourseTimesBox.TabIndex = 38;
@@ -388,7 +388,7 @@
             // CourseSeatsBox
             // 
             this.CourseSeatsBox.Location = new System.Drawing.Point(388, 110);
-            this.CourseSeatsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseSeatsBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseSeatsBox.Name = "CourseSeatsBox";
             this.CourseSeatsBox.Size = new System.Drawing.Size(132, 22);
             this.CourseSeatsBox.TabIndex = 39;
@@ -426,7 +426,7 @@
             // CourseNameBox
             // 
             this.CourseNameBox.Location = new System.Drawing.Point(168, 175);
-            this.CourseNameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseNameBox.Name = "CourseNameBox";
             this.CourseNameBox.Size = new System.Drawing.Size(352, 22);
             this.CourseNameBox.TabIndex = 34;
@@ -436,7 +436,7 @@
             this.CourseProfessorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CourseProfessorBox.FormattingEnabled = true;
             this.CourseProfessorBox.Location = new System.Drawing.Point(388, 142);
-            this.CourseProfessorBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseProfessorBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseProfessorBox.Name = "CourseProfessorBox";
             this.CourseProfessorBox.Size = new System.Drawing.Size(132, 24);
             this.CourseProfessorBox.TabIndex = 33;
@@ -445,7 +445,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(404, 233);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
             this.button4.TabIndex = 32;
@@ -456,7 +456,7 @@
             // CourseIDBox
             // 
             this.CourseIDBox.Location = new System.Drawing.Point(280, 9);
-            this.CourseIDBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseIDBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseIDBox.MaxLength = 5;
             this.CourseIDBox.Name = "CourseIDBox";
             this.CourseIDBox.Size = new System.Drawing.Size(135, 22);
@@ -465,7 +465,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(296, 233);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 28);
             this.button5.TabIndex = 31;
@@ -476,7 +476,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(296, 41);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 28);
             this.button6.TabIndex = 23;
@@ -487,7 +487,7 @@
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(188, 233);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 28);
             this.button7.TabIndex = 30;
@@ -498,7 +498,7 @@
             // CoursePrefixBox
             // 
             this.CoursePrefixBox.Location = new System.Drawing.Point(168, 110);
-            this.CoursePrefixBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CoursePrefixBox.Margin = new System.Windows.Forms.Padding(4);
             this.CoursePrefixBox.Name = "CoursePrefixBox";
             this.CoursePrefixBox.Size = new System.Drawing.Size(132, 22);
             this.CoursePrefixBox.TabIndex = 24;
@@ -506,7 +506,7 @@
             // CourseNumberBox
             // 
             this.CourseNumberBox.Location = new System.Drawing.Point(168, 142);
-            this.CourseNumberBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseNumberBox.Margin = new System.Windows.Forms.Padding(4);
             this.CourseNumberBox.Name = "CourseNumberBox";
             this.CourseNumberBox.Size = new System.Drawing.Size(132, 22);
             this.CourseNumberBox.TabIndex = 25;
@@ -545,7 +545,7 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(8, 270);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(692, 218);
             this.dataGridView2.TabIndex = 0;
@@ -573,44 +573,12 @@
             this.tabPage3.Controls.Add(this.StudentAgeLabel);
             this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(709, 494);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Students";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.Gray;
-            this.tabPage4.Controls.Add(this.ProfessorFirstNameBox);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.button12);
-            this.tabPage4.Controls.Add(this.textBox5);
-            this.tabPage4.Controls.Add(this.button13);
-            this.tabPage4.Controls.Add(this.button14);
-            this.tabPage4.Controls.Add(this.button15);
-            this.tabPage4.Controls.Add(this.ProfessorLastNameBox);
-            this.tabPage4.Controls.Add(this.label15);
-            this.tabPage4.Controls.Add(this.label17);
-            this.tabPage4.Controls.Add(this.label18);
-            this.tabPage4.Controls.Add(this.dataGridView4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(709, 494);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Professors";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(9, 270);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(692, 218);
-            this.dataGridView3.TabIndex = 1;
             // 
             // StudentFirstNameBox
             // 
@@ -783,6 +751,38 @@
             this.StudentAgeLabel.TabIndex = 51;
             this.StudentAgeLabel.Text = "Age";
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(9, 270);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(692, 218);
+            this.dataGridView3.TabIndex = 1;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.Gray;
+            this.tabPage4.Controls.Add(this.ProfessorFirstNameBox);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.button12);
+            this.tabPage4.Controls.Add(this.textBox5);
+            this.tabPage4.Controls.Add(this.button13);
+            this.tabPage4.Controls.Add(this.button14);
+            this.tabPage4.Controls.Add(this.button15);
+            this.tabPage4.Controls.Add(this.ProfessorLastNameBox);
+            this.tabPage4.Controls.Add(this.label15);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.label18);
+            this.tabPage4.Controls.Add(this.dataGridView4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Size = new System.Drawing.Size(709, 494);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Professors";
+            // 
             // ProfessorFirstNameBox
             // 
             this.ProfessorFirstNameBox.Location = new System.Drawing.Point(168, 77);
@@ -905,9 +905,10 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).EndInit();
@@ -921,9 +922,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

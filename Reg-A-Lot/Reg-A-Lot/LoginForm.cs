@@ -13,6 +13,7 @@ namespace Reg_A_Lot
     public partial class LoginForm : Form
     {
 
+        public string userID { get; set; }
         public LoginForm()
         {
 
@@ -40,23 +41,35 @@ namespace Reg_A_Lot
 
                     var role = dt.Rows[0][0].ToString();
 
+                    dt = database.Read("Select ID from Users Where Username='" + unameBox.Text + "' and Password='" + pwdBox.Text + "'");
+
+                    var userID = dt.Rows[0][0].ToString();
+
                     if (role == "Student")
                     {
-                        StudentForm login = new StudentForm();
+                        StudentViewForm studentViewForm = new StudentViewForm();
+
+                        studentViewForm.userName = unameBox.Text;
+                        studentViewForm.userID = userID;
                         this.Hide();
-                        login.Show();
+                        studentViewForm.Show();
                     }
                     else if (role == "Professor")
                     {
-                        ProfessorForm login = new ProfessorForm();
+                        ProfessorForm professorForm = new ProfessorForm();
+
+                        professorForm.userName = unameBox.Text;
+                        professorForm.userID = userID;
                         this.Hide();
-                        login.Show();
+                        professorForm.Show();
                     }
                     else if (role == "Administrator")
                     {
-                        AdminForm login = new AdminForm();
+                        AdminForm adminForm = new AdminForm();
+                        adminForm.userName = unameBox.Text;
+                        adminForm.userID = userID;
                         this.Hide();
-                        login.Show();
+                        adminForm.Show();
                     }
                 }
                 else
@@ -72,21 +85,11 @@ namespace Reg_A_Lot
             {
                 MessageBox.Show("Could not connect to the database. Try again later.");
             }
-
-
-
         }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+        
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
+   
     }
 
-}
+

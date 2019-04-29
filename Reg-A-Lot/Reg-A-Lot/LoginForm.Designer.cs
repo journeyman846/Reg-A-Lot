@@ -65,7 +65,6 @@
             this.pwdBox.PasswordChar = '*';
             this.pwdBox.Size = new System.Drawing.Size(148, 20);
             this.pwdBox.TabIndex = 1;
-            this.pwdBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // password
             // 
@@ -83,7 +82,6 @@
             this.unameBox.Name = "unameBox";
             this.unameBox.Size = new System.Drawing.Size(148, 20);
             this.unameBox.TabIndex = 0;
-            this.unameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox1
             // 
