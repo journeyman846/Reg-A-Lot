@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Reg_A_Lot
 {
-    sealed class Student : Person
+    class Student : Person
     {
         // Declare any variables needed for the Student class
         // Students need to be able to enter their first and last name, age, gender, collegeID, and address

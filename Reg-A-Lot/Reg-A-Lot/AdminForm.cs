@@ -334,7 +334,7 @@ namespace Reg_A_Lot
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid age or phone number, please check your information and try again.");
+                    MessageBox.Show("Please enter a valid age or phone number, check your information and try again.");
                 }
 
             }

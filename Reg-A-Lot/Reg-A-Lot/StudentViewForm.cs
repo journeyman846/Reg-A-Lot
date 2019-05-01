@@ -13,12 +13,18 @@ namespace Reg_A_Lot
 {
     public partial class StudentViewForm : Form
     {
-        // Making sql and database connection
+        // Making all objects needed for the class
         SqlConnection connection = new SqlConnection();
         Database database = new Database();
+        Student studentConnect = new Student();
+        DataTable coursesTable = new DataTable();
+        DataTable studentsTable = new DataTable();
         string courseCon = @"SELECT * FROM Courses";
         public string userID { get; set; }
         public string userName { get; set; }
+        
+        
+
         public StudentViewForm()
         {
             InitializeComponent();
@@ -31,5 +37,7 @@ namespace Reg_A_Lot
             database.Read(courseCon);
             tbStudentID.Text = userID;
         }
+
+        
     }
 }
