@@ -8,21 +8,15 @@ namespace Reg_A_Lot
     class Course
     {
         //creating the characteristics of a course
-        public string Subject {get; set;}
-        public string Level {get; set;}
-        public string TimeSlot {get; set;}
-        
-       /* public register()
-            {
-            
-}
+        public string CoursePrefix {get; set;}
+        public string CourseNumber {get; set;}
+        public string CourseName { get; set; }
+        public string Times {get; set;}
+        public string Seats { get; set; }
+        public string Professor { get; set; }
 
-        public void drop()
-            {
-}
-        public checkIfFull()
-            {
-}*/
+
+
 
     }
 }
