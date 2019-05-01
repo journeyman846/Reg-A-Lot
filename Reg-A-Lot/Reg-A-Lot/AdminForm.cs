@@ -310,13 +310,14 @@ namespace Reg_A_Lot
         {
             var id = 0;
             var age = 0;
+            var phoneNumber = 0;
             if (int.TryParse(StudentIDBox.Text, out id))
             {
-                if (int.TryParse(StudentAgeBox.Text, out age))
+                if (int.TryParse(StudentAgeBox.Text, out age) && int.TryParse(StudentPhoneBox.Text, out phoneNumber))
                 {
                     try
                     {
-                        database.UpdateStudent(id, StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, int.Parse(StudentPhoneBox.Text));
+                        database.UpdateStudent(id, StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, phoneNumber);
                         MessageBox.Show("Student " + id + " Updated!");
                         RefreshDataGrid();
                         StudentFirstNameBox.Clear();
@@ -333,7 +334,7 @@ namespace Reg_A_Lot
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid age.");
+                    MessageBox.Show("Please enter a valid age or phone number, please check your information and try again.");
                 }
 
             }
