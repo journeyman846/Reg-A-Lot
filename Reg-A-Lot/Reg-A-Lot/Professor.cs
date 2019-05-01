@@ -12,6 +12,9 @@ namespace Reg_A_Lot
         // Professors need to be able to select sections to teach
         // Professors need to be able to enter grades into system
 
+        // Variable specific to Professor class
+        public string Fax { get; set; }
+
         public Professor()
         {
             // Local variables to store into the Professor class from the inherited Person class
@@ -22,6 +25,7 @@ namespace Reg_A_Lot
             int collegeID = CollegeID;
             string phoneNumber = PhoneNumber;
             string email = Email;
+            string fax = Fax; // Not an inherited variable
             string userName = UserName;
             string password = Password;
         }

@@ -144,8 +144,6 @@ namespace Reg_A_Lot
 
 
             }
-
-        
     }
     }
 

@@ -18,16 +18,19 @@ namespace Reg_A_Lot
         DataTable studentTable = new DataTable();
         DataTable professorsTable = new DataTable();
         SqlCommand cmd = new SqlCommand();
-        
+        public string userID { get; set; }
+        public string userName { get; set; }
+        LoginForm loginForm = new LoginForm();
+
 
         public AdminForm()
         {
+           
             InitializeComponent();
             RefreshDataGrid();
             CourseProfessorBox.DataSource = professorsTable;
             CourseProfessorBox.ValueMember = "ID";
             CourseProfessorBox.DisplayMember = "LastName";
-
 
         }
 
@@ -70,6 +73,8 @@ namespace Reg_A_Lot
             dataGridView3.RowHeadersVisible = false;
             dataGridView4.DataSource = professorsTable;
             dataGridView4.RowHeadersVisible = false;
+
+            
 
         }
 
@@ -404,12 +409,17 @@ namespace Reg_A_Lot
 
         private void button15_Click(object sender, EventArgs e)
         {
-            database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text);
+            //database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text);
             MessageBox.Show("Professor added successfully");
             RefreshDataGrid();
             ProfessorFirstNameBox.Clear();
             ProfessorLastNameBox.Clear();
 
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "UserID: " + userID + " Username: " + userName;
         }
     }
 }

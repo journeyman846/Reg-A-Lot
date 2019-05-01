@@ -6,11 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Sql
 
 namespace Reg_A_Lot
 {
     public partial class ProfessorForm : Form
     {
+
+        public string userID { get; set; }
+        public string userName { get; set; }
+
         private int childFormNumber = 0;
 
         public ProfessorForm()
@@ -102,5 +108,65 @@ namespace Reg_A_Lot
                 childForm.Close();
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProfessorEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProfessorEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        // Instantiation of an SQL objct and Professor object
+        SqlConnection connection = new SqlConnection();
+        Professor professorRegistration = new Professor();
+        Database database = new Database();
+
+        private void btnProfessorRegister_Click(object sender, EventArgs e)
+        {
+            // Logging of Professor information to the Professer class variable
+            professorRegistration.FirstName = txtProfessorFirstName.Text;
+            professorRegistration.LastName = txtProfessorLastName.Text;
+            professorRegistration.Email = txtProfessorEmail.Text;
+            professorRegistration.Fax = txtProfessorFax.Text;
+            professorRegistration.Address = txtProfessorAddress.Text;
+            professorRegistration.PhoneNumber = txtProfessorPhoneNumber.Text;
+            professorRegistration.UserName = txtProfessorUsername.Text;
+            professorRegistration.Password = txtProfessorPassword.Text;
+
+            // Adding Professor demographics to table, and clearing text boxes
+            database.InsertProfessor(professorRegistration.FirstName, professorRegistration.LastName, professorRegistration.Email, professorRegistration.Fax, professorRegistration.Address, professorRegistration.PhoneNumber);
+            txtProfessorFirstName.Clear();
+            txtProfessorLastName.Clear();
+            txtProfessorEmail.Clear();
+            txtProfessorFax.Clear();
+            txtProfessorAddress.Clear();
+            txtProfessorPhoneNumber.Clear();
+
+            // Adding Professor username and password to Users table and clearing text boxes
+            database.InsertUser(professorRegistration.UserName, professorRegistration.Password, "Professor");
+            txtProfessorUsername.Clear();
+            txtProfessorPassword.Clear();
+
+            // Display message box of successful registration attempt and opening log in
+            MessageBox.Show("Registration successful. \n Now redirecting to Log In.");
+            this.Close();
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+
+        
     }
 }
