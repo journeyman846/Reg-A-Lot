@@ -106,7 +106,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 263);
+            this.label8.Location = new System.Drawing.Point(72, 281);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 20);
             this.label8.TabIndex = 24;
@@ -114,7 +114,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(208, 263);
+            this.tbEmail.Location = new System.Drawing.Point(208, 281);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(148, 26);
             this.tbEmail.TabIndex = 23;
@@ -159,13 +159,14 @@
             // 
             this.tbAddress.Location = new System.Drawing.Point(208, 189);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(148, 26);
+            this.tbAddress.Size = new System.Drawing.Size(148, 46);
             this.tbAddress.TabIndex = 20;
             // 
             // tbPhoneNumber
             // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(208, 228);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(208, 246);
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(148, 26);
@@ -231,7 +232,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(72, 228);
+            this.label5.Location = new System.Drawing.Point(72, 246);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 20);
             this.label5.TabIndex = 9;
@@ -369,7 +370,7 @@
             // 
             // btnEditStudentInfo
             // 
-            this.btnEditStudentInfo.Location = new System.Drawing.Point(208, 295);
+            this.btnEditStudentInfo.Location = new System.Drawing.Point(208, 313);
             this.btnEditStudentInfo.Name = "btnEditStudentInfo";
             this.btnEditStudentInfo.Size = new System.Drawing.Size(67, 36);
             this.btnEditStudentInfo.TabIndex = 27;
@@ -378,7 +379,7 @@
             // 
             // btnSaveStudentInfo
             // 
-            this.btnSaveStudentInfo.Location = new System.Drawing.Point(281, 295);
+            this.btnSaveStudentInfo.Location = new System.Drawing.Point(281, 313);
             this.btnSaveStudentInfo.Name = "btnSaveStudentInfo";
             this.btnSaveStudentInfo.Size = new System.Drawing.Size(75, 36);
             this.btnSaveStudentInfo.TabIndex = 28;
