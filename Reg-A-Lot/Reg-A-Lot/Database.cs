@@ -76,7 +76,7 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
-        public void InsertStudent(string firstName, string lastName, int age, string email, string address, string phone)
+        public void InsertStudent(string firstName, string lastName, int age, string email, string address, int phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
             SqlCommand sqlCommand = new SqlCommand("INSERT into Students Values (@FirstName, @LastName, @Age, @Email, @Address, @Phone)", connection);
@@ -90,7 +90,7 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
 
         }
-        public void UpdateStudent(int id, string firstName, string lastName, int age, string email, string address, string phone)
+        public void UpdateStudent(int id, string firstName, string lastName, int age, string email, string address, int phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
             SqlCommand sqlCommand = new SqlCommand("UPDATE Students Set FirstName='" + firstName + "', LastName='" + lastName + "', Age='" + age + "', Email='" + email + "', Address='" + address + "', Phone='" + phone + "' where ID=" + id, connection);
@@ -104,7 +104,7 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
-        public void InsertProfessor(string firstName, string lastName, string email, string fax, string address, string phone)
+        public void InsertProfessor(string firstName, string lastName, string email, string fax, string address, int phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
             SqlCommand sqlCommand = new SqlCommand("INSERT into Professors Values (@FirstName, @LastName, @Email, @Fax, @Address, @Phone)", connection);

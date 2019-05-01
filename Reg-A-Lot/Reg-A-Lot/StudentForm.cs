@@ -117,7 +117,7 @@ namespace Reg_A_Lot
             studentRegistration.Age = int.Parse(txtStudentAge.Text);
             studentRegistration.Email = txtStudentEmail.Text;
             studentRegistration.Address = txtStudentAddress.Text;
-            studentRegistration.PhoneNumber = txtStudentPhoneNumber.Text;
+            studentRegistration.PhoneNumber = int.Parse(txtStudentPhoneNumber.Text);
             studentRegistration.UserName = txtStudentUserName.Text;
             studentRegistration.Password = txtStudentPassword.Text;
             

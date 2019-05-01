@@ -286,7 +286,7 @@ namespace Reg_A_Lot
 
             if (int.TryParse(StudentAgeBox.Text, out age))
             {
-                database.InsertStudent(StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, StudentPhoneBox.Text);
+                database.InsertStudent(StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, int.Parse(StudentPhoneBox.Text));
                 StudentFirstNameBox.Clear();
                 StudentLastNameBox.Clear();
                 StudentAgeBox.Clear();
@@ -316,7 +316,7 @@ namespace Reg_A_Lot
                 {
                     try
                     {
-                        database.UpdateStudent(id, StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, StudentPhoneBox.Text);
+                        database.UpdateStudent(id, StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, int.Parse(StudentPhoneBox.Text));
                         MessageBox.Show("Student " + id + " Updated!");
                         RefreshDataGrid();
                         StudentFirstNameBox.Clear();
