@@ -101,49 +101,70 @@ namespace Reg_A_Lot
         SqlConnection connection = new SqlConnection();
         Student studentRegistration = new Student();
         Database database = new Database();
-        
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
-
-
             // WRITE LOGICAL STATEMENTS FOR THE COURSE REGISTRATION AND 
             // HAVE THEM ENABLE THE VISIBILITY OF THE LABELS AND ADD THE
             // COURSE TO THEIR SCHEDULE
-            
-            // Saving the student's registration information to the Student class variables
-            studentRegistration.FirstName = txtStudentFirstName.Text;
-            studentRegistration.LastName = txtStudentLastName.Text;
-            studentRegistration.Age = int.Parse(txtStudentAge.Text);
-            studentRegistration.Email = txtStudentEmail.Text;
-            studentRegistration.Address = txtStudentAddress.Text;
-            studentRegistration.PhoneNumber = int.Parse(txtStudentPhoneNumber.Text);
-            studentRegistration.UserName = txtStudentUserName.Text;
-            studentRegistration.Password = txtStudentPassword.Text;
-            
-            // Adding the Student demographics to the Students table and clearing the text boxes
-            database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
-            txtStudentFirstName.Clear();
-            txtStudentLastName.Clear();
-            txtStudentAge.Clear();
-            txtStudentEmail.Clear();
-            txtStudentAddress.Clear();
-            txtStudentPhoneNumber.Clear();
 
-            // Adding the Student UserName and Password to the Users Table and clearing the text boxes
-            database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student");
-            txtStudentUserName.Clear();
-            txtStudentPassword.Clear();
-            
+            // Saving the student's registration information to the Student class variables
+            try
+            {
+                studentRegistration.FirstName = txtStudentFirstName.Text;
+                studentRegistration.LastName = txtStudentLastName.Text;
+                studentRegistration.Age = int.Parse(txtStudentAge.Text);
+                studentRegistration.Email = txtStudentEmail.Text;
+                studentRegistration.Address = txtStudentAddress.Text;
+                studentRegistration.PhoneNumber = int.Parse(txtStudentPhoneNumber.Text);
+                studentRegistration.UserName = txtStudentUserName.Text;
+                studentRegistration.Password = txtStudentPassword.Text;
+
+                // Adding the Student demographics to the Students table and clearing the text boxes
+                database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
+                txtStudentFirstName.Clear();
+                txtStudentLastName.Clear();
+                txtStudentAge.Clear();
+                txtStudentEmail.Clear();
+                txtStudentAddress.Clear();
+                txtStudentPhoneNumber.Clear();
+
+                // Adding the Student UserName and Password to the Users Table and clearing the text boxes
+                database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student");
+                txtStudentUserName.Clear();
+                txtStudentPassword.Clear();
+            }
+            catch(ArgumentNullException ane)
+            {
+                MessageBox.Show("There was an error, please contact your Systems Administrator.");
+                Console.WriteLine("There was a ArgumentNull Exception.");
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show("There was an error, please contact your Systems Administrator.");
+                Console.WriteLine("There was a Format Exception.");
+            }
+            catch(OverflowException oe)
+            {
+                MessageBox.Show("There was an error, please contact your Systems Administrator.");
+                Console.WriteLine("There was a Overflow Exception.");
+            }
 
             // Displaying message box of successful student registration and opening Login Form
-            MessageBox.Show("Registration was successful! \n You are being redirected to Log in.");
-            this.Close();
-            Form1 form1 = new Form1();
-            form1.Show();
-
-
+            try
+            {
+                MessageBox.Show("Registration was successful! \n You are being redirected to Log in.");
+                this.Close();
+                Form1 form1 = new Form1();
+                form1.Show();
             }
+            catch(InvalidOperationException ioe)
+            {
+                MessageBox.Show("There was an error, please contact your Systems Administrator.");
+                Console.WriteLine("There was a Invalid Operation Exception.");
+            }
+            
+        }
     }
     }
 

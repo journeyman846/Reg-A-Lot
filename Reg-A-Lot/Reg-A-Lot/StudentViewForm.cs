@@ -15,11 +15,13 @@ namespace Reg_A_Lot
     {
         // Making all objects needed for the class
         SqlConnection connection = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
         Database database = new Database();
         Student studentConnect = new Student();
         DataTable coursesTable = new DataTable();
         DataTable studentsTable = new DataTable();
         string courseCon = @"SELECT * FROM Courses";
+        string studentCon = @"SELECT * FROM Students";
         public string userID { get; set; }
         public string userName { get; set; }
         
@@ -34,8 +36,9 @@ namespace Reg_A_Lot
 
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
-            database.Read(courseCon);
             tbStudentID.Text = userID;
+            tbFirstName.Text = studentsTable.Rows[0][1].ToString();
+            
         }
 
         
