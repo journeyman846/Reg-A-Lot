@@ -23,7 +23,7 @@ namespace Reg_A_Lot
             string address = Address;
             int age = Age;
             int collegeID = CollegeID;
-            int phoneNumber = PhoneNumber;
+            string phoneNumber = PhoneNumber;
             string email = Email;
             string fax = Fax; // Not an inherited variable
             string userName = UserName;

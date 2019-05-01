@@ -30,16 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblStudentDisplayCoursesRegistered = new System.Windows.Forms.GroupBox();
+            this.btnSaveStudentInfo = new System.Windows.Forms.Button();
+            this.btnEditStudentInfo = new System.Windows.Forms.Button();
+            this.btnLoadGrades = new System.Windows.Forms.Button();
+            this.btnLoadCourses = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.dgvStudentViewRegisteredCourses = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbStudentID = new System.Windows.Forms.TextBox();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
-            this.tbAge = new System.Windows.Forms.TextBox();
-            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.txtStudentID = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.dgvViewFinalGrades = new System.Windows.Forms.DataGridView();
             this.lblCourseGrades = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCourse1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLoadCoursesAvailable = new System.Windows.Forms.Button();
             this.btnDropCourses = new System.Windows.Forms.Button();
             this.dgvCourseRegisterOrDrop = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +62,6 @@
             this.reg_dbDataSet = new Reg_A_Lot.reg_dbDataSet();
             this.lblStudentCourseRegister = new System.Windows.Forms.Label();
             this.btnRegisterForCourses = new System.Windows.Forms.Button();
-            this.btnLoadCourses = new System.Windows.Forms.Button();
-            this.btnLoadGrades = new System.Windows.Forms.Button();
-            this.btnEditStudentInfo = new System.Windows.Forms.Button();
-            this.btnSaveStudentInfo = new System.Windows.Forms.Button();
-            this.btnLoadCoursesAvailable = new System.Windows.Forms.Button();
             this.lblStudentDisplayCoursesRegistered.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentViewRegisteredCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewFinalGrades)).BeginInit();
@@ -78,15 +78,15 @@
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnLoadGrades);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnLoadCourses);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label8);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbEmail);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtEmail);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.dgvStudentViewRegisteredCourses);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label1);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbStudentID);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbFirstName);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbAddress);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbPhoneNumber);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbAge);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.tbLastName);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtStudentID);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtFirstName);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtAddress);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtPhoneNumber);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtAge);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtLastName);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.dgvViewFinalGrades);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.lblCourseGrades);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label7);
@@ -103,6 +103,42 @@
             this.lblStudentDisplayCoursesRegistered.TabStop = false;
             this.lblStudentDisplayCoursesRegistered.Text = "Student Profile";
             // 
+            // btnSaveStudentInfo
+            // 
+            this.btnSaveStudentInfo.Location = new System.Drawing.Point(281, 313);
+            this.btnSaveStudentInfo.Name = "btnSaveStudentInfo";
+            this.btnSaveStudentInfo.Size = new System.Drawing.Size(75, 36);
+            this.btnSaveStudentInfo.TabIndex = 28;
+            this.btnSaveStudentInfo.Text = "Save";
+            this.btnSaveStudentInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnEditStudentInfo
+            // 
+            this.btnEditStudentInfo.Location = new System.Drawing.Point(208, 313);
+            this.btnEditStudentInfo.Name = "btnEditStudentInfo";
+            this.btnEditStudentInfo.Size = new System.Drawing.Size(67, 36);
+            this.btnEditStudentInfo.TabIndex = 27;
+            this.btnEditStudentInfo.Text = "Edit";
+            this.btnEditStudentInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnLoadGrades
+            // 
+            this.btnLoadGrades.Location = new System.Drawing.Point(490, 353);
+            this.btnLoadGrades.Name = "btnLoadGrades";
+            this.btnLoadGrades.Size = new System.Drawing.Size(124, 48);
+            this.btnLoadGrades.TabIndex = 26;
+            this.btnLoadGrades.Text = "Load Grades";
+            this.btnLoadGrades.UseVisualStyleBackColor = true;
+            // 
+            // btnLoadCourses
+            // 
+            this.btnLoadCourses.Location = new System.Drawing.Point(928, 353);
+            this.btnLoadCourses.Name = "btnLoadCourses";
+            this.btnLoadCourses.Size = new System.Drawing.Size(134, 48);
+            this.btnLoadCourses.TabIndex = 25;
+            this.btnLoadCourses.Text = "Load Courses";
+            this.btnLoadCourses.UseVisualStyleBackColor = true;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -112,12 +148,12 @@
             this.label8.TabIndex = 24;
             this.label8.Text = "Email:";
             // 
-            // tbEmail
+            // txtEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(208, 281);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(148, 26);
-            this.tbEmail.TabIndex = 23;
+            this.txtEmail.Location = new System.Drawing.Point(208, 281);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(148, 26);
+            this.txtEmail.TabIndex = 23;
             // 
             // dgvStudentViewRegisteredCourses
             // 
@@ -139,54 +175,54 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Course(s) Registered For:";
             // 
-            // tbStudentID
+            // txtStudentID
             // 
-            this.tbStudentID.Location = new System.Drawing.Point(208, 37);
-            this.tbStudentID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbStudentID.Name = "tbStudentID";
-            this.tbStudentID.Size = new System.Drawing.Size(148, 26);
-            this.tbStudentID.TabIndex = 20;
+            this.txtStudentID.Location = new System.Drawing.Point(208, 37);
+            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtStudentID.Name = "txtStudentID";
+            this.txtStudentID.Size = new System.Drawing.Size(148, 26);
+            this.txtStudentID.TabIndex = 20;
             // 
-            // tbFirstName
+            // txtFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(208, 72);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(148, 26);
-            this.tbFirstName.TabIndex = 20;
+            this.txtFirstName.Location = new System.Drawing.Point(208, 72);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(148, 26);
+            this.txtFirstName.TabIndex = 20;
             // 
-            // tbAddress
+            // txtAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(208, 189);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbAddress.Multiline = true;
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(148, 46);
-            this.tbAddress.TabIndex = 20;
+            this.txtAddress.Location = new System.Drawing.Point(208, 189);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(148, 46);
+            this.txtAddress.TabIndex = 20;
             // 
-            // tbPhoneNumber
+            // txtPhoneNumber
             // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(208, 246);
-            this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(148, 26);
-            this.tbPhoneNumber.TabIndex = 20;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(208, 246);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(148, 26);
+            this.txtPhoneNumber.TabIndex = 20;
             // 
-            // tbAge
+            // txtAge
             // 
-            this.tbAge.Location = new System.Drawing.Point(208, 149);
-            this.tbAge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbAge.Name = "tbAge";
-            this.tbAge.Size = new System.Drawing.Size(148, 26);
-            this.tbAge.TabIndex = 20;
+            this.txtAge.Location = new System.Drawing.Point(208, 149);
+            this.txtAge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(148, 26);
+            this.txtAge.TabIndex = 20;
             // 
-            // tbLastName
+            // txtLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(208, 111);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(148, 26);
-            this.tbLastName.TabIndex = 20;
+            this.txtLastName.Location = new System.Drawing.Point(208, 111);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(148, 26);
+            this.txtLastName.TabIndex = 20;
             // 
             // dgvViewFinalGrades
             // 
@@ -287,6 +323,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
             // 
+            // btnLoadCoursesAvailable
+            // 
+            this.btnLoadCoursesAvailable.Location = new System.Drawing.Point(32, 91);
+            this.btnLoadCoursesAvailable.Name = "btnLoadCoursesAvailable";
+            this.btnLoadCoursesAvailable.Size = new System.Drawing.Size(188, 37);
+            this.btnLoadCoursesAvailable.TabIndex = 12;
+            this.btnLoadCoursesAvailable.Text = "Load Courses To Table";
+            this.btnLoadCoursesAvailable.UseVisualStyleBackColor = true;
+            // 
             // btnDropCourses
             // 
             this.btnDropCourses.Location = new System.Drawing.Point(32, 181);
@@ -350,51 +395,6 @@
             this.btnRegisterForCourses.Text = "Register For Course(s)";
             this.btnRegisterForCourses.UseVisualStyleBackColor = true;
             // 
-            // btnLoadCourses
-            // 
-            this.btnLoadCourses.Location = new System.Drawing.Point(928, 353);
-            this.btnLoadCourses.Name = "btnLoadCourses";
-            this.btnLoadCourses.Size = new System.Drawing.Size(134, 48);
-            this.btnLoadCourses.TabIndex = 25;
-            this.btnLoadCourses.Text = "Load Courses";
-            this.btnLoadCourses.UseVisualStyleBackColor = true;
-            // 
-            // btnLoadGrades
-            // 
-            this.btnLoadGrades.Location = new System.Drawing.Point(490, 353);
-            this.btnLoadGrades.Name = "btnLoadGrades";
-            this.btnLoadGrades.Size = new System.Drawing.Size(124, 48);
-            this.btnLoadGrades.TabIndex = 26;
-            this.btnLoadGrades.Text = "Load Grades";
-            this.btnLoadGrades.UseVisualStyleBackColor = true;
-            // 
-            // btnEditStudentInfo
-            // 
-            this.btnEditStudentInfo.Location = new System.Drawing.Point(208, 313);
-            this.btnEditStudentInfo.Name = "btnEditStudentInfo";
-            this.btnEditStudentInfo.Size = new System.Drawing.Size(67, 36);
-            this.btnEditStudentInfo.TabIndex = 27;
-            this.btnEditStudentInfo.Text = "Edit";
-            this.btnEditStudentInfo.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveStudentInfo
-            // 
-            this.btnSaveStudentInfo.Location = new System.Drawing.Point(281, 313);
-            this.btnSaveStudentInfo.Name = "btnSaveStudentInfo";
-            this.btnSaveStudentInfo.Size = new System.Drawing.Size(75, 36);
-            this.btnSaveStudentInfo.TabIndex = 28;
-            this.btnSaveStudentInfo.Text = "Save";
-            this.btnSaveStudentInfo.UseVisualStyleBackColor = true;
-            // 
-            // btnLoadCoursesAvailable
-            // 
-            this.btnLoadCoursesAvailable.Location = new System.Drawing.Point(32, 91);
-            this.btnLoadCoursesAvailable.Name = "btnLoadCoursesAvailable";
-            this.btnLoadCoursesAvailable.Size = new System.Drawing.Size(188, 37);
-            this.btnLoadCoursesAvailable.TabIndex = 12;
-            this.btnLoadCoursesAvailable.Text = "Load Courses To Table";
-            this.btnLoadCoursesAvailable.UseVisualStyleBackColor = true;
-            // 
             // StudentViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -435,19 +435,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource sectionsBindingSource;
         private reg_dbDataSet reg_dbDataSet;
-        private System.Windows.Forms.TextBox tbStudentID;
-        private System.Windows.Forms.TextBox tbFirstName;
-        private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.TextBox tbPhoneNumber;
-        private System.Windows.Forms.TextBox tbAge;
-        private System.Windows.Forms.TextBox tbLastName;
+        private System.Windows.Forms.TextBox txtStudentID;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnRegisterForCourses;
         private System.Windows.Forms.DataGridView dgvStudentViewRegisteredCourses;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDropCourses;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnSaveStudentInfo;
         private System.Windows.Forms.Button btnEditStudentInfo;
         private System.Windows.Forms.Button btnLoadGrades;

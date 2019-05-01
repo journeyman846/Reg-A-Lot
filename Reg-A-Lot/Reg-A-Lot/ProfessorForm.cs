@@ -142,7 +142,7 @@ namespace Reg_A_Lot
             professorRegistration.Email = txtProfessorEmail.Text;
             professorRegistration.Fax = txtProfessorFax.Text;
             professorRegistration.Address = txtProfessorAddress.Text;
-            professorRegistration.PhoneNumber = int.Parse(txtProfessorPhoneNumber.Text);
+            professorRegistration.PhoneNumber = txtProfessorPhoneNumber.Text;
             professorRegistration.UserName = txtProfessorUsername.Text;
             professorRegistration.Password = txtProfessorPassword.Text;
 

@@ -116,7 +116,7 @@ namespace Reg_A_Lot
                 studentRegistration.Age = int.Parse(txtStudentAge.Text);
                 studentRegistration.Email = txtStudentEmail.Text;
                 studentRegistration.Address = txtStudentAddress.Text;
-                studentRegistration.PhoneNumber = int.Parse(txtStudentPhoneNumber.Text);
+                studentRegistration.PhoneNumber = txtStudentPhoneNumber.Text;
                 studentRegistration.UserName = txtStudentUserName.Text;
                 studentRegistration.Password = txtStudentPassword.Text;
 
@@ -137,17 +137,17 @@ namespace Reg_A_Lot
             catch(ArgumentNullException ane)
             {
                 MessageBox.Show("There was an error, please contact your Systems Administrator.");
-                Console.WriteLine("There was a ArgumentNull Exception.");
+                Console.WriteLine("There was a ArgumentNull Exception." + ane.ToString());
             }
             catch (FormatException fe)
             {
                 MessageBox.Show("There was an error, please contact your Systems Administrator.");
-                Console.WriteLine("There was a Format Exception.");
+                Console.WriteLine("There was a Format Exception." + fe.ToString());
             }
             catch(OverflowException oe)
             {
-                MessageBox.Show("There was an error, please contact your Systems Administrator.");
-                Console.WriteLine("There was a Overflow Exception.");
+                MessageBox.Show("There was an error, please contact your Systems Administrator." );
+                Console.WriteLine("There was a Overflow Exception." + oe.ToString());
             }
 
             // Displaying message box of successful student registration and opening Login Form
@@ -161,7 +161,7 @@ namespace Reg_A_Lot
             catch(InvalidOperationException ioe)
             {
                 MessageBox.Show("There was an error, please contact your Systems Administrator.");
-                Console.WriteLine("There was a Invalid Operation Exception.");
+                Console.WriteLine("There was a Invalid Operation Exception." + ioe.ToString());
             }
             
         }

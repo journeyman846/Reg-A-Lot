@@ -22,7 +22,7 @@ namespace Reg_A_Lot
             string address = Address;
             int age = Age;
             int collegeID = CollegeID;
-            int phoneNumber = PhoneNumber;
+            string phoneNumber = PhoneNumber;
             string email = Email;
             string userName = UserName;
             string password = Password;
