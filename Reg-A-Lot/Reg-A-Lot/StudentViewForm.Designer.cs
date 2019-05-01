@@ -185,7 +185,7 @@
             this.groupBox1.Size = new System.Drawing.Size(811, 248);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Resgistered Courses";
+            this.groupBox1.Text = "Course Changes";
             // 
             // sectionsBindingSource
             // 
