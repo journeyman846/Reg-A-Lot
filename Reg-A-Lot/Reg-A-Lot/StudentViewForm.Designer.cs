@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblStudentDisplayCoursesRegistered = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -44,17 +45,27 @@
             this.lblCourse1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbStudentRegisteredCourses = new System.Windows.Forms.ListView();
             this.cbStudentRegisteredCoursesToDrop = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblStudentCourseRegister = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblCourseGrades = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.reg_dbDataSet = new Reg_A_Lot.reg_dbDataSet();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblStudentDisplayCoursesRegistered.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStudentDisplayCoursesRegistered
             // 
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.dataGridView1);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.lblCourseGrades);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.textBox5);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.textBox4);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.textBox3);
@@ -218,9 +229,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.lblStudentCourseRegister);
-            this.groupBox1.Controls.Add(this.lbStudentRegisteredCourses);
             this.groupBox1.Controls.Add(this.cbStudentRegisteredCoursesToDrop);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label1);
@@ -232,15 +242,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resgistered Courses";
-            // 
-            // lbStudentRegisteredCourses
-            // 
-            this.lbStudentRegisteredCourses.Location = new System.Drawing.Point(568, 46);
-            this.lbStudentRegisteredCourses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.lbStudentRegisteredCourses.Name = "lbStudentRegisteredCourses";
-            this.lbStudentRegisteredCourses.Size = new System.Drawing.Size(225, 102);
-            this.lbStudentRegisteredCourses.TabIndex = 8;
-            this.lbStudentRegisteredCourses.UseCompatibleStateImageBehavior = false;
             // 
             // cbStudentRegisteredCoursesToDrop
             // 
@@ -270,13 +271,57 @@
             this.lblStudentCourseRegister.TabIndex = 9;
             this.lblStudentCourseRegister.Text = "Please select the courses you need to REGISTER for:";
             // 
-            // comboBox1
+            // lblCourseGrades
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 21);
-            this.comboBox1.TabIndex = 10;
+            this.lblCourseGrades.AutoSize = true;
+            this.lblCourseGrades.Location = new System.Drawing.Point(490, 24);
+            this.lblCourseGrades.Name = "lblCourseGrades";
+            this.lblCourseGrades.Size = new System.Drawing.Size(105, 13);
+            this.lblCourseGrades.TabIndex = 18;
+            this.lblCourseGrades.Text = "Your Course Grades:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(493, 40);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 19;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.sectionsBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(31, 40);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(260, 135);
+            this.dataGridView2.TabIndex = 10;
+            // 
+            // reg_dbDataSet
+            // 
+            this.reg_dbDataSet.DataSetName = "reg_dbDataSet";
+            this.reg_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.reg_dbDataSet;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // StudentViewForm
             // 
@@ -293,6 +338,10 @@
             this.lblStudentDisplayCoursesRegistered.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -309,7 +358,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView lbStudentRegisteredCourses;
         private System.Windows.Forms.ComboBox cbStudentRegisteredCoursesToDrop;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox studentIDBox;
@@ -318,7 +366,12 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblStudentCourseRegister;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblCourseGrades;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource sectionsBindingSource;
+        private reg_dbDataSet reg_dbDataSet;
     }
 }
