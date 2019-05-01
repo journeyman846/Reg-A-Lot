@@ -409,7 +409,7 @@ namespace Reg_A_Lot
 
         private void button15_Click(object sender, EventArgs e)
         {
-            database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text);
+            //database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text);
             MessageBox.Show("Professor added successfully");
             RefreshDataGrid();
             ProfessorFirstNameBox.Clear();
