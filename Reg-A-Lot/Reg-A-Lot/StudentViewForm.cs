@@ -35,9 +35,9 @@ namespace Reg_A_Lot
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
             txtStudentID.Text = userID;
-            studentsTable = database.Read("SELECT FirstName, LastName, Age, Email, Address, PhoneNumber FROM Students WHERE ID='" + userID + "'");
-            
+            studentsTable = database.Read("SELECT * FROM Students WHERE ID='" + userID + "'");
 
+            
 
             
             
@@ -50,19 +50,25 @@ namespace Reg_A_Lot
 
         }
 
+        private void btnEditStudentInfo_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void btnSaveStudentInfo_Click(object sender, EventArgs e)
         {
             database.UpdateStudent(int.Parse(txtStudentID.Text), txtFirstName.Text, txtLastName.Text, int.Parse(txtAge.Text), txtEmail.Text, txtAddress.Text, txtPhoneNumber.Text);
         }
 
-        private void btnEditStudentInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLoadGrades_Click(object sender, EventArgs e)
         {
-            studentsTable = database.Read("Select Grades From Courses where StudentID=1");
+            coursesTable = database.Read("Select Grades From Courses where StudentID=" + userID);
+            dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+        }
+
+        private void btnLoadCourses_Click(object sender, EventArgs e)
+        {
+            studentsTable = database.Read("Select Courses From Registration where StudentID=" + userID);
             dgvViewFinalGrades.DataSource = studentsTable;
         }
     }

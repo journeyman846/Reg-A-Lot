@@ -141,6 +141,7 @@
             this.btnLoadCourses.TabIndex = 25;
             this.btnLoadCourses.Text = "Load Courses";
             this.btnLoadCourses.UseVisualStyleBackColor = true;
+            this.btnLoadCourses.Click += new System.EventHandler(this.btnLoadCourses_Click);
             // 
             // label8
             // 
