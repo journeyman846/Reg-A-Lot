@@ -18,10 +18,13 @@ namespace Reg_A_Lot
         SqlCommand cmd = new SqlCommand();
         Database database = new Database();
         Student studentConnect = new Student();
+        StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
         DataTable studentsTable = new DataTable();
         public string userID { get; set; }
         public string userName { get; set; }
+        
+
         
         
 
@@ -37,11 +40,9 @@ namespace Reg_A_Lot
             txtStudentID.Text = userID;
             studentsTable = database.Read("SELECT * FROM Students WHERE ID='" + userID + "'");
 
-            
 
-            
-            
-            //txtFirstName.Text = studentsTable.Rows[0][1].ToString();
+
+            txtFirstName.Text = studentsTable.Rows[0][1].ToString();
             //txtLastName.Text = studentsTable.Rows[0][2].ToString();
             //txtAge.Text = studentsTable.Rows[0][3].ToString();
             //txtEmail.Text = studentsTable.Rows[0][4].ToString();
@@ -52,7 +53,15 @@ namespace Reg_A_Lot
 
         private void btnEditStudentInfo_Click(object sender, EventArgs e)
         {
-            
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtAge.Clear();
+            txtEmail.Clear();
+            txtAddress.Clear();
+            txtPhoneNumber.Clear();
+
+
+
         }
 
         private void btnSaveStudentInfo_Click(object sender, EventArgs e)
@@ -64,12 +73,17 @@ namespace Reg_A_Lot
         {
             coursesTable = database.Read("Select Grades From Courses where StudentID=" + userID);
             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+            dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+            dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
+            
         }
 
         private void btnLoadCourses_Click(object sender, EventArgs e)
         {
             studentsTable = database.Read("Select Courses From Registration where StudentID=" + userID);
             dgvViewFinalGrades.DataSource = studentsTable;
+            dgvViewFinalGrades.DataSource = studentsTable;
+            dgvViewFinalGrades.RowHeadersVisible = false;
         }
     }
 }
