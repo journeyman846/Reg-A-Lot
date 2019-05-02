@@ -111,6 +111,7 @@
             this.btnSaveStudentInfo.TabIndex = 28;
             this.btnSaveStudentInfo.Text = "Save";
             this.btnSaveStudentInfo.UseVisualStyleBackColor = true;
+            this.btnSaveStudentInfo.Click += new System.EventHandler(this.btnSaveStudentInfo_Click);
             // 
             // btnEditStudentInfo
             // 
@@ -120,6 +121,7 @@
             this.btnEditStudentInfo.TabIndex = 27;
             this.btnEditStudentInfo.Text = "Edit";
             this.btnEditStudentInfo.UseVisualStyleBackColor = true;
+            this.btnEditStudentInfo.Click += new System.EventHandler(this.btnEditStudentInfo_Click);
             // 
             // btnLoadGrades
             // 
@@ -129,6 +131,7 @@
             this.btnLoadGrades.TabIndex = 26;
             this.btnLoadGrades.Text = "Load Grades";
             this.btnLoadGrades.UseVisualStyleBackColor = true;
+            this.btnLoadGrades.Click += new System.EventHandler(this.btnLoadGrades_Click);
             // 
             // btnLoadCourses
             // 

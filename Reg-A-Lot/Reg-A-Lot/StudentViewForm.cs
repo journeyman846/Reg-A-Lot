@@ -20,8 +20,6 @@ namespace Reg_A_Lot
         Student studentConnect = new Student();
         DataTable coursesTable = new DataTable();
         DataTable studentsTable = new DataTable();
-        string courseCon = @"SELECT * FROM Courses";
-        string studentCon = @"SELECT * FROM Students";
         public string userID { get; set; }
         public string userName { get; set; }
         
@@ -37,16 +35,35 @@ namespace Reg_A_Lot
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
             txtStudentID.Text = userID;
-            studentsTable = database.Read("Select * From Students where ID='" + userID + "'");
-            txtFirstName.Text = studentsTable.Rows[0][1].ToString();
-            txtLastName.Text = studentsTable.Rows[0][2].ToString();
-            txtAge.Text = studentsTable.Rows[0][3].ToString();
-            txtEmail.Text = studentsTable.Rows[0][4].ToString();
-            txtAddress.Text = studentsTable.Rows[0][5].ToString();
-            txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
+            studentsTable = database.Read("SELECT FirstName, LastName, Age, Email, Address, PhoneNumber FROM Students WHERE ID='" + userID + "'");
+            
+
+
+            
+            
+            //txtFirstName.Text = studentsTable.Rows[0][1].ToString();
+            //txtLastName.Text = studentsTable.Rows[0][2].ToString();
+            //txtAge.Text = studentsTable.Rows[0][3].ToString();
+            //txtEmail.Text = studentsTable.Rows[0][4].ToString();
+            //txtAddress.Text = studentsTable.Rows[0][5].ToString();
+            //txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
 
         }
 
-        
+        private void btnSaveStudentInfo_Click(object sender, EventArgs e)
+        {
+            database.UpdateStudent(int.Parse(txtStudentID.Text), txtFirstName.Text, txtLastName.Text, int.Parse(txtAge.Text), txtEmail.Text, txtAddress.Text, txtPhoneNumber.Text);
+        }
+
+        private void btnEditStudentInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoadGrades_Click(object sender, EventArgs e)
+        {
+            studentsTable = database.Read("Select Grades From Courses where StudentID=1");
+            dgvViewFinalGrades.DataSource = studentsTable;
+        }
     }
 }

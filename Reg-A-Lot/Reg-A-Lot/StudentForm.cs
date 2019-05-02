@@ -104,10 +104,7 @@ namespace Reg_A_Lot
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
         {
-            // WRITE LOGICAL STATEMENTS FOR THE COURSE REGISTRATION AND 
-            // HAVE THEM ENABLE THE VISIBILITY OF THE LABELS AND ADD THE
-            // COURSE TO THEIR SCHEDULE
-
+     
             // Saving the student's registration information to the Student class variables
             try
             {
@@ -122,17 +119,11 @@ namespace Reg_A_Lot
 
                 // Adding the Student demographics to the Students table and clearing the text boxes
                 database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
-                txtStudentFirstName.Clear();
-                txtStudentLastName.Clear();
-                txtStudentAge.Clear();
-                txtStudentEmail.Clear();
-                txtStudentAddress.Clear();
-                txtStudentPhoneNumber.Clear();
+                
 
                 // Adding the Student UserName and Password to the Users Table and clearing the text boxes
                 database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student");
-                txtStudentUserName.Clear();
-                txtStudentPassword.Clear();
+                
             }
             catch(ArgumentNullException ane)
             {
