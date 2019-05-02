@@ -421,6 +421,12 @@ namespace Reg_A_Lot
         {
             toolStripStatusLabel.Text = "UserID: " + userID + " Username: " + userName;
         }
+
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
     }
 }
 
