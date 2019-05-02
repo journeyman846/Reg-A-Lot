@@ -36,13 +36,6 @@ namespace Reg_A_Lot
 
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("SELECT FirstName, LastName, Age, Email, Address, PhoneNumber from Students where ID='" + userID + "'");
-            cmd.Parameters.AddWithValue("@ID", int.Parse(txtAge.Text));
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                txtFirstName.Text = dr.GetValue(0).ToString();
-            }
             txtStudentID.Text = userID;
             studentsTable = database.Read("Select * From Students where ID='" + userID + "'");
             txtFirstName.Text = studentsTable.Rows[0][1].ToString();
