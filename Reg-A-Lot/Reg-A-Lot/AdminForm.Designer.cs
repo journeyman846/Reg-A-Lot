@@ -104,6 +104,16 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.ProfessorEmailBox = new System.Windows.Forms.TextBox();
+            this.ProfessorEmailLabel = new System.Windows.Forms.Label();
+            this.ProfessorFaxBox = new System.Windows.Forms.TextBox();
+            this.ProfessorFaxLabel = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.ProfessorAddressBox = new System.Windows.Forms.TextBox();
+            this.ProfessorAddressLabel = new System.Windows.Forms.Label();
+            this.ProfessorPhoneBox = new System.Windows.Forms.TextBox();
+            this.ProfessorPhoneLabel = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regdbDataSetBindingSource)).BeginInit();
@@ -705,6 +715,16 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.Gray;
+            this.tabPage4.Controls.Add(this.ProfessorAddressBox);
+            this.tabPage4.Controls.Add(this.ProfessorAddressLabel);
+            this.tabPage4.Controls.Add(this.ProfessorPhoneBox);
+            this.tabPage4.Controls.Add(this.ProfessorPhoneLabel);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.ProfessorEmailBox);
+            this.tabPage4.Controls.Add(this.ProfessorEmailLabel);
+            this.tabPage4.Controls.Add(this.ProfessorFaxBox);
+            this.tabPage4.Controls.Add(this.ProfessorFaxLabel);
+            this.tabPage4.Controls.Add(this.label14);
             this.tabPage4.Controls.Add(this.ProfessorFirstNameBox);
             this.tabPage4.Controls.Add(this.label11);
             this.tabPage4.Controls.Add(this.button12);
@@ -734,7 +754,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(67, 65);
+            this.label11.Location = new System.Drawing.Point(63, 67);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 13);
             this.label11.TabIndex = 83;
@@ -804,7 +824,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(67, 91);
+            this.label17.Location = new System.Drawing.Point(62, 93);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 13);
             this.label17.TabIndex = 70;
@@ -825,6 +845,86 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(519, 177);
             this.dataGridView4.TabIndex = 2;
+            // 
+            // ProfessorEmailBox
+            // 
+            this.ProfessorEmailBox.Location = new System.Drawing.Point(126, 113);
+            this.ProfessorEmailBox.Name = "ProfessorEmailBox";
+            this.ProfessorEmailBox.Size = new System.Drawing.Size(100, 20);
+            this.ProfessorEmailBox.TabIndex = 87;
+            // 
+            // ProfessorEmailLabel
+            // 
+            this.ProfessorEmailLabel.AutoSize = true;
+            this.ProfessorEmailLabel.Location = new System.Drawing.Point(88, 117);
+            this.ProfessorEmailLabel.Name = "ProfessorEmailLabel";
+            this.ProfessorEmailLabel.Size = new System.Drawing.Size(32, 13);
+            this.ProfessorEmailLabel.TabIndex = 88;
+            this.ProfessorEmailLabel.Text = "Email";
+            // 
+            // ProfessorFaxBox
+            // 
+            this.ProfessorFaxBox.Location = new System.Drawing.Point(292, 63);
+            this.ProfessorFaxBox.Name = "ProfessorFaxBox";
+            this.ProfessorFaxBox.Size = new System.Drawing.Size(100, 20);
+            this.ProfessorFaxBox.TabIndex = 84;
+            // 
+            // ProfessorFaxLabel
+            // 
+            this.ProfessorFaxLabel.AutoSize = true;
+            this.ProfessorFaxLabel.Location = new System.Drawing.Point(262, 66);
+            this.ProfessorFaxLabel.Name = "ProfessorFaxLabel";
+            this.ProfessorFaxLabel.Size = new System.Drawing.Size(24, 13);
+            this.ProfessorFaxLabel.TabIndex = 85;
+            this.ProfessorFaxLabel.Text = "Fax";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(286, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(0, 13);
+            this.label14.TabIndex = 86;
+            // 
+            // ProfessorAddressBox
+            // 
+            this.ProfessorAddressBox.Location = new System.Drawing.Point(292, 91);
+            this.ProfessorAddressBox.Name = "ProfessorAddressBox";
+            this.ProfessorAddressBox.Size = new System.Drawing.Size(100, 20);
+            this.ProfessorAddressBox.TabIndex = 92;
+            // 
+            // ProfessorAddressLabel
+            // 
+            this.ProfessorAddressLabel.AutoSize = true;
+            this.ProfessorAddressLabel.Location = new System.Drawing.Point(241, 92);
+            this.ProfessorAddressLabel.Name = "ProfessorAddressLabel";
+            this.ProfessorAddressLabel.Size = new System.Drawing.Size(45, 13);
+            this.ProfessorAddressLabel.TabIndex = 93;
+            this.ProfessorAddressLabel.Text = "Address";
+            // 
+            // ProfessorPhoneBox
+            // 
+            this.ProfessorPhoneBox.Location = new System.Drawing.Point(292, 115);
+            this.ProfessorPhoneBox.Name = "ProfessorPhoneBox";
+            this.ProfessorPhoneBox.Size = new System.Drawing.Size(100, 20);
+            this.ProfessorPhoneBox.TabIndex = 89;
+            // 
+            // ProfessorPhoneLabel
+            // 
+            this.ProfessorPhoneLabel.AutoSize = true;
+            this.ProfessorPhoneLabel.Location = new System.Drawing.Point(238, 118);
+            this.ProfessorPhoneLabel.Name = "ProfessorPhoneLabel";
+            this.ProfessorPhoneLabel.Size = new System.Drawing.Size(48, 13);
+            this.ProfessorPhoneLabel.TabIndex = 90;
+            this.ProfessorPhoneLabel.Text = "Phone #";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(286, 141);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(0, 13);
+            this.label21.TabIndex = 91;
             // 
             // AdminForm
             // 
@@ -936,6 +1036,16 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.TextBox ProfessorAddressBox;
+        private System.Windows.Forms.Label ProfessorAddressLabel;
+        private System.Windows.Forms.TextBox ProfessorPhoneBox;
+        private System.Windows.Forms.Label ProfessorPhoneLabel;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox ProfessorEmailBox;
+        private System.Windows.Forms.Label ProfessorEmailLabel;
+        private System.Windows.Forms.TextBox ProfessorFaxBox;
+        private System.Windows.Forms.Label ProfessorFaxLabel;
+        private System.Windows.Forms.Label label14;
     }
 }
 
