@@ -21,6 +21,7 @@ namespace Reg_A_Lot
         StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
         DataTable registerCoursesTable = new DataTable();
+        DataTable registeringCoursesTable = new DataTable();
         DataTable studentsTable = new DataTable();
         DataTable gradesTable = new DataTable();
         public string userID { get; set; }
@@ -40,7 +41,7 @@ namespace Reg_A_Lot
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
             txtStudentID.Text = userID;
-            studentsTable = database.Read("SELECT * FROM Students WHERE ID='" + userID + "'");
+            studentsTable = database.Read("SELECT * FROM Students WHERE ID=" + userID);
 
             txtFirstName.Text = studentsTable.Rows[0][1].ToString();
             txtLastName.Text = studentsTable.Rows[0][2].ToString();
@@ -48,6 +49,8 @@ namespace Reg_A_Lot
             txtEmail.Text = studentsTable.Rows[0][4].ToString();
             txtAddress.Text = studentsTable.Rows[0][5].ToString();
             txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
+
+            
 
         }
 
@@ -76,19 +79,55 @@ namespace Reg_A_Lot
 
         private void btnLoadGrades_Click(object sender, EventArgs e)
         {
-            gradesTable = database.Read("Select Grades From Courses where StudentID=" + userID);
-            dgvStudentViewRegisteredCourses.DataSource = gradesTable;
-            dgvStudentViewRegisteredCourses.DataSource = gradesTable;
-            dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
+            gradesTable = database.Read("Select Grade From Registrations where StudentID=" + userID);
+            dgvViewFinalGrades.DataSource = gradesTable;
+            dgvViewFinalGrades.RowHeadersVisible = false;
             
         }
 
         private void btnLoadCourses_Click(object sender, EventArgs e)
         {
-            coursesTable = database.Read("Select Courses From Registration where StudentID=" + "5000");
-            dgvViewFinalGrades.DataSource = coursesTable;
-            dgvViewFinalGrades.DataSource = coursesTable;
-            dgvViewFinalGrades.RowHeadersVisible = false;
+            coursesTable = database.Read("Select CourseID From Registrations where StudentID=" + userID);
+            dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+            dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
+        }
+
+        private void dgvCourseRegisterOrDrop_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                DataGridView.HitTestInfo info = dgvCourseRegisterOrDrop.HitTest(e.X, e.Y);
+                if (info.RowIndex >= 0)
+                {
+                    if (info.RowIndex >= 0 && info.ColumnIndex >= 0)
+                    {
+                        string text = (string)
+                            dgvCourseRegisterOrDrop.Rows[info.RowIndex].Cells[info.ColumnIndex].Value;
+                        if (text != null)
+                            dgvCourseRegisterOrDrop.DoDragDrop(text, DragDropEffects.Copy);
+                    }
+                }
+
+
+            }
+
+
+        }
+
+        private void dgvRegisteringTable_DragDrop(object sender, DragEventArgs e)
+        {
+            string cellvalue = e.Data.GetData(typeof(string)) as string;
+            Point cursorLocation = this.PointToClient(new Point(e.X, e.Y));
+
+            System.Windows.Forms.DataGridView.HitTestInfo hittest = dgvRegisteringTable.HitTest(cursorLocation.X, cursorLocation.Y);
+            if (hittest.ColumnIndex != -1
+                && hittest.RowIndex != -1)
+                dgvRegisteringTable[hittest.ColumnIndex, hittest.RowIndex].Value = cellvalue;
+        }
+
+        private void dgvRegisteringTable_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
         }
 
         private void btnLoadCoursesAvailable_Click(object sender, EventArgs e)
@@ -96,6 +135,15 @@ namespace Reg_A_Lot
             registerCoursesTable = database.Read("Select * From Courses");
             dgvCourseRegisterOrDrop.DataSource = registerCoursesTable;
             dgvCourseRegisterOrDrop.RowHeadersVisible = false;
+            
+            
+
+            registeringCoursesTable = database.Read("Select CourseID From Registrations where StudentID=" + userID);
+            dgvRegisteringTable.DataSource = registeringCoursesTable;
+            dgvRegisteringTable.RowHeadersVisible = false;
         }
+        
+
+        
     }
 }
