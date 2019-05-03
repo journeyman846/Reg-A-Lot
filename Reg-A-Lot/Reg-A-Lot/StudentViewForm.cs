@@ -51,12 +51,12 @@ namespace Reg_A_Lot
 
         private void btnEditStudentInfo_Click(object sender, EventArgs e)
         {
-            txtFirstName.Clear();
-            txtLastName.Clear();
-            txtAge.Clear();
-            txtEmail.Clear();
-            txtAddress.Clear();
-            txtPhoneNumber.Clear();
+            txtFirstName.ReadOnly = false;
+            txtLastName.ReadOnly = false;
+            txtAge.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtAddress.ReadOnly = false;
+            txtPhoneNumber.ReadOnly = false;
 
 
 
@@ -65,7 +65,15 @@ namespace Reg_A_Lot
         private void btnSaveStudentInfo_Click(object sender, EventArgs e)
         {
             database.UpdateStudent(int.Parse(txtStudentID.Text), txtFirstName.Text, txtLastName.Text, int.Parse(txtAge.Text), txtEmail.Text, txtAddress.Text, txtPhoneNumber.Text);
+            MessageBox.Show("Information updated!");
+            txtFirstName.ReadOnly = true;
+            txtLastName.ReadOnly = true;
+            txtAge.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtAddress.ReadOnly = true;
+            txtPhoneNumber.ReadOnly = true;
         }
+
 
         private void btnLoadGrades_Click(object sender, EventArgs e)
         {

@@ -97,9 +97,9 @@
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label2);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.lblCourse1);
             this.lblStudentDisplayCoursesRegistered.Location = new System.Drawing.Point(9, 8);
-            this.lblStudentDisplayCoursesRegistered.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lblStudentDisplayCoursesRegistered.Margin = new System.Windows.Forms.Padding(2);
             this.lblStudentDisplayCoursesRegistered.Name = "lblStudentDisplayCoursesRegistered";
-            this.lblStudentDisplayCoursesRegistered.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lblStudentDisplayCoursesRegistered.Padding = new System.Windows.Forms.Padding(2);
             this.lblStudentDisplayCoursesRegistered.Size = new System.Drawing.Size(811, 265);
             this.lblStudentDisplayCoursesRegistered.TabIndex = 0;
             this.lblStudentDisplayCoursesRegistered.TabStop = false;
@@ -108,7 +108,7 @@
             // btnSaveStudentInfo
             // 
             this.btnSaveStudentInfo.Location = new System.Drawing.Point(187, 203);
-            this.btnSaveStudentInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveStudentInfo.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveStudentInfo.Name = "btnSaveStudentInfo";
             this.btnSaveStudentInfo.Size = new System.Drawing.Size(50, 23);
             this.btnSaveStudentInfo.TabIndex = 28;
@@ -119,7 +119,7 @@
             // btnEditStudentInfo
             // 
             this.btnEditStudentInfo.Location = new System.Drawing.Point(139, 203);
-            this.btnEditStudentInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditStudentInfo.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditStudentInfo.Name = "btnEditStudentInfo";
             this.btnEditStudentInfo.Size = new System.Drawing.Size(45, 23);
             this.btnEditStudentInfo.TabIndex = 27;
@@ -130,7 +130,7 @@
             // btnLoadGrades
             // 
             this.btnLoadGrades.Location = new System.Drawing.Point(327, 229);
-            this.btnLoadGrades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadGrades.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadGrades.Name = "btnLoadGrades";
             this.btnLoadGrades.Size = new System.Drawing.Size(83, 31);
             this.btnLoadGrades.TabIndex = 26;
@@ -141,7 +141,7 @@
             // btnLoadCourses
             // 
             this.btnLoadCourses.Location = new System.Drawing.Point(619, 229);
-            this.btnLoadCourses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadCourses.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadCourses.Name = "btnLoadCourses";
             this.btnLoadCourses.Size = new System.Drawing.Size(89, 31);
             this.btnLoadCourses.TabIndex = 25;
@@ -162,8 +162,9 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(139, 183);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 23;
             // 
@@ -197,6 +198,7 @@
             // 
             this.txtFirstName.Location = new System.Drawing.Point(139, 47);
             this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.ReadOnly = true;
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 20;
             // 
@@ -205,6 +207,7 @@
             this.txtAddress.Location = new System.Drawing.Point(139, 123);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(100, 31);
             this.txtAddress.TabIndex = 20;
             // 
@@ -212,6 +215,7 @@
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(139, 160);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.ReadOnly = true;
             this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.txtPhoneNumber.TabIndex = 20;
             // 
@@ -219,6 +223,7 @@
             // 
             this.txtAge.Location = new System.Drawing.Point(139, 97);
             this.txtAge.Name = "txtAge";
+            this.txtAge.ReadOnly = true;
             this.txtAge.Size = new System.Drawing.Size(100, 20);
             this.txtAge.TabIndex = 20;
             // 
@@ -226,6 +231,7 @@
             // 
             this.txtLastName.Location = new System.Drawing.Point(139, 72);
             this.txtLastName.Name = "txtLastName";
+            this.txtLastName.ReadOnly = true;
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 20;
             // 
@@ -327,9 +333,9 @@
             this.groupBox1.Controls.Add(this.lblStudentCourseRegister);
             this.groupBox1.Controls.Add(this.btnRegisterForCourses);
             this.groupBox1.Location = new System.Drawing.Point(9, 276);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(811, 248);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
@@ -338,7 +344,7 @@
             // btnLoadCoursesAvailable
             // 
             this.btnLoadCoursesAvailable.Location = new System.Drawing.Point(21, 59);
-            this.btnLoadCoursesAvailable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadCoursesAvailable.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadCoursesAvailable.Name = "btnLoadCoursesAvailable";
             this.btnLoadCoursesAvailable.Size = new System.Drawing.Size(125, 24);
             this.btnLoadCoursesAvailable.TabIndex = 12;
@@ -411,7 +417,7 @@
             this.ClientSize = new System.Drawing.Size(871, 549);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStudentDisplayCoursesRegistered);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StudentViewForm";
             this.Text = "Student Profile";
             this.Load += new System.EventHandler(this.StudentViewForm_Load);
