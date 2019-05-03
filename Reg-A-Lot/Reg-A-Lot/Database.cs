@@ -52,17 +52,44 @@ namespace Reg_A_Lot
 
         }
 
-        public void UpdateUser(string username, string password, string role, int id)
+        public void UpdateUser(string username, string password, string role, int userID, int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("UPDATE Users Set Username='" + username + "', Password='" + password + "', Role='" + role + "' where ID=" + id, connection);
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Users Set Username=@Username, Password=@Password, Role=@Role, StudentID=@StudentID where ID=@ID", connection);
+            sqlCommand.Parameters.AddWithValue("@ID", id);
+            sqlCommand.Parameters.AddWithValue("@Username", username);
+            sqlCommand.Parameters.AddWithValue("@Password", password);
+            sqlCommand.Parameters.AddWithValue("@Role", role);
+            if(role == "Student")
+            {
+                sqlCommand.Parameters.AddWithValue("@StudentID", userID);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@StudentID", DBNull.Value);
+            }
+            if (role == "Professor")
+            {
+                sqlCommand.Parameters.AddWithValue("@ProfessorID", userID);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@ProfessorID", DBNull.Value);
+            }
+            if (role == "Admistrator")
+            {
+                sqlCommand.Parameters.AddWithValue("@StudentID", DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@ProfessorID", DBNull.Value);
+            }
+
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
         public void DeleteUser(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("DELETE from Users where ID=" + id, connection);
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Users where ID=@ID", connection);
+            sqlCommand.Parameters.AddWithValue("@ID", id);
             connection.Open();
             sqlCommand.ExecuteScalar();
             
@@ -84,15 +111,23 @@ namespace Reg_A_Lot
         public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("UPDATE Courses Set CoursePrefix='" + coursePrefix + "', CourseNumber='" + courseNumber + "', CourseName='" + courseName + "', Times='" + courseTimes + "', Seats='" + courseSeats + "', Professor='" + professor + "' where ID=" + id, connection);
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Courses Set CoursePrefix=@CoursePrefix, CourseNumber=@CourseNumber, CourseName=@CourseName, Times=@Times, Seats=@Seats, Professor=@Professor where ID=@ID", connection);
+            sqlCommand.Parameters.AddWithValue("@ID", id);
+            sqlCommand.Parameters.AddWithValue("@CoursePrefix", coursePrefix);
+            sqlCommand.Parameters.AddWithValue("@CourseNumber", courseNumber);
+            sqlCommand.Parameters.AddWithValue("@CourseName", courseName);
+            sqlCommand.Parameters.AddWithValue("@Times", courseTimes);
+            sqlCommand.Parameters.AddWithValue("@Seats", courseSeats);
+            sqlCommand.Parameters.AddWithValue("@Professor", professor);
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
         public void DeleteCourse(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("DELETE from Courses where ID=" + id, connection);
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Courses where ID=@ID", connection);
             connection.Open();
+            sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.ExecuteScalar();
         }
         public int InsertStudent(string firstName, string lastName, int age, string email, string address, string phone)
@@ -112,15 +147,24 @@ namespace Reg_A_Lot
         public void UpdateStudent(int id, string firstName, string lastName, int age, string email, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("UPDATE Students Set FirstName='" + firstName + "', LastName='" + lastName + "', Age='" + age + "', Email='" + email + "', Address='" + address + "', Phone='" + phone + "' where ID=" + id, connection);
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Students Set FirstName=@FirstName, LastName=@LastName, Age=@Age, Email=@Email, Address=@Address, Phone=@Phone where ID=@ID", connection);
+            sqlCommand.Parameters.AddWithValue("@ID", id);
+            sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
+            sqlCommand.Parameters.AddWithValue("@LastName", lastName);
+            sqlCommand.Parameters.AddWithValue("@Age", age);
+            sqlCommand.Parameters.AddWithValue("@Email", email);
+            sqlCommand.Parameters.AddWithValue("@Address", address);
+            sqlCommand.Parameters.AddWithValue("@Phone", phone);
+
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
         public void DeleteStudent(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("DELETE from Students where ID=" + id, connection);
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Students where ID=@ID", connection);
             connection.Open();
+            sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.ExecuteScalar();
         }
         public int InsertProfessor(string firstName, string lastName, string email, string fax, string address, string phone)
@@ -136,6 +180,28 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Phone", phone);
             var professorID = (int)sqlCommand.ExecuteScalar();
             return professorID;
+
+        }
+        public void UpdateProfessor(int id, string firstName, string lastName, string email, string fax, string address, string phone)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Professors Set FirstName=@Firstname, LastName=@LastName, Email=@Email, Fax=@Fax, Address=@Address, Phone=@Phone where ID=" + id, connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
+            sqlCommand.Parameters.AddWithValue("@LastName", lastName);
+            sqlCommand.Parameters.AddWithValue("@Email", email);
+            sqlCommand.Parameters.AddWithValue("@Fax", fax);
+            sqlCommand.Parameters.AddWithValue("@Address", address);
+            sqlCommand.Parameters.AddWithValue("@Phone", phone);
+            sqlCommand.ExecuteScalar();
+        }
+        public void DeleteProfessor(int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Professors where ID=@ID", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@ID", id);
+            sqlCommand.ExecuteScalar();
 
         }
     }

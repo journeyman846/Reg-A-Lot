@@ -48,6 +48,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.UserIDBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.roleBox = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CourseIDBox1 = new System.Windows.Forms.TextBox();
@@ -105,7 +107,7 @@
             this.ProfessorFirstNameBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ProfessorIDBox = new System.Windows.Forms.TextBox();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -114,8 +116,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.UserIDBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regdbDataSetBindingSource)).BeginInit();
@@ -299,6 +299,22 @@
             this.tabPage1.Size = new System.Drawing.Size(530, 399);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "User Edit";
+            // 
+            // UserIDBox
+            // 
+            this.UserIDBox.Location = new System.Drawing.Point(292, 85);
+            this.UserIDBox.Name = "UserIDBox";
+            this.UserIDBox.Size = new System.Drawing.Size(100, 20);
+            this.UserIDBox.TabIndex = 22;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(268, 88);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(18, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "ID";
             // 
             // roleBox
             // 
@@ -732,7 +748,7 @@
             this.tabPage4.Controls.Add(this.ProfessorFirstNameBox);
             this.tabPage4.Controls.Add(this.label11);
             this.tabPage4.Controls.Add(this.button12);
-            this.tabPage4.Controls.Add(this.textBox5);
+            this.tabPage4.Controls.Add(this.ProfessorIDBox);
             this.tabPage4.Controls.Add(this.button13);
             this.tabPage4.Controls.Add(this.button14);
             this.tabPage4.Controls.Add(this.button15);
@@ -852,14 +868,15 @@
             this.button12.TabIndex = 75;
             this.button12.Text = "Delete";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // textBox5
+            // ProfessorIDBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(210, 6);
-            this.textBox5.MaxLength = 5;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(102, 20);
-            this.textBox5.TabIndex = 66;
+            this.ProfessorIDBox.Location = new System.Drawing.Point(210, 6);
+            this.ProfessorIDBox.MaxLength = 5;
+            this.ProfessorIDBox.Name = "ProfessorIDBox";
+            this.ProfessorIDBox.Size = new System.Drawing.Size(102, 20);
+            this.ProfessorIDBox.TabIndex = 66;
             // 
             // button13
             // 
@@ -869,6 +886,7 @@
             this.button13.TabIndex = 74;
             this.button13.Text = "Update";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -878,6 +896,7 @@
             this.button14.TabIndex = 67;
             this.button14.Text = "Search";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
@@ -929,22 +948,6 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(519, 177);
             this.dataGridView4.TabIndex = 2;
-            // 
-            // UserIDBox
-            // 
-            this.UserIDBox.Location = new System.Drawing.Point(292, 85);
-            this.UserIDBox.Name = "UserIDBox";
-            this.UserIDBox.Size = new System.Drawing.Size(100, 20);
-            this.UserIDBox.TabIndex = 22;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(268, 88);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(18, 13);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "ID";
             // 
             // AdminForm
             // 
@@ -1047,7 +1050,7 @@
         private System.Windows.Forms.TextBox ProfessorFirstNameBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ProfessorIDBox;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;

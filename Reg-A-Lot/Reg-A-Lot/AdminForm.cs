@@ -16,7 +16,7 @@ namespace Reg_A_Lot
         DataTable userTable = new DataTable();
         DataTable courseTable = new DataTable();
         DataTable studentTable = new DataTable();
-        DataTable professorsTable = new DataTable();
+        DataTable professorTable = new DataTable();
         SqlCommand cmd = new SqlCommand();
         public string userID { get; set; }
         public string userName { get; set; }
@@ -28,7 +28,7 @@ namespace Reg_A_Lot
            
             InitializeComponent();
             RefreshDataGrid();
-            CourseProfessorBox.DataSource = professorsTable;
+            CourseProfessorBox.DataSource = professorTable;
             CourseProfessorBox.ValueMember = "ID";
             CourseProfessorBox.DisplayMember = "LastName";
 
@@ -64,14 +64,14 @@ namespace Reg_A_Lot
             userTable = database.Read("Select * From Users");
             courseTable = database.Read("Select * From Courses");
             studentTable = database.Read("Select * From Students");
-            professorsTable = database.Read("Select * From Professors");
+            professorTable = database.Read("Select * From Professors");
             dataGridView1.DataSource = userTable;
             dataGridView1.RowHeadersVisible = false;
             dataGridView2.DataSource = courseTable;
             dataGridView2.RowHeadersVisible = false;
             dataGridView3.DataSource = studentTable;
             dataGridView3.RowHeadersVisible = false;
-            dataGridView4.DataSource = professorsTable;
+            dataGridView4.DataSource = professorTable;
             dataGridView4.RowHeadersVisible = false;
 
             
@@ -122,17 +122,25 @@ namespace Reg_A_Lot
         private void button2_Click(object sender, EventArgs e)
         {
             var id = 0;
+            var userID = 0;
             if (int.TryParse(idBox.Text, out id))
             {
-                try
+                if (int.TryParse(UserIDBox.Text, out userID))
                 {
-                    database.UpdateUser(usernameBox.Text, passwordBox.Text, roleBox.Text, id);
-                    MessageBox.Show("User " + id + " Updated!");
-                    RefreshDataGrid();
+                    try
+                    {
+                        database.UpdateUser(usernameBox.Text, passwordBox.Text, roleBox.Text, userID, id);
+                        MessageBox.Show("User " + id + " Updated!");
+                        RefreshDataGrid();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ID not found.");
+                    }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("ID not found.");
+                    MessageBox.Show("Please enter a valid  User ID number.");
                 }
             }
             else
@@ -282,6 +290,7 @@ namespace Reg_A_Lot
 
         private void button11_Click(object sender, EventArgs e)
         {
+            // Insert Student
             var age = 0;
 
             if (int.TryParse(StudentAgeBox.Text, out age))
@@ -308,6 +317,7 @@ namespace Reg_A_Lot
 
         private void button9_Click(object sender, EventArgs e)
         {
+            // Update Student
             var id = 0;
             var age = 0;
             if (int.TryParse(StudentIDBox.Text, out id))
@@ -345,6 +355,7 @@ namespace Reg_A_Lot
 
         private void button10_Click(object sender, EventArgs e)
         {
+            // Student search 
             var id = 0;
             if (int.TryParse(StudentIDBox.Text, out id))
             {
@@ -409,6 +420,7 @@ namespace Reg_A_Lot
 
         private void button15_Click(object sender, EventArgs e)
         {
+            // Add professor
             database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text, ProfessorEmailBox.Text, ProfessorFaxBox.Text, ProfessorAddressBox.Text, ProfessorPhoneBox.Text);
             MessageBox.Show("Professor added successfully");
             RefreshDataGrid();
@@ -419,13 +431,114 @@ namespace Reg_A_Lot
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // This just updates the username on the status strip at the bottom
             toolStripStatusLabel.Text = "UserID: " + userID + " Username: " + userName;
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // When the form is closed redirect to the main form--final product should go back to login
             Form1 form1 = new Form1();
             form1.Show();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //Search for professor
+            var id = 0;
+            if (int.TryParse(ProfessorIDBox.Text, out id))
+            {
+                try
+                {
+                    professorTable = database.Read("Select * From professors where ID='" + id + "'");
+                   
+                    ProfessorFirstNameBox.Text = professorTable.Rows[0][1].ToString();
+                    ProfessorLastNameBox.Text = professorTable.Rows[0][2].ToString();
+                    ProfessorEmailBox.Text = professorTable.Rows[0][3].ToString();
+                    ProfessorFaxBox.Text = professorTable.Rows[0][4].ToString();                    
+                    ProfessorAddressBox.Text = professorTable.Rows[0][5].ToString();
+                    ProfessorPhoneBox.Text = professorTable.Rows[0][6].ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            // Update professor
+            var id = 0;
+
+            if (int.TryParse(ProfessorIDBox.Text, out id))
+            {
+                
+                    try
+                    {
+                        database.UpdateProfessor(id, ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text, ProfessorEmailBox.Text, ProfessorFaxBox.Text, ProfessorAddressBox.Text, ProfessorPhoneBox.Text);
+                        MessageBox.Show("Professor " + id + " Updated!");
+                        RefreshDataGrid();
+                        ProfessorFirstNameBox.Clear();
+                        ProfessorLastNameBox.Clear();
+                        ProfessorFaxBox.Clear();
+                        ProfessorEmailBox.Clear();
+                        ProfessorAddressBox.Clear();
+                        ProfessorPhoneBox.Clear();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ID not found.");
+                    }
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            // Delete professor
+            var id = 0;
+            if (int.TryParse(ProfessorIDBox.Text, out id))
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete professor " + id + "?", "Delete Professor", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        database.DeleteProfessor(id);
+                        MessageBox.Show("Professor " + id + " deleted successfully!");
+                        RefreshDataGrid();
+                        ProfessorFirstNameBox.Clear();
+                        ProfessorLastNameBox.Clear();
+                        ProfessorFaxBox.Clear();
+                        ProfessorEmailBox.Clear();
+                        ProfessorAddressBox.Clear();
+                        ProfessorPhoneBox.Clear();
+                    }
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+
+            RefreshDataGrid();
         }
     }
 }
