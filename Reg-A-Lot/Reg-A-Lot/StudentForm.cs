@@ -118,11 +118,13 @@ namespace Reg_A_Lot
                 studentRegistration.Password = txtStudentPassword.Text;
 
                 // Adding the Student demographics to the Students table and clearing the text boxes
-                database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
+                // studentID is being returned from the InsertStudent method
+                // studentID will be passed into the InsertUser table
+                var studentID = database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
                 
 
-                // Adding the Student UserName and Password to the Users Table and clearing the text boxes
-                database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student");
+                // Adding the Student UserName, Password, Role, and ID to the Users Table 
+                database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student", studentID , 0);
                 
             }
             catch(ArgumentNullException ane)

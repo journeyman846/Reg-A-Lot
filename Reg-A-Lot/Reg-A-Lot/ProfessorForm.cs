@@ -146,8 +146,9 @@ namespace Reg_A_Lot
             professorRegistration.UserName = txtProfessorUsername.Text;
             professorRegistration.Password = txtProfessorPassword.Text;
 
+
             // Adding Professor demographics to table, and clearing text boxes
-            database.InsertProfessor(professorRegistration.FirstName, professorRegistration.LastName, professorRegistration.Email, professorRegistration.Fax, professorRegistration.Address, professorRegistration.PhoneNumber);
+            var professorID = database.InsertProfessor(professorRegistration.FirstName, professorRegistration.LastName, professorRegistration.Email, professorRegistration.Fax, professorRegistration.Address, professorRegistration.PhoneNumber);
             txtProfessorFirstName.Clear();
             txtProfessorLastName.Clear();
             txtProfessorEmail.Clear();
@@ -156,7 +157,7 @@ namespace Reg_A_Lot
             txtProfessorPhoneNumber.Clear();
 
             // Adding Professor username and password to Users table and clearing text boxes
-            database.InsertUser(professorRegistration.UserName, professorRegistration.Password, "Professor");
+            database.InsertUser(professorRegistration.UserName, professorRegistration.Password, "Professor", 0, professorID);
             txtProfessorUsername.Clear();
             txtProfessorPassword.Clear();
 

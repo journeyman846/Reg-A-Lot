@@ -80,7 +80,7 @@ namespace Reg_A_Lot
 
         private void button1_Click(object sender, EventArgs e)
         {
-            database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text);
+            database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text, 0 , 0);
             MessageBox.Show("User added successfully!");
             RefreshDataGrid();
             usernameBox.Clear();

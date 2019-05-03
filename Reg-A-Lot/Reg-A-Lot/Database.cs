@@ -21,16 +21,35 @@ namespace Reg_A_Lot
             sda.Fill(dt);
             return dt;
         }
-        public void InsertUser(string username, string password, string role)
+        public void InsertUser(string username, string password, string role, int studentID, int professorID)
         {
+            // Insert user will take the StudentID created when registering and insert it into the user table. 
+
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Users Values (@Username, @Password, @Role)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Users Values (@Username, @Password, @Role, @StudentID, @ProfessorID)", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@Username", username);
             sqlCommand.Parameters.AddWithValue("@Password", password);
             sqlCommand.Parameters.AddWithValue("@Role", role);
+            // Check if studentID or professorID will be null
+            if(studentID > 0)
+            {
+                sqlCommand.Parameters.AddWithValue("@StudentID", studentID);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@StudentID", DBNull.Value);
+            }
+            if(professorID > 0)
+            {
+                sqlCommand.Parameters.AddWithValue("@ProfessorID", professorID);
+            }
+            else
+            {
+                sqlCommand.Parameters.AddWithValue("@ProfessorID", DBNull.Value);
+            }
             sqlCommand.ExecuteScalar();
-            
+
         }
 
         public void UpdateUser(string username, string password, string role, int id)
@@ -76,10 +95,10 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
-        public void InsertStudent(string firstName, string lastName, int age, string email, string address, string phone)
+        public int InsertStudent(string firstName, string lastName, int age, string email, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Students Values (@FirstName, @LastName, @Age, @Email, @Address, @Phone)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Students OUTPUT INSERTED.ID Values (@FirstName, @LastName, @Age, @Email, @Address, @Phone)", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
             sqlCommand.Parameters.AddWithValue("@LastName", lastName);
@@ -87,8 +106,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Email", email);
             sqlCommand.Parameters.AddWithValue("@Address", address);
             sqlCommand.Parameters.AddWithValue("@Phone", phone);
-            sqlCommand.ExecuteScalar();
-
+            var studentID = (int)sqlCommand.ExecuteScalar();
+            return studentID;
         }
         public void UpdateStudent(int id, string firstName, string lastName, int age, string email, string address, string phone)
         {
@@ -104,10 +123,10 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
-        public void InsertProfessor(string firstName, string lastName, string email, string fax, string address, string phone)
+        public int InsertProfessor(string firstName, string lastName, string email, string fax, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Professors Values (@FirstName, @LastName, @Email, @Fax, @Address, @Phone)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Professors OUTPUT INSERTED.ID Values (@FirstName, @LastName, @Email, @Fax, @Address, @Phone)", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@FirstName", firstName);
             sqlCommand.Parameters.AddWithValue("@LastName", lastName);
@@ -115,7 +134,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Fax", fax);
             sqlCommand.Parameters.AddWithValue("@Address", address);
             sqlCommand.Parameters.AddWithValue("@Phone", phone);
-            sqlCommand.ExecuteScalar();
+            var professorID = (int)sqlCommand.ExecuteScalar();
+            return professorID;
 
         }
     }
