@@ -28,14 +28,34 @@ namespace Reg_A_Lot
            
             InitializeComponent();
             RefreshDataGrid();
+            // The below code populates the drop down for the courses form
             CourseProfessorBox.DataSource = professorTable;
             CourseProfessorBox.ValueMember = "ID";
             CourseProfessorBox.DisplayMember = "LastName";
 
         }
+        private void RefreshDataGrid()
+        {
+            // Read from the database and fill the datagrids for each table
+            // Calls to this method will refresh the grids
+            userTable = database.Read("Select * From Users");
+            courseTable = database.Read("Select * From Courses");
+            studentTable = database.Read("Select * From Students");
+            professorTable = database.Read("Select * From Professors");
+            userGridView.DataSource = userTable;
+            userGridView.RowHeadersVisible = false;
+            courseGridView.DataSource = courseTable;
+            courseGridView.RowHeadersVisible = false;
+            studentGridView.DataSource = studentTable;
+            studentGridView.RowHeadersVisible = false;
+            professorGridView.DataSource = professorTable;
+            professorGridView.RowHeadersVisible = false;
+        }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            // Search for user
+
             var id = 0;
             if (int.TryParse(idBox.Text, out id))
             {
@@ -59,25 +79,7 @@ namespace Reg_A_Lot
 
 
         }
-        private void RefreshDataGrid()
-        {
-            userTable = database.Read("Select * From Users");
-            courseTable = database.Read("Select * From Courses");
-            studentTable = database.Read("Select * From Students");
-            professorTable = database.Read("Select * From Professors");
-            dataGridView1.DataSource = userTable;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView2.DataSource = courseTable;
-            dataGridView2.RowHeadersVisible = false;
-            dataGridView3.DataSource = studentTable;
-            dataGridView3.RowHeadersVisible = false;
-            dataGridView4.DataSource = professorTable;
-            dataGridView4.RowHeadersVisible = false;
-
-            
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text, 0 , 0);

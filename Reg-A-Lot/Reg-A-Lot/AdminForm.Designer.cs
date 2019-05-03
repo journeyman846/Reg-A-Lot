@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.userGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Prefix = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.courseGridView = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.StudentFirstNameBox = new System.Windows.Forms.TextBox();
             this.StudentFirstNameLabel = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.StudentAgeLabel = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.studentGridView = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ProfessorAddressBox = new System.Windows.Forms.TextBox();
             this.ProfessorAddressLabel = new System.Windows.Forms.Label();
@@ -115,19 +115,19 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.professorGridView = new System.Windows.Forms.DataGridView();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.regdbDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentGridView)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professorGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -225,13 +225,13 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "ID";
             // 
-            // dataGridView1
+            // userGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 219);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(518, 174);
-            this.dataGridView1.TabIndex = 16;
+            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userGridView.Location = new System.Drawing.Point(6, 219);
+            this.userGridView.Name = "userGridView";
+            this.userGridView.Size = new System.Drawing.Size(518, 174);
+            this.userGridView.TabIndex = 16;
             // 
             // button1
             // 
@@ -281,7 +281,7 @@
             this.tabPage1.Controls.Add(this.UserIDBox);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.roleBox);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.userGridView);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.idBox);
             this.tabPage1.Controls.Add(this.button2);
@@ -352,7 +352,7 @@
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.Prefix);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.courseGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -534,13 +534,13 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "Number";
             // 
-            // dataGridView2
+            // courseGridView
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 219);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(519, 177);
-            this.dataGridView2.TabIndex = 0;
+            this.courseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.courseGridView.Location = new System.Drawing.Point(6, 219);
+            this.courseGridView.Name = "courseGridView";
+            this.courseGridView.Size = new System.Drawing.Size(519, 177);
+            this.courseGridView.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -563,7 +563,7 @@
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.LastNameLabel);
             this.tabPage3.Controls.Add(this.StudentAgeLabel);
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.studentGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -724,13 +724,13 @@
             this.StudentAgeLabel.TabIndex = 51;
             this.StudentAgeLabel.Text = "Age";
             // 
-            // dataGridView3
+            // studentGridView
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(7, 219);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(519, 177);
-            this.dataGridView3.TabIndex = 1;
+            this.studentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentGridView.Location = new System.Drawing.Point(7, 219);
+            this.studentGridView.Name = "studentGridView";
+            this.studentGridView.Size = new System.Drawing.Size(519, 177);
+            this.studentGridView.TabIndex = 1;
             // 
             // tabPage4
             // 
@@ -756,7 +756,7 @@
             this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.label17);
             this.tabPage4.Controls.Add(this.label18);
-            this.tabPage4.Controls.Add(this.dataGridView4);
+            this.tabPage4.Controls.Add(this.professorGridView);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -941,13 +941,13 @@
             this.label18.Size = new System.Drawing.Size(0, 13);
             this.label18.TabIndex = 71;
             // 
-            // dataGridView4
+            // professorGridView
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(7, 220);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(519, 177);
-            this.dataGridView4.TabIndex = 2;
+            this.professorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.professorGridView.Location = new System.Drawing.Point(7, 220);
+            this.professorGridView.Name = "professorGridView";
+            this.professorGridView.Size = new System.Drawing.Size(519, 177);
+            this.professorGridView.TabIndex = 2;
             // 
             // AdminForm
             // 
@@ -965,19 +965,19 @@
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regdbDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentGridView)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professorGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -997,7 +997,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView userGridView;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -1007,7 +1007,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ComboBox roleBox;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView courseGridView;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox CourseNameBox;
         private System.Windows.Forms.ComboBox CourseProfessorBox;
@@ -1028,7 +1028,7 @@
         private System.Windows.Forms.TextBox CourseIDBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView studentGridView;
         private System.Windows.Forms.TextBox StudentFirstNameBox;
         private System.Windows.Forms.Label StudentFirstNameLabel;
         private System.Windows.Forms.TextBox StudentEmailBox;
@@ -1058,7 +1058,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView professorGridView;
         private System.Windows.Forms.TextBox ProfessorAddressBox;
         private System.Windows.Forms.Label ProfessorAddressLabel;
         private System.Windows.Forms.TextBox ProfessorPhoneBox;
