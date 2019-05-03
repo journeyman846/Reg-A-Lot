@@ -63,6 +63,7 @@
             this.btnRegisterForCourses = new System.Windows.Forms.Button();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reg_dbDataSet = new Reg_A_Lot.reg_dbDataSet();
+            this.cbSelectCourse = new System.Windows.Forms.ComboBox();
             this.lblStudentDisplayCoursesRegistered.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentViewRegisteredCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewFinalGrades)).BeginInit();
@@ -333,7 +334,7 @@
             this.groupBox1.Controls.Add(this.btnRegisterForCourses);
             this.groupBox1.Location = new System.Drawing.Point(14, 425);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1216, 580);
+            this.groupBox1.Size = new System.Drawing.Size(1216, 430);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
@@ -356,7 +357,7 @@
             this.dgvRegisteringTable.Location = new System.Drawing.Point(693, 258);
             this.dgvRegisteringTable.Name = "dgvRegisteringTable";
             this.dgvRegisteringTable.RowTemplate.Height = 28;
-            this.dgvRegisteringTable.Size = new System.Drawing.Size(501, 308);
+            this.dgvRegisteringTable.Size = new System.Drawing.Size(501, 157);
             this.dgvRegisteringTable.TabIndex = 13;
             // 
             // btnLoadCoursesAvailable
@@ -389,7 +390,7 @@
             this.dgvCourseRegisterOrDrop.Name = "dgvCourseRegisterOrDrop";
             this.dgvCourseRegisterOrDrop.ReadOnly = true;
             this.dgvCourseRegisterOrDrop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(653, 308);
+            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(653, 157);
             this.dgvCourseRegisterOrDrop.TabIndex = 10;
             // 
             // lblStudentCourseRegister
@@ -423,11 +424,20 @@
             this.reg_dbDataSet.DataSetName = "reg_dbDataSet";
             this.reg_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // cbSelectCourse
+            // 
+            this.cbSelectCourse.FormattingEnabled = true;
+            this.cbSelectCourse.Location = new System.Drawing.Point(651, 883);
+            this.cbSelectCourse.Name = "cbSelectCourse";
+            this.cbSelectCourse.Size = new System.Drawing.Size(121, 28);
+            this.cbSelectCourse.TabIndex = 6;
+            // 
             // StudentViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1343, 1035);
+            this.Controls.Add(this.cbSelectCourse);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStudentDisplayCoursesRegistered);
             this.Name = "StudentViewForm";
@@ -483,5 +493,6 @@
         private System.Windows.Forms.Button btnLoadCoursesAvailable;
         private System.Windows.Forms.DataGridView dgvRegisteringTable;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbSelectCourse;
     }
 }
