@@ -20,7 +20,9 @@ namespace Reg_A_Lot
         Student studentConnect = new Student();
         StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
+        DataTable registerCoursesTable = new DataTable();
         DataTable studentsTable = new DataTable();
+        DataTable gradesTable = new DataTable();
         public string userID { get; set; }
         public string userName { get; set; }
         
@@ -57,14 +59,11 @@ namespace Reg_A_Lot
             txtEmail.ReadOnly = false;
             txtAddress.ReadOnly = false;
             txtPhoneNumber.ReadOnly = false;
-
-
-
         }
 
         private void btnSaveStudentInfo_Click(object sender, EventArgs e)
         {
-            database.UpdateStudent(int.Parse(txtStudentID.Text), txtFirstName.Text, txtLastName.Text, int.Parse(txtAge.Text), txtEmail.Text, txtAddress.Text, txtPhoneNumber.Text);
+            database.UpdateStudent(int.Parse(userID), txtFirstName.Text, txtLastName.Text, int.Parse(txtAge.Text), txtEmail.Text, txtAddress.Text, txtPhoneNumber.Text);
             MessageBox.Show("Information updated!");
             txtFirstName.ReadOnly = true;
             txtLastName.ReadOnly = true;
@@ -77,19 +76,26 @@ namespace Reg_A_Lot
 
         private void btnLoadGrades_Click(object sender, EventArgs e)
         {
-            coursesTable = database.Read("Select Grades From Courses where StudentID=" + userID);
-            dgvStudentViewRegisteredCourses.DataSource = coursesTable;
-            dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+            gradesTable = database.Read("Select Grades From Courses where StudentID=" + userID);
+            dgvStudentViewRegisteredCourses.DataSource = gradesTable;
+            dgvStudentViewRegisteredCourses.DataSource = gradesTable;
             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
             
         }
 
         private void btnLoadCourses_Click(object sender, EventArgs e)
         {
-            studentsTable = database.Read("Select Courses From Registration where StudentID=" + userID);
-            dgvViewFinalGrades.DataSource = studentsTable;
-            dgvViewFinalGrades.DataSource = studentsTable;
+            coursesTable = database.Read("Select Courses From Registration where StudentID=" + "5000");
+            dgvViewFinalGrades.DataSource = coursesTable;
+            dgvViewFinalGrades.DataSource = coursesTable;
             dgvViewFinalGrades.RowHeadersVisible = false;
+        }
+
+        private void btnLoadCoursesAvailable_Click(object sender, EventArgs e)
+        {
+            registerCoursesTable = database.Read("Select * From Courses");
+            dgvCourseRegisterOrDrop.DataSource = registerCoursesTable;
+            dgvCourseRegisterOrDrop.RowHeadersVisible = false;
         }
     }
 }
