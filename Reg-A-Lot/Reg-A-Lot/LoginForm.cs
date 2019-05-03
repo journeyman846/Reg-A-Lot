@@ -41,7 +41,7 @@ namespace Reg_A_Lot
 
                     var role = dt.Rows[0][0].ToString();
 
-                    dt = database.Read("Select ID from Users Where Username='" + unameBox.Text + "' and Password='" + pwdBox.Text + "'");
+                    dt = database.Read("Select " + role + "ID from Users Where Username='" + unameBox.Text + "' and Password='" + pwdBox.Text + "'");
 
                     var userID = dt.Rows[0][0].ToString();
 

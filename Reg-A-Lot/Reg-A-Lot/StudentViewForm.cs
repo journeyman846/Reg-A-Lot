@@ -40,14 +40,12 @@ namespace Reg_A_Lot
             txtStudentID.Text = userID;
             studentsTable = database.Read("SELECT * FROM Students WHERE ID='" + userID + "'");
 
-
-
             txtFirstName.Text = studentsTable.Rows[0][1].ToString();
-            //txtLastName.Text = studentsTable.Rows[0][2].ToString();
-            //txtAge.Text = studentsTable.Rows[0][3].ToString();
-            //txtEmail.Text = studentsTable.Rows[0][4].ToString();
-            //txtAddress.Text = studentsTable.Rows[0][5].ToString();
-            //txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
+            txtLastName.Text = studentsTable.Rows[0][2].ToString();
+            txtAge.Text = studentsTable.Rows[0][3].ToString();
+            txtEmail.Text = studentsTable.Rows[0][4].ToString();
+            txtAddress.Text = studentsTable.Rows[0][5].ToString();
+            txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
 
         }
 

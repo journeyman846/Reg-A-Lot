@@ -96,18 +96,21 @@
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label3);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label2);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.lblCourse1);
-            this.lblStudentDisplayCoursesRegistered.Location = new System.Drawing.Point(14, 12);
+            this.lblStudentDisplayCoursesRegistered.Location = new System.Drawing.Point(9, 8);
+            this.lblStudentDisplayCoursesRegistered.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lblStudentDisplayCoursesRegistered.Name = "lblStudentDisplayCoursesRegistered";
-            this.lblStudentDisplayCoursesRegistered.Size = new System.Drawing.Size(1216, 407);
+            this.lblStudentDisplayCoursesRegistered.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lblStudentDisplayCoursesRegistered.Size = new System.Drawing.Size(811, 265);
             this.lblStudentDisplayCoursesRegistered.TabIndex = 0;
             this.lblStudentDisplayCoursesRegistered.TabStop = false;
             this.lblStudentDisplayCoursesRegistered.Text = "Student Profile";
             // 
             // btnSaveStudentInfo
             // 
-            this.btnSaveStudentInfo.Location = new System.Drawing.Point(281, 313);
+            this.btnSaveStudentInfo.Location = new System.Drawing.Point(187, 203);
+            this.btnSaveStudentInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveStudentInfo.Name = "btnSaveStudentInfo";
-            this.btnSaveStudentInfo.Size = new System.Drawing.Size(75, 36);
+            this.btnSaveStudentInfo.Size = new System.Drawing.Size(50, 23);
             this.btnSaveStudentInfo.TabIndex = 28;
             this.btnSaveStudentInfo.Text = "Save";
             this.btnSaveStudentInfo.UseVisualStyleBackColor = true;
@@ -115,9 +118,10 @@
             // 
             // btnEditStudentInfo
             // 
-            this.btnEditStudentInfo.Location = new System.Drawing.Point(208, 313);
+            this.btnEditStudentInfo.Location = new System.Drawing.Point(139, 203);
+            this.btnEditStudentInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditStudentInfo.Name = "btnEditStudentInfo";
-            this.btnEditStudentInfo.Size = new System.Drawing.Size(67, 36);
+            this.btnEditStudentInfo.Size = new System.Drawing.Size(45, 23);
             this.btnEditStudentInfo.TabIndex = 27;
             this.btnEditStudentInfo.Text = "Edit";
             this.btnEditStudentInfo.UseVisualStyleBackColor = true;
@@ -125,9 +129,10 @@
             // 
             // btnLoadGrades
             // 
-            this.btnLoadGrades.Location = new System.Drawing.Point(490, 353);
+            this.btnLoadGrades.Location = new System.Drawing.Point(327, 229);
+            this.btnLoadGrades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoadGrades.Name = "btnLoadGrades";
-            this.btnLoadGrades.Size = new System.Drawing.Size(124, 48);
+            this.btnLoadGrades.Size = new System.Drawing.Size(83, 31);
             this.btnLoadGrades.TabIndex = 26;
             this.btnLoadGrades.Text = "Load Grades";
             this.btnLoadGrades.UseVisualStyleBackColor = true;
@@ -135,9 +140,10 @@
             // 
             // btnLoadCourses
             // 
-            this.btnLoadCourses.Location = new System.Drawing.Point(928, 353);
+            this.btnLoadCourses.Location = new System.Drawing.Point(619, 229);
+            this.btnLoadCourses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoadCourses.Name = "btnLoadCourses";
-            this.btnLoadCourses.Size = new System.Drawing.Size(134, 48);
+            this.btnLoadCourses.Size = new System.Drawing.Size(89, 31);
             this.btnLoadCourses.TabIndex = 25;
             this.btnLoadCourses.Text = "Load Courses";
             this.btnLoadCourses.UseVisualStyleBackColor = true;
@@ -146,86 +152,81 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 281);
+            this.label8.Location = new System.Drawing.Point(48, 183);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 20);
+            this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 24;
             this.label8.Text = "Email:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(208, 281);
+            this.txtEmail.Location = new System.Drawing.Point(139, 183);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(148, 26);
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 23;
             // 
             // dgvStudentViewRegisteredCourses
             // 
             this.dgvStudentViewRegisteredCourses.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvStudentViewRegisteredCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudentViewRegisteredCourses.Location = new System.Drawing.Point(760, 48);
-            this.dgvStudentViewRegisteredCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvStudentViewRegisteredCourses.Location = new System.Drawing.Point(507, 31);
             this.dgvStudentViewRegisteredCourses.Name = "dgvStudentViewRegisteredCourses";
-            this.dgvStudentViewRegisteredCourses.Size = new System.Drawing.Size(434, 297);
+            this.dgvStudentViewRegisteredCourses.Size = new System.Drawing.Size(289, 193);
             this.dgvStudentViewRegisteredCourses.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(891, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(594, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 20);
+            this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Course(s) Registered For:";
             // 
             // txtStudentID
             // 
-            this.txtStudentID.Location = new System.Drawing.Point(208, 37);
-            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtStudentID.Location = new System.Drawing.Point(139, 24);
             this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(148, 26);
+            this.txtStudentID.ReadOnly = true;
+            this.txtStudentID.Size = new System.Drawing.Size(100, 20);
             this.txtStudentID.TabIndex = 20;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(208, 72);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFirstName.Location = new System.Drawing.Point(139, 47);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(148, 26);
+            this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 20;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(208, 189);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAddress.Location = new System.Drawing.Point(139, 123);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(148, 46);
+            this.txtAddress.Size = new System.Drawing.Size(100, 31);
             this.txtAddress.TabIndex = 20;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(208, 246);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(139, 160);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(148, 26);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.txtPhoneNumber.TabIndex = 20;
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(208, 149);
-            this.txtAge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAge.Location = new System.Drawing.Point(139, 97);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(148, 26);
+            this.txtAge.Size = new System.Drawing.Size(100, 20);
             this.txtAge.TabIndex = 20;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(208, 111);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLastName.Location = new System.Drawing.Point(139, 72);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(148, 26);
+            this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 20;
             // 
             // dgvViewFinalGrades
@@ -234,83 +235,88 @@
             this.dgvViewFinalGrades.AllowUserToDeleteRows = false;
             this.dgvViewFinalGrades.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvViewFinalGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvViewFinalGrades.Location = new System.Drawing.Point(408, 48);
-            this.dgvViewFinalGrades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvViewFinalGrades.Location = new System.Drawing.Point(272, 31);
             this.dgvViewFinalGrades.Name = "dgvViewFinalGrades";
             this.dgvViewFinalGrades.ReadOnly = true;
-            this.dgvViewFinalGrades.Size = new System.Drawing.Size(296, 297);
+            this.dgvViewFinalGrades.Size = new System.Drawing.Size(197, 193);
             this.dgvViewFinalGrades.TabIndex = 19;
             // 
             // lblCourseGrades
             // 
             this.lblCourseGrades.AutoSize = true;
-            this.lblCourseGrades.Location = new System.Drawing.Point(476, 23);
-            this.lblCourseGrades.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCourseGrades.Location = new System.Drawing.Point(317, 15);
             this.lblCourseGrades.Name = "lblCourseGrades";
-            this.lblCourseGrades.Size = new System.Drawing.Size(159, 20);
+            this.lblCourseGrades.Size = new System.Drawing.Size(105, 13);
             this.lblCourseGrades.TabIndex = 18;
             this.lblCourseGrades.Text = "Your Course Grades:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(72, 38);
+            this.label7.Location = new System.Drawing.Point(48, 25);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 20);
+            this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 11;
             this.label7.Text = "Student ID:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(72, 186);
+            this.label6.Location = new System.Drawing.Point(48, 121);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Address:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(72, 246);
+            this.label5.Location = new System.Drawing.Point(48, 160);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 20);
+            this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Phone Number:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(72, 149);
+            this.label4.Location = new System.Drawing.Point(48, 97);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 20);
+            this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Age:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 111);
+            this.label3.Location = new System.Drawing.Point(48, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Last Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 77);
+            this.label2.Location = new System.Drawing.Point(48, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "First Name:";
             // 
             // lblCourse1
             // 
             this.lblCourse1.AutoSize = true;
-            this.lblCourse1.Location = new System.Drawing.Point(124, 483);
+            this.lblCourse1.Location = new System.Drawing.Point(83, 314);
+            this.lblCourse1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCourse1.Name = "lblCourse1";
-            this.lblCourse1.Size = new System.Drawing.Size(0, 20);
+            this.lblCourse1.Size = new System.Drawing.Size(0, 13);
             this.lblCourse1.TabIndex = 5;
             // 
             // groupBox1
@@ -320,28 +326,30 @@
             this.groupBox1.Controls.Add(this.dgvCourseRegisterOrDrop);
             this.groupBox1.Controls.Add(this.lblStudentCourseRegister);
             this.groupBox1.Controls.Add(this.btnRegisterForCourses);
-            this.groupBox1.Location = new System.Drawing.Point(14, 425);
+            this.groupBox1.Location = new System.Drawing.Point(9, 276);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1216, 382);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(811, 248);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
             // 
             // btnLoadCoursesAvailable
             // 
-            this.btnLoadCoursesAvailable.Location = new System.Drawing.Point(32, 91);
+            this.btnLoadCoursesAvailable.Location = new System.Drawing.Point(21, 59);
+            this.btnLoadCoursesAvailable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoadCoursesAvailable.Name = "btnLoadCoursesAvailable";
-            this.btnLoadCoursesAvailable.Size = new System.Drawing.Size(188, 37);
+            this.btnLoadCoursesAvailable.Size = new System.Drawing.Size(125, 24);
             this.btnLoadCoursesAvailable.TabIndex = 12;
             this.btnLoadCoursesAvailable.Text = "Load Courses To Table";
             this.btnLoadCoursesAvailable.UseVisualStyleBackColor = true;
             // 
             // btnDropCourses
             // 
-            this.btnDropCourses.Location = new System.Drawing.Point(32, 181);
-            this.btnDropCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDropCourses.Location = new System.Drawing.Point(21, 118);
             this.btnDropCourses.Name = "btnDropCourses";
-            this.btnDropCourses.Size = new System.Drawing.Size(188, 35);
+            this.btnDropCourses.Size = new System.Drawing.Size(125, 23);
             this.btnDropCourses.TabIndex = 11;
             this.btnDropCourses.Text = "Drop Course(s)";
             this.btnDropCourses.UseVisualStyleBackColor = true;
@@ -355,11 +363,10 @@
             this.dgvCourseRegisterOrDrop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn});
             this.dgvCourseRegisterOrDrop.DataSource = this.sectionsBindingSource;
-            this.dgvCourseRegisterOrDrop.Location = new System.Drawing.Point(408, 71);
-            this.dgvCourseRegisterOrDrop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCourseRegisterOrDrop.Location = new System.Drawing.Point(272, 46);
             this.dgvCourseRegisterOrDrop.Name = "dgvCourseRegisterOrDrop";
             this.dgvCourseRegisterOrDrop.ReadOnly = true;
-            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(621, 265);
+            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(414, 172);
             this.dgvCourseRegisterOrDrop.TabIndex = 10;
             // 
             // idDataGridViewTextBoxColumn
@@ -382,30 +389,29 @@
             // lblStudentCourseRegister
             // 
             this.lblStudentCourseRegister.AutoSize = true;
-            this.lblStudentCourseRegister.Location = new System.Drawing.Point(621, 42);
-            this.lblStudentCourseRegister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStudentCourseRegister.Location = new System.Drawing.Point(414, 27);
             this.lblStudentCourseRegister.Name = "lblStudentCourseRegister";
-            this.lblStudentCourseRegister.Size = new System.Drawing.Size(178, 20);
+            this.lblStudentCourseRegister.Size = new System.Drawing.Size(120, 13);
             this.lblStudentCourseRegister.TabIndex = 9;
             this.lblStudentCourseRegister.Text = "Please Select a Course:";
             // 
             // btnRegisterForCourses
             // 
-            this.btnRegisterForCourses.Location = new System.Drawing.Point(32, 136);
-            this.btnRegisterForCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRegisterForCourses.Location = new System.Drawing.Point(21, 88);
             this.btnRegisterForCourses.Name = "btnRegisterForCourses";
-            this.btnRegisterForCourses.Size = new System.Drawing.Size(188, 35);
+            this.btnRegisterForCourses.Size = new System.Drawing.Size(125, 23);
             this.btnRegisterForCourses.TabIndex = 6;
             this.btnRegisterForCourses.Text = "Register For Course(s)";
             this.btnRegisterForCourses.UseVisualStyleBackColor = true;
             // 
             // StudentViewForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1306, 845);
+            this.ClientSize = new System.Drawing.Size(871, 549);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStudentDisplayCoursesRegistered);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "StudentViewForm";
             this.Text = "Student Profile";
             this.Load += new System.EventHandler(this.StudentViewForm_Load);
