@@ -27,6 +27,8 @@ namespace Reg_A_Lot
         DataTable courseIDValues = new DataTable();
         DataTable studentsTable = new DataTable();
         DataTable gradesTable = new DataTable();
+        
+        
         public string userID { get; set; }
         public string userName { get; set; }
         
@@ -109,7 +111,8 @@ namespace Reg_A_Lot
 
         private void btnLoadCourses_Click(object sender, EventArgs e)
         {
-            coursesTable = database.Read("SELECT CourseID FROM Registrations WHERE StudentID=" + userID);
+            // coursesTable = database.Read("SELECT CourseID FROM Registrations WHERE StudentID=" + userID);
+            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID+ " AND IsActive='Y')");
             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
         }
