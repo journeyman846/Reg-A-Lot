@@ -21,8 +21,10 @@ namespace Reg_A_Lot
         StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
         DataTable registerCoursesTable = new DataTable();
-        DataTable registeringCoursesTable = new DataTable();
-        DataTable coursePrefixValues = new DataTable();
+        DataTable registeringCourses = new DataTable();
+        DataTable courseIDtransfer = new DataTable();
+        DataTable dropCourses = new DataTable();
+        DataTable courseIDValues = new DataTable();
         DataTable studentsTable = new DataTable();
         DataTable gradesTable = new DataTable();
         public string userID { get; set; }
@@ -51,19 +53,24 @@ namespace Reg_A_Lot
             txtAddress.Text = studentsTable.Rows[0][5].ToString();
             txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
 
+            registerCoursesTable = database.Read("SELECT * FROM Courses");
+            dgvCourseRegisterOrDrop.DataSource = registerCoursesTable;
+            dgvCourseRegisterOrDrop.RowHeadersVisible = false;
 
-            coursePrefixValues = database.Read("SELECT CoursePrefix FROM Courses");
+
+            courseIDValues = database.Read("SELECT ID FROM Courses");
             List<string> cpv = new List<string>();
             for (int y = 0; y <= 6; y++)
             {
                 
-                cpv.Add(coursePrefixValues.Rows[y][0].ToString());
+                cpv.Add(courseIDValues.Rows[y][0].ToString());
                 
             }
             
-            foreach (string prefix in cpv)
+            foreach (string ID in cpv)
             {
-                cbSelectCourse.Items.Add(prefix.ToString());
+                cbSelectCourse.Items.Add(ID.ToString());
+                cbDropCourses.Items.Add(ID.ToString());
             }
 
 
@@ -107,58 +114,39 @@ namespace Reg_A_Lot
             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
         }
 
-        //private void dgvCourseRegisterOrDrop_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    if(e.Button == MouseButtons.Left)
-        //    {
-        //        DataGridView.HitTestInfo info = dgvCourseRegisterOrDrop.HitTest(e.X, e.Y);
-        //        if (info.RowIndex >= 0)
-        //        {
-        //            if (info.RowIndex >= 0 && info.ColumnIndex >= 0)
-        //            {
-        //                string text = (string)
-        //                    dgvCourseRegisterOrDrop.Rows[info.RowIndex].Cells[info.ColumnIndex].Value;
-        //                if (text != null)
-        //                    dgvCourseRegisterOrDrop.DoDragDrop(text, DragDropEffects.Copy);
-        //            }
-        //        }
-
-
-        //    }
-
-
-        //}
-
-        //private void dgvRegisteringTable_DragDrop(object sender, DragEventArgs e)
-        //{
-        //    string cellvalue = e.Data.GetData(typeof(string)) as string;
-        //    Point cursorLocation = this.PointToClient(new Point(e.X, e.Y));
-
-        //    System.Windows.Forms.DataGridView.HitTestInfo hittest = dgvRegisteringTable.HitTest(cursorLocation.X, cursorLocation.Y);
-        //    if (hittest.ColumnIndex != -1
-        //        && hittest.RowIndex != -1)
-        //        dgvRegisteringTable[hittest.ColumnIndex, hittest.RowIndex].Value = cellvalue;
-        //}
-
-        //private void dgvRegisteringTable_DragEnter(object sender, DragEventArgs e)
-        //{
-        //    e.Effect = DragDropEffects.Copy;
-        //}
-
-        private void btnLoadCoursesAvailable_Click(object sender, EventArgs e)
+        private void btnRegisterForCourses_Click(object sender, EventArgs e)
         {
-            registerCoursesTable = database.Read("SELECT * FROM Courses");
-            dgvCourseRegisterOrDrop.DataSource = registerCoursesTable;
-            dgvCourseRegisterOrDrop.RowHeadersVisible = false;
+            registeringCourses = database.Read("SELECT ID FROM Courses");
+            courseIDtransfer = database.Read("SELECT CourseID FROM Registration");
 
-            
-
-            registeringCoursesTable = database.Read("SELECT CourseID FROM Registrations WHERE StudentID=" + userID);
-            dgvRegisteringTable.DataSource = registeringCoursesTable;
-            dgvRegisteringTable.RowHeadersVisible = false;
+            if(cbSelectCourse.Text == "230")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[1][0];
+            }
+            else if(cbSelectCourse.Text == "260")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[2][0];
+            }
+            else if (cbSelectCourse.Text == "270")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[3][0];
+            }
+            else if (cbSelectCourse.Text == "280")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[4][0];
+            }
+            else if (cbSelectCourse.Text == "290")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[5][0];
+            }
+            else if (cbSelectCourse.Text == "300")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[6][0];
+            }
+            else if(cbSelectCourse.Text == "320")
+            {
+                courseIDtransfer.Rows[1][0] = registeringCourses.Rows[7][0];
+            }
         }
-        
-
-        
     }
 }

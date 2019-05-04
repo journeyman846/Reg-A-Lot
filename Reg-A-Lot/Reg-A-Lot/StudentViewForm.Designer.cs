@@ -54,21 +54,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCourse1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dgvRegisteringTable = new System.Windows.Forms.DataGridView();
-            this.btnLoadCoursesAvailable = new System.Windows.Forms.Button();
+            this.cbDropCourses = new System.Windows.Forms.ComboBox();
+            this.cbSelectCourse = new System.Windows.Forms.ComboBox();
             this.btnDropCourses = new System.Windows.Forms.Button();
             this.dgvCourseRegisterOrDrop = new System.Windows.Forms.DataGridView();
             this.lblStudentCourseRegister = new System.Windows.Forms.Label();
             this.btnRegisterForCourses = new System.Windows.Forms.Button();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reg_dbDataSet = new Reg_A_Lot.reg_dbDataSet();
-            this.cbSelectCourse = new System.Windows.Forms.ComboBox();
             this.lblStudentDisplayCoursesRegistered.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentViewRegisteredCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewFinalGrades)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegisteringTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseRegisterOrDrop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
@@ -325,59 +322,43 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.dgvRegisteringTable);
-            this.groupBox1.Controls.Add(this.btnLoadCoursesAvailable);
+            this.groupBox1.Controls.Add(this.cbDropCourses);
+            this.groupBox1.Controls.Add(this.cbSelectCourse);
             this.groupBox1.Controls.Add(this.btnDropCourses);
             this.groupBox1.Controls.Add(this.dgvCourseRegisterOrDrop);
             this.groupBox1.Controls.Add(this.lblStudentCourseRegister);
             this.groupBox1.Controls.Add(this.btnRegisterForCourses);
             this.groupBox1.Location = new System.Drawing.Point(14, 425);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1216, 430);
+            this.groupBox1.Size = new System.Drawing.Size(1216, 372);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
             // 
-            // label9
+            // cbDropCourses
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(321, 216);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(591, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "**In order to drop a course, select the row you wish to drop, right click, and de" +
-    "lete** ";
+            this.cbDropCourses.FormattingEnabled = true;
+            this.cbDropCourses.Location = new System.Drawing.Point(914, 70);
+            this.cbDropCourses.Name = "cbDropCourses";
+            this.cbDropCourses.Size = new System.Drawing.Size(188, 28);
+            this.cbDropCourses.TabIndex = 15;
             // 
-            // dgvRegisteringTable
+            // cbSelectCourse
             // 
-            this.dgvRegisteringTable.AllowDrop = true;
-            this.dgvRegisteringTable.AllowUserToDeleteRows = false;
-            this.dgvRegisteringTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegisteringTable.Location = new System.Drawing.Point(693, 258);
-            this.dgvRegisteringTable.Name = "dgvRegisteringTable";
-            this.dgvRegisteringTable.RowTemplate.Height = 28;
-            this.dgvRegisteringTable.Size = new System.Drawing.Size(501, 157);
-            this.dgvRegisteringTable.TabIndex = 13;
-            // 
-            // btnLoadCoursesAvailable
-            // 
-            this.btnLoadCoursesAvailable.Location = new System.Drawing.Point(508, 35);
-            this.btnLoadCoursesAvailable.Name = "btnLoadCoursesAvailable";
-            this.btnLoadCoursesAvailable.Size = new System.Drawing.Size(228, 37);
-            this.btnLoadCoursesAvailable.TabIndex = 12;
-            this.btnLoadCoursesAvailable.Text = "Load Courses To Table";
-            this.btnLoadCoursesAvailable.UseVisualStyleBackColor = true;
-            this.btnLoadCoursesAvailable.Click += new System.EventHandler(this.btnLoadCoursesAvailable_Click);
+            this.cbSelectCourse.FormattingEnabled = true;
+            this.cbSelectCourse.Location = new System.Drawing.Point(698, 70);
+            this.cbSelectCourse.Name = "cbSelectCourse";
+            this.cbSelectCourse.Size = new System.Drawing.Size(196, 28);
+            this.cbSelectCourse.TabIndex = 6;
             // 
             // btnDropCourses
             // 
-            this.btnDropCourses.Location = new System.Drawing.Point(19, 116);
+            this.btnDropCourses.Location = new System.Drawing.Point(914, 106);
             this.btnDropCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDropCourses.Name = "btnDropCourses";
-            this.btnDropCourses.Size = new System.Drawing.Size(228, 35);
+            this.btnDropCourses.Size = new System.Drawing.Size(188, 43);
             this.btnDropCourses.TabIndex = 11;
-            this.btnDropCourses.Text = "Drop Course(s)";
+            this.btnDropCourses.Text = "Drop Course";
             this.btnDropCourses.UseVisualStyleBackColor = true;
             // 
             // dgvCourseRegisterOrDrop
@@ -385,34 +366,35 @@
             this.dgvCourseRegisterOrDrop.AllowUserToAddRows = false;
             this.dgvCourseRegisterOrDrop.AllowUserToDeleteRows = false;
             this.dgvCourseRegisterOrDrop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourseRegisterOrDrop.Location = new System.Drawing.Point(19, 258);
+            this.dgvCourseRegisterOrDrop.Location = new System.Drawing.Point(19, 70);
             this.dgvCourseRegisterOrDrop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCourseRegisterOrDrop.Name = "dgvCourseRegisterOrDrop";
             this.dgvCourseRegisterOrDrop.ReadOnly = true;
             this.dgvCourseRegisterOrDrop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(653, 157);
+            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(653, 271);
             this.dgvCourseRegisterOrDrop.TabIndex = 10;
             // 
             // lblStudentCourseRegister
             // 
             this.lblStudentCourseRegister.AutoSize = true;
-            this.lblStudentCourseRegister.Location = new System.Drawing.Point(229, 186);
+            this.lblStudentCourseRegister.Location = new System.Drawing.Point(64, 45);
             this.lblStudentCourseRegister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStudentCourseRegister.Name = "lblStudentCourseRegister";
-            this.lblStudentCourseRegister.Size = new System.Drawing.Size(811, 20);
+            this.lblStudentCourseRegister.Size = new System.Drawing.Size(553, 20);
             this.lblStudentCourseRegister.TabIndex = 9;
-            this.lblStudentCourseRegister.Text = "**Please Select a Course from the left table, drag and drop to the table to the r" +
-    "ight to register for selected course**";
+            this.lblStudentCourseRegister.Text = "**Please refer to the courses in this table and make your selction to the right**" +
+    "";
             // 
             // btnRegisterForCourses
             // 
-            this.btnRegisterForCourses.Location = new System.Drawing.Point(32, 55);
+            this.btnRegisterForCourses.Location = new System.Drawing.Point(698, 106);
             this.btnRegisterForCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegisterForCourses.Name = "btnRegisterForCourses";
-            this.btnRegisterForCourses.Size = new System.Drawing.Size(228, 35);
+            this.btnRegisterForCourses.Size = new System.Drawing.Size(196, 43);
             this.btnRegisterForCourses.TabIndex = 6;
-            this.btnRegisterForCourses.Text = "Register For Course(s)";
+            this.btnRegisterForCourses.Text = "Register For Course";
             this.btnRegisterForCourses.UseVisualStyleBackColor = true;
+            this.btnRegisterForCourses.Click += new System.EventHandler(this.btnRegisterForCourses_Click);
             // 
             // sectionsBindingSource
             // 
@@ -424,20 +406,11 @@
             this.reg_dbDataSet.DataSetName = "reg_dbDataSet";
             this.reg_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cbSelectCourse
-            // 
-            this.cbSelectCourse.FormattingEnabled = true;
-            this.cbSelectCourse.Location = new System.Drawing.Point(651, 883);
-            this.cbSelectCourse.Name = "cbSelectCourse";
-            this.cbSelectCourse.Size = new System.Drawing.Size(121, 28);
-            this.cbSelectCourse.TabIndex = 6;
-            // 
             // StudentViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1343, 1035);
-            this.Controls.Add(this.cbSelectCourse);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStudentDisplayCoursesRegistered);
             this.Name = "StudentViewForm";
@@ -449,7 +422,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewFinalGrades)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegisteringTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseRegisterOrDrop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).EndInit();
@@ -490,9 +462,7 @@
         private System.Windows.Forms.Button btnEditStudentInfo;
         private System.Windows.Forms.Button btnLoadGrades;
         private System.Windows.Forms.Button btnLoadCourses;
-        private System.Windows.Forms.Button btnLoadCoursesAvailable;
-        private System.Windows.Forms.DataGridView dgvRegisteringTable;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbSelectCourse;
+        private System.Windows.Forms.ComboBox cbDropCourses;
     }
 }
