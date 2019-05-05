@@ -155,9 +155,8 @@ namespace Reg_A_Lot
             {
                 if (cbDropCourse.SelectedItem.ToString() != null)
                 {
-                    coursesTable = database.Read("SELECT * FROM Registrations");
                     int courseID = int.Parse(cbDropCourse.SelectedItem.ToString());
-                    //database.InsertRegistration(courseID);
+                    database.DeleteRegistration(courseID);
                 }
             }
             else if (dialog == DialogResult.No)
