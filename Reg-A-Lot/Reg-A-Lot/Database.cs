@@ -204,6 +204,41 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
 
         }
+        public int InsertRegistration(int studentID, int courseID, string grade, bool isActive)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Registrations OUTPUT INSERTED.ID Values (@StudentID, @CourseID, @Grade, @IsActive)", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@StudentID", studentID);
+            sqlCommand.Parameters.AddWithValue("@CourseID", courseID);
+            sqlCommand.Parameters.AddWithValue("@Grade", grade);
+            sqlCommand.Parameters.AddWithValue("@IsActive", isActive);
+            var registrationID = (int)sqlCommand.ExecuteScalar();
+            return registrationID;
+
+        }
+
+        public void UpdateRegistration(int studentID, int courseID, string grade, bool isActive, int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Registrations Set StudentID=@StudentID, CourseID=@CourseID, Grade=@Grade, IsActive=@IsActive where ID=@id", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@StudentID", studentID);
+            sqlCommand.Parameters.AddWithValue("@CourseID", courseID);
+            sqlCommand.Parameters.AddWithValue("@Grade", grade);
+            sqlCommand.Parameters.AddWithValue("@IsActive", isActive);
+            sqlCommand.Parameters.AddWithValue("@ID", id);
+            sqlCommand.ExecuteScalar();
+        }
+        public void DeleteRegistration(int id)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
+            SqlCommand sqlCommand = new SqlCommand("DELETE from Registrations where ID=@ID", connection);
+            connection.Open();
+            sqlCommand.Parameters.AddWithValue("@ID", id);
+            sqlCommand.ExecuteScalar();
+
+        }
     }
     
 

@@ -17,6 +17,7 @@ namespace Reg_A_Lot
         DataTable courseTable = new DataTable();
         DataTable studentTable = new DataTable();
         DataTable professorTable = new DataTable();
+        DataTable registrationTable = new DataTable();
         SqlCommand cmd = new SqlCommand();
         public string userID { get; set; }
         public string userName { get; set; }
@@ -42,6 +43,7 @@ namespace Reg_A_Lot
             courseTable = database.Read("Select * From Courses");
             studentTable = database.Read("Select * From Students");
             professorTable = database.Read("Select * From Professors");
+            registrationTable = database.Read("Select * From Registrations");
             userGridView.DataSource = userTable;
             userGridView.RowHeadersVisible = false;
             courseGridView.DataSource = courseTable;
@@ -50,6 +52,8 @@ namespace Reg_A_Lot
             studentGridView.RowHeadersVisible = false;
             professorGridView.DataSource = professorTable;
             professorGridView.RowHeadersVisible = false;
+            regGridView.DataSource = registrationTable;
+            regGridView.RowHeadersVisible = false;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -541,6 +545,133 @@ namespace Reg_A_Lot
             }
 
             RefreshDataGrid();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            // Add Registration
+            var studentID = 0;
+            var courseID = 0;
+            var isActive = false;
+            if(regIsActiveBox.Text == "True")
+            {
+                isActive = true;
+            }
+            if (int.TryParse(regStudentIDBox.Text, out studentID))
+            {
+                if (int.TryParse(regCourseIDBox.Text, out courseID))
+                {
+                    database.InsertRegistration(studentID, courseID, regGradeBox.Text, isActive);
+
+                    MessageBox.Show("Registration added successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Course ID was invalid. Try Again.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Student ID was invalid. Try Again.");
+            }
+            RefreshDataGrid();
+            regStudentIDBox.Clear();
+            regCourseIDBox.Clear();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            var id = 0;
+            var studentID = 0;
+            var courseID = 0;
+            var isActive = false;
+
+            if (int.TryParse(regIDBox.Text, out id))
+            {
+                if (regIsActiveBox.Text == "True")
+                {
+                    isActive = true;
+                }
+                if (int.TryParse(regStudentIDBox.Text, out studentID))
+                {
+                    if (int.TryParse(regCourseIDBox.Text, out courseID))
+                    {
+                        database.UpdateRegistration(studentID, courseID, regGradeBox.Text, isActive, id);
+                        MessageBox.Show("Registration updated successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Course ID was invalid. Try Again.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Student ID was invalid. Try Again.");
+                }
+                RefreshDataGrid();
+                regStudentIDBox.Clear();
+                regCourseIDBox.Clear();
+            }
+        }
+  
+
+                private void button16_Click(object sender, EventArgs e)
+        {
+            // Delete Registration
+            var id = 0;
+            if (int.TryParse(regIDBox.Text, out id))
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete registration " + id + "?", "Delete Professor", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        database.DeleteRegistration(id);
+                        MessageBox.Show("Registraion " + id + " deleted successfully!");
+                        RefreshDataGrid();
+                        regIDBox.Clear();
+                        regStudentIDBox.Clear();
+                        regCourseIDBox.Clear();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
+
+
+            RefreshDataGrid();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            // Registraion search 
+            var id = 0;
+            if (int.TryParse(regIDBox.Text, out id))
+            {
+                try
+                {
+                    studentTable = database.Read("Select * From Registrations where ID='" + id + "'");
+                    regStudentIDBox.Text = registrationTable.Rows[0][1].ToString();
+                    regCourseIDBox.Text = registrationTable.Rows[0][2].ToString();
+                    regGradeBox.Text = registrationTable.Rows[0][3].ToString();
+                    regIsActiveBox.Text = studentTable.Rows[0][4].ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid ID number.");
+            }
         }
     }
 }
