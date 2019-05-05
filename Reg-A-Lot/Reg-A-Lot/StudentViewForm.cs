@@ -138,12 +138,15 @@ namespace Reg_A_Lot
         // Students Register for a Course
         private void btnRegisterForCourses_Click(object sender, EventArgs e)
         {
-            if (cbSelectCourse.SelectedItem.ToString() != null)
-            {
-                coursesTable = database.Read("SELECT * FROM Courses");
-                int courseID = int.Parse(cbSelectCourse.SelectedItem.ToString());
-                //database.InsertRegistration(courseID);
-            }
+            //if (cbSelectCourse.SelectedItem.ToString() != null)
+            //{
+            //    coursesTable = database.Read("SELECT * FROM Courses");
+            //    int courseID = int.Parse(cbSelectCourse.SelectedItem.ToString());
+            //    //database.InsertRegistration(courseID);
+            //}
+            var newUserID = int.Parse(userID);
+            var newCourseID = int.Parse(cbSelectCourse.Text);
+            database.InsertRegistration(newUserID, newCourseID, "", true);
         }
 
         // Students Drop a Course
