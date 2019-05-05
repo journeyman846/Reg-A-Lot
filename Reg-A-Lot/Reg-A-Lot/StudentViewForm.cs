@@ -144,8 +144,12 @@ namespace Reg_A_Lot
             //    int courseID = int.Parse(cbSelectCourse.SelectedItem.ToString());
             //    //database.InsertRegistration(courseID);
             //}
+            // Take userID and covert to int
             var newUserID = int.Parse(userID);
+            // Take courseID from the dropdown list and convert
             var newCourseID = int.Parse(cbSelectCourse.Text);
+            // Use insertRegistrtion method and supply the necessary parameters
+            // userID, courseID, Grade(none), isActive=True
             database.InsertRegistration(newUserID, newCourseID, "", true);
         }
 
