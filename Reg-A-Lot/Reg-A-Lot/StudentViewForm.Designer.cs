@@ -32,8 +32,8 @@
             this.lblStudentDisplayCoursesRegistered = new System.Windows.Forms.GroupBox();
             this.btnSaveStudentInfo = new System.Windows.Forms.Button();
             this.btnEditStudentInfo = new System.Windows.Forms.Button();
-            this.btnLoadGrades = new System.Windows.Forms.Button();
-            this.btnLoadCourses = new System.Windows.Forms.Button();
+            this.btnRefreshGrades = new System.Windows.Forms.Button();
+            this.btnRefreshCourses = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dgvStudentViewRegisteredCourses = new System.Windows.Forms.DataGridView();
@@ -54,9 +54,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCourse1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbDropCourses = new System.Windows.Forms.ComboBox();
+            this.cbDropCourse = new System.Windows.Forms.ComboBox();
             this.cbSelectCourse = new System.Windows.Forms.ComboBox();
-            this.btnDropCourses = new System.Windows.Forms.Button();
+            this.btnDropCourse = new System.Windows.Forms.Button();
             this.dgvCourseRegisterOrDrop = new System.Windows.Forms.DataGridView();
             this.lblStudentCourseRegister = new System.Windows.Forms.Label();
             this.btnRegisterForCourses = new System.Windows.Forms.Button();
@@ -75,8 +75,8 @@
             // 
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnSaveStudentInfo);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnEditStudentInfo);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnLoadGrades);
-            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnLoadCourses);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnRefreshGrades);
+            this.lblStudentDisplayCoursesRegistered.Controls.Add(this.btnRefreshCourses);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.label8);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.txtEmail);
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.dgvStudentViewRegisteredCourses);
@@ -123,25 +123,25 @@
             this.btnEditStudentInfo.UseVisualStyleBackColor = true;
             this.btnEditStudentInfo.Click += new System.EventHandler(this.btnEditStudentInfo_Click);
             // 
-            // btnLoadGrades
+            // btnRefreshGrades
             // 
-            this.btnLoadGrades.Location = new System.Drawing.Point(490, 353);
-            this.btnLoadGrades.Name = "btnLoadGrades";
-            this.btnLoadGrades.Size = new System.Drawing.Size(137, 48);
-            this.btnLoadGrades.TabIndex = 26;
-            this.btnLoadGrades.Text = "Load Grades";
-            this.btnLoadGrades.UseVisualStyleBackColor = true;
-            this.btnLoadGrades.Click += new System.EventHandler(this.btnLoadGrades_Click);
+            this.btnRefreshGrades.Location = new System.Drawing.Point(490, 353);
+            this.btnRefreshGrades.Name = "btnRefreshGrades";
+            this.btnRefreshGrades.Size = new System.Drawing.Size(137, 48);
+            this.btnRefreshGrades.TabIndex = 26;
+            this.btnRefreshGrades.Text = "Refresh Grades";
+            this.btnRefreshGrades.UseVisualStyleBackColor = true;
+            this.btnRefreshGrades.Click += new System.EventHandler(this.btnRefreshGrades_Click);
             // 
-            // btnLoadCourses
+            // btnRefreshCourses
             // 
-            this.btnLoadCourses.Location = new System.Drawing.Point(928, 352);
-            this.btnLoadCourses.Name = "btnLoadCourses";
-            this.btnLoadCourses.Size = new System.Drawing.Size(134, 48);
-            this.btnLoadCourses.TabIndex = 25;
-            this.btnLoadCourses.Text = "Load Courses";
-            this.btnLoadCourses.UseVisualStyleBackColor = true;
-            this.btnLoadCourses.Click += new System.EventHandler(this.btnLoadCourses_Click);
+            this.btnRefreshCourses.Location = new System.Drawing.Point(914, 352);
+            this.btnRefreshCourses.Name = "btnRefreshCourses";
+            this.btnRefreshCourses.Size = new System.Drawing.Size(169, 48);
+            this.btnRefreshCourses.TabIndex = 25;
+            this.btnRefreshCourses.Text = "Refresh Courses";
+            this.btnRefreshCourses.UseVisualStyleBackColor = true;
+            this.btnRefreshCourses.Click += new System.EventHandler(this.btnRefreshCourses_Click);
             // 
             // label8
             // 
@@ -322,9 +322,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbDropCourses);
+            this.groupBox1.Controls.Add(this.cbDropCourse);
             this.groupBox1.Controls.Add(this.cbSelectCourse);
-            this.groupBox1.Controls.Add(this.btnDropCourses);
+            this.groupBox1.Controls.Add(this.btnDropCourse);
             this.groupBox1.Controls.Add(this.dgvCourseRegisterOrDrop);
             this.groupBox1.Controls.Add(this.lblStudentCourseRegister);
             this.groupBox1.Controls.Add(this.btnRegisterForCourses);
@@ -335,13 +335,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
             // 
-            // cbDropCourses
+            // cbDropCourse
             // 
-            this.cbDropCourses.FormattingEnabled = true;
-            this.cbDropCourses.Location = new System.Drawing.Point(914, 70);
-            this.cbDropCourses.Name = "cbDropCourses";
-            this.cbDropCourses.Size = new System.Drawing.Size(188, 28);
-            this.cbDropCourses.TabIndex = 15;
+            this.cbDropCourse.FormattingEnabled = true;
+            this.cbDropCourse.Location = new System.Drawing.Point(914, 70);
+            this.cbDropCourse.Name = "cbDropCourse";
+            this.cbDropCourse.Size = new System.Drawing.Size(188, 28);
+            this.cbDropCourse.TabIndex = 15;
             // 
             // cbSelectCourse
             // 
@@ -351,15 +351,15 @@
             this.cbSelectCourse.Size = new System.Drawing.Size(196, 28);
             this.cbSelectCourse.TabIndex = 6;
             // 
-            // btnDropCourses
+            // btnDropCourse
             // 
-            this.btnDropCourses.Location = new System.Drawing.Point(914, 106);
-            this.btnDropCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDropCourses.Name = "btnDropCourses";
-            this.btnDropCourses.Size = new System.Drawing.Size(188, 43);
-            this.btnDropCourses.TabIndex = 11;
-            this.btnDropCourses.Text = "Drop Course";
-            this.btnDropCourses.UseVisualStyleBackColor = true;
+            this.btnDropCourse.Location = new System.Drawing.Point(914, 106);
+            this.btnDropCourse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDropCourse.Name = "btnDropCourse";
+            this.btnDropCourse.Size = new System.Drawing.Size(188, 43);
+            this.btnDropCourse.TabIndex = 11;
+            this.btnDropCourse.Text = "Drop Course";
+            this.btnDropCourse.UseVisualStyleBackColor = true;
             // 
             // dgvCourseRegisterOrDrop
             // 
@@ -455,14 +455,14 @@
         private System.Windows.Forms.Button btnRegisterForCourses;
         private System.Windows.Forms.DataGridView dgvStudentViewRegisteredCourses;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDropCourses;
+        private System.Windows.Forms.Button btnDropCourse;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnSaveStudentInfo;
         private System.Windows.Forms.Button btnEditStudentInfo;
-        private System.Windows.Forms.Button btnLoadGrades;
-        private System.Windows.Forms.Button btnLoadCourses;
+        private System.Windows.Forms.Button btnRefreshGrades;
+        private System.Windows.Forms.Button btnRefreshCourses;
         private System.Windows.Forms.ComboBox cbSelectCourse;
-        private System.Windows.Forms.ComboBox cbDropCourses;
+        private System.Windows.Forms.ComboBox cbDropCourse;
     }
 }
