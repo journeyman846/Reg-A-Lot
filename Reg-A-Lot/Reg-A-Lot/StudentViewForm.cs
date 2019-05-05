@@ -21,6 +21,7 @@ namespace Reg_A_Lot
         StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
         DataTable coursesFilledTable = new DataTable();
+        DataTable duplicateRegister = new DataTable();
         DataTable registerCoursesTable = new DataTable();
         DataTable registeringCourses = new DataTable();
         DataTable courseIDtransfer = new DataTable();
@@ -139,13 +140,31 @@ namespace Reg_A_Lot
         // Students Register for a Course
         private void btnRegisterForCourses_Click(object sender, EventArgs e)
         {
+            duplicateRegister = database.Read("SELECT CourseID FROM Registrations WHERE StudentID=" + userID);
             coursesFilledTable = database.Read("SELECT SeatsFilled FROM Courses");
             if (coursesFilledTable.Rows[0][0].ToString() == "20" || coursesFilledTable.Rows[1][0].ToString() == "15" ||
                 coursesFilledTable.Rows[2][0].ToString() == "33" || coursesFilledTable.Rows[3][0].ToString() == "20" ||
                 coursesFilledTable.Rows[4][0].ToString() == "15" || coursesFilledTable.Rows[5][0].ToString() == "19" || 
                 coursesFilledTable.Rows[6][0].ToString() == "20")
             {
+
+                // Displaying if seats are full
                 MessageBox.Show("You cannot register for this course, the seats are filled.");
+
+
+                for (int i = 0; i <= 6; i++)
+                {
+                    string duplicates = duplicateRegister.Rows[i][0].ToString();
+
+                    // checking for potential duplicates
+                    if(duplicates == "230" || duplicates == "260" || duplicates == "270" || 
+                       duplicates == "280" || duplicates == "290" || duplicates == "300" ||
+                       duplicates == "320")
+                    {
+                        // Displaying if they've registered that course already
+                        MessageBox.Show("You have already registered for this course.");
+                    }
+                }
             }
             else
             {
