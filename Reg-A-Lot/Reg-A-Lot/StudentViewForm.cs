@@ -64,9 +64,9 @@ namespace Reg_A_Lot
             gradesTable = database.Read("SELECT Grade FROM Registrations WHERE StudentID=" + userID);
             dgvViewFinalGrades.DataSource = gradesTable;
             dgvViewFinalGrades.RowHeadersVisible = false;
-
+            
             // Loads Registered Courses into the registered Courses table
-            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive='Y')");
+            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
 
@@ -130,7 +130,7 @@ namespace Reg_A_Lot
         private void btnRefreshCourses_Click(object sender, EventArgs e)
         {
             // Refreshing the Students Registered Courses
-            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive='Y')");
+            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
         }
