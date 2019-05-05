@@ -98,7 +98,7 @@
             this.lblStudentDisplayCoursesRegistered.Controls.Add(this.lblCourse1);
             this.lblStudentDisplayCoursesRegistered.Location = new System.Drawing.Point(14, 12);
             this.lblStudentDisplayCoursesRegistered.Name = "lblStudentDisplayCoursesRegistered";
-            this.lblStudentDisplayCoursesRegistered.Size = new System.Drawing.Size(1216, 408);
+            this.lblStudentDisplayCoursesRegistered.Size = new System.Drawing.Size(1337, 407);
             this.lblStudentDisplayCoursesRegistered.TabIndex = 0;
             this.lblStudentDisplayCoursesRegistered.TabStop = false;
             this.lblStudentDisplayCoursesRegistered.Text = "Student Profile";
@@ -125,7 +125,7 @@
             // 
             // btnRefreshGrades
             // 
-            this.btnRefreshGrades.Location = new System.Drawing.Point(490, 353);
+            this.btnRefreshGrades.Location = new System.Drawing.Point(452, 352);
             this.btnRefreshGrades.Name = "btnRefreshGrades";
             this.btnRefreshGrades.Size = new System.Drawing.Size(137, 48);
             this.btnRefreshGrades.TabIndex = 26;
@@ -135,9 +135,9 @@
             // 
             // btnRefreshCourses
             // 
-            this.btnRefreshCourses.Location = new System.Drawing.Point(914, 352);
+            this.btnRefreshCourses.Location = new System.Drawing.Point(863, 352);
             this.btnRefreshCourses.Name = "btnRefreshCourses";
-            this.btnRefreshCourses.Size = new System.Drawing.Size(169, 48);
+            this.btnRefreshCourses.Size = new System.Drawing.Size(188, 48);
             this.btnRefreshCourses.TabIndex = 25;
             this.btnRefreshCourses.Text = "Refresh Courses";
             this.btnRefreshCourses.UseVisualStyleBackColor = true;
@@ -164,16 +164,16 @@
             // 
             this.dgvStudentViewRegisteredCourses.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvStudentViewRegisteredCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudentViewRegisteredCourses.Location = new System.Drawing.Point(760, 48);
+            this.dgvStudentViewRegisteredCourses.Location = new System.Drawing.Point(645, 48);
             this.dgvStudentViewRegisteredCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvStudentViewRegisteredCourses.Name = "dgvStudentViewRegisteredCourses";
-            this.dgvStudentViewRegisteredCourses.Size = new System.Drawing.Size(434, 297);
+            this.dgvStudentViewRegisteredCourses.Size = new System.Drawing.Size(645, 299);
             this.dgvStudentViewRegisteredCourses.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(891, 23);
+            this.label1.Location = new System.Drawing.Point(859, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 20);
@@ -245,13 +245,13 @@
             this.dgvViewFinalGrades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvViewFinalGrades.Name = "dgvViewFinalGrades";
             this.dgvViewFinalGrades.ReadOnly = true;
-            this.dgvViewFinalGrades.Size = new System.Drawing.Size(231, 297);
+            this.dgvViewFinalGrades.Size = new System.Drawing.Size(157, 296);
             this.dgvViewFinalGrades.TabIndex = 19;
             // 
             // lblCourseGrades
             // 
             this.lblCourseGrades.AutoSize = true;
-            this.lblCourseGrades.Location = new System.Drawing.Point(477, 23);
+            this.lblCourseGrades.Location = new System.Drawing.Point(439, 23);
             this.lblCourseGrades.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCourseGrades.Name = "lblCourseGrades";
             this.lblCourseGrades.Size = new System.Drawing.Size(159, 20);
@@ -330,7 +330,7 @@
             this.groupBox1.Controls.Add(this.btnRegisterForCourses);
             this.groupBox1.Location = new System.Drawing.Point(14, 425);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1216, 372);
+            this.groupBox1.Size = new System.Drawing.Size(1337, 444);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
@@ -338,7 +338,7 @@
             // cbDropCourse
             // 
             this.cbDropCourse.FormattingEnabled = true;
-            this.cbDropCourse.Location = new System.Drawing.Point(914, 70);
+            this.cbDropCourse.Location = new System.Drawing.Point(1131, 54);
             this.cbDropCourse.Name = "cbDropCourse";
             this.cbDropCourse.Size = new System.Drawing.Size(188, 28);
             this.cbDropCourse.TabIndex = 15;
@@ -346,14 +346,14 @@
             // cbSelectCourse
             // 
             this.cbSelectCourse.FormattingEnabled = true;
-            this.cbSelectCourse.Location = new System.Drawing.Point(698, 70);
+            this.cbSelectCourse.Location = new System.Drawing.Point(915, 54);
             this.cbSelectCourse.Name = "cbSelectCourse";
             this.cbSelectCourse.Size = new System.Drawing.Size(196, 28);
             this.cbSelectCourse.TabIndex = 6;
             // 
             // btnDropCourse
             // 
-            this.btnDropCourse.Location = new System.Drawing.Point(914, 106);
+            this.btnDropCourse.Location = new System.Drawing.Point(1131, 90);
             this.btnDropCourse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDropCourse.Name = "btnDropCourse";
             this.btnDropCourse.Size = new System.Drawing.Size(188, 43);
@@ -366,18 +366,18 @@
             this.dgvCourseRegisterOrDrop.AllowUserToAddRows = false;
             this.dgvCourseRegisterOrDrop.AllowUserToDeleteRows = false;
             this.dgvCourseRegisterOrDrop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourseRegisterOrDrop.Location = new System.Drawing.Point(19, 70);
+            this.dgvCourseRegisterOrDrop.Location = new System.Drawing.Point(7, 61);
             this.dgvCourseRegisterOrDrop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCourseRegisterOrDrop.Name = "dgvCourseRegisterOrDrop";
             this.dgvCourseRegisterOrDrop.ReadOnly = true;
             this.dgvCourseRegisterOrDrop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(653, 271);
+            this.dgvCourseRegisterOrDrop.Size = new System.Drawing.Size(876, 271);
             this.dgvCourseRegisterOrDrop.TabIndex = 10;
             // 
             // lblStudentCourseRegister
             // 
             this.lblStudentCourseRegister.AutoSize = true;
-            this.lblStudentCourseRegister.Location = new System.Drawing.Point(64, 45);
+            this.lblStudentCourseRegister.Location = new System.Drawing.Point(26, 36);
             this.lblStudentCourseRegister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStudentCourseRegister.Name = "lblStudentCourseRegister";
             this.lblStudentCourseRegister.Size = new System.Drawing.Size(553, 20);
@@ -387,7 +387,7 @@
             // 
             // btnRegisterForCourses
             // 
-            this.btnRegisterForCourses.Location = new System.Drawing.Point(698, 106);
+            this.btnRegisterForCourses.Location = new System.Drawing.Point(915, 90);
             this.btnRegisterForCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegisterForCourses.Name = "btnRegisterForCourses";
             this.btnRegisterForCourses.Size = new System.Drawing.Size(196, 43);
@@ -410,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1343, 1035);
+            this.ClientSize = new System.Drawing.Size(1718, 1050);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStudentDisplayCoursesRegistered);
             this.Name = "StudentViewForm";

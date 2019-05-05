@@ -20,6 +20,7 @@ namespace Reg_A_Lot
         Student studentConnect = new Student();
         StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
+        DataTable coursesFilledTable = new DataTable();
         DataTable registerCoursesTable = new DataTable();
         DataTable registeringCourses = new DataTable();
         DataTable courseIDtransfer = new DataTable();
@@ -64,7 +65,7 @@ namespace Reg_A_Lot
             gradesTable = database.Read("SELECT Grade FROM Registrations WHERE StudentID=" + userID);
             dgvViewFinalGrades.DataSource = gradesTable;
             dgvViewFinalGrades.RowHeadersVisible = false;
-            
+
             // Loads Registered Courses into the registered Courses table
             coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
@@ -138,19 +139,20 @@ namespace Reg_A_Lot
         // Students Register for a Course
         private void btnRegisterForCourses_Click(object sender, EventArgs e)
         {
-            //if (cbSelectCourse.SelectedItem.ToString() != null)
-            //{
-            //    coursesTable = database.Read("SELECT * FROM Courses");
-            //    int courseID = int.Parse(cbSelectCourse.SelectedItem.ToString());
-            //    //database.InsertRegistration(courseID);
-            //}
-            // Take userID and covert to int
-            var newUserID = int.Parse(userID);
-            // Take courseID from the dropdown list and convert
-            var newCourseID = int.Parse(cbSelectCourse.Text);
-            // Use insertRegistrtion method and supply the necessary parameters
-            // userID, courseID, Grade(none), isActive=True
-            database.InsertRegistration(newUserID, newCourseID, "", true);
+            coursesFilledTable = database.Read("SELECT SeatsFilled FROM Courses");
+            if (coursesFilledTable.Rows[0][0].ToString() == "20" || coursesFilledTable.Rows[1][0].ToString() == "15" ||
+                coursesFilledTable.Rows[2][0].ToString() == "33" || coursesFilledTable.Rows[3][0].ToString() == "20" ||
+                coursesFilledTable.Rows[4][0].ToString() == "15" || coursesFilledTable.Rows[5][0].ToString() == "19" || 
+                coursesFilledTable.Rows[6][0].ToString() == "20")
+            {
+                MessageBox.Show("You cannot register for this course, the seats are filled.");
+            }
+            else
+            {
+                var newUserID = int.Parse(userID);
+                var newCourseID = int.Parse(cbSelectCourse.Text);
+                database.InsertRegistration(newUserID, newCourseID, "", true);
+            }
         }
 
         // Students Drop a Course
