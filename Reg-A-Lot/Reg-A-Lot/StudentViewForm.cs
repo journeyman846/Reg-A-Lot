@@ -140,42 +140,55 @@ namespace Reg_A_Lot
         // Students Register for a Course
         private void btnRegisterForCourses_Click(object sender, EventArgs e)
         {
+            var duplicates = "";
+            var newUserID = int.Parse(userID);
+            var newCourseID = int.Parse(cbSelectCourse.Text);
+            bool found = false;
             duplicateRegister = database.Read("SELECT CourseID FROM Registrations WHERE StudentID=" + userID);
-            coursesFilledTable = database.Read("SELECT SeatsFilled FROM Courses");
-            if (coursesFilledTable.Rows[0][0].ToString() == "20" || coursesFilledTable.Rows[1][0].ToString() == "15" ||
-                coursesFilledTable.Rows[2][0].ToString() == "33" || coursesFilledTable.Rows[3][0].ToString() == "20" ||
-                coursesFilledTable.Rows[4][0].ToString() == "15" || coursesFilledTable.Rows[5][0].ToString() == "19" || 
-                coursesFilledTable.Rows[6][0].ToString() == "20")
+            coursesFilledTable = database.Read("SELECT * FROM Courses WHERE ID=" + newCourseID);
+
             {
-
-                // Displaying if seats are full
-                MessageBox.Show("You cannot register for this course, the seats are filled.");
-
-
-                for (int i = 0; i <= 6; i++)
+                // Check if the Seat and Seats filled are equal
+                if (int.Parse(coursesFilledTable.Rows[0][5].ToString()) == int.Parse(coursesFilledTable.Rows[0][8].ToString()))
                 {
-                    string duplicates = duplicateRegister.Rows[i][0].ToString();
+                    // Displaying if seats are full
+                    MessageBox.Show("You cannot register for this course, the seats are filled.");
+                }
 
-                    // checking for potential duplicates
-                    if(duplicates == "230" || duplicates == "260" || duplicates == "270" || 
-                       duplicates == "280" || duplicates == "290" || duplicates == "300" ||
-                       duplicates == "320")
+                else
+                {
+                    // Steps through each row of the returned course the student is reg for
+                    for (int i = 0; i < duplicateRegister.Rows.Count; i++)
                     {
-                        // Displaying if they've registered that course already
+                        duplicates = duplicateRegister.Rows[i][0].ToString();
+
+                        // Check if the course from the dropdown is in the list of reg courses
+                        if (cbSelectCourse.Text == duplicates)
+                        {
+                            // As soon as a match is found the loop breaks and returns found=true
+                            found = true;
+                            break;
+                        }
+                        
+                    }
+                    // This will run if a match was not found in the for each loop
+                    if (found == false)
+                    {
+                        database.InsertRegistration(newUserID, newCourseID, "", true);
+                    }
+                    else
+                    {
                         MessageBox.Show("You have already registered for this course.");
                     }
+
+
                 }
-            }
-            else
-            {
-                var newUserID = int.Parse(userID);
-                var newCourseID = int.Parse(cbSelectCourse.Text);
-                database.InsertRegistration(newUserID, newCourseID, "", true);
+
             }
         }
 
         // Students Drop a Course
-        private void btnDropCourses_Click(object sender, EventArgs e)
+        private void btnDropCourse_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Are you sure you want to drop this course?",
                                   "Drop Course", MessageBoxButtons.YesNo);

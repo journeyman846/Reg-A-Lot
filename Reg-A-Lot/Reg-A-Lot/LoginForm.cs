@@ -86,8 +86,15 @@ namespace Reg_A_Lot
                 MessageBox.Show("Could not connect to the database. Try again later.");
             }
         }
-        
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentForm studentForm = new StudentForm();
+            this.Hide();
+            studentForm.Show();
+
         }
+    }
 
    
     }
