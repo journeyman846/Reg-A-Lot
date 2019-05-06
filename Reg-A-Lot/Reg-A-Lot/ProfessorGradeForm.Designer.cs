@@ -30,41 +30,41 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblProfessorDisplayCoursesTaught = new System.Windows.Forms.GroupBox();
+            this.lblProfessorCourses = new System.Windows.Forms.Label();
+            this.btnDropCourse = new System.Windows.Forms.Button();
+            this.btnLoadCourses = new System.Windows.Forms.Button();
+            this.lblProfessorID = new System.Windows.Forms.Label();
+            this.txtProfessorID = new System.Windows.Forms.TextBox();
+            this.dgvCoursesBeingTaught = new System.Windows.Forms.DataGridView();
             this.reg_dbDataSet = new Reg_A_Lot.reg_dbDataSet();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblProfessorID = new System.Windows.Forms.Label();
-            this.lblProfessorCourses = new System.Windows.Forms.Label();
             this.btnLoadSubmissions = new System.Windows.Forms.Button();
             this.lblCurrentAssignments = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lnlStudentID = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.lblEarnedPoints = new System.Windows.Forms.Label();
-            this.lblStudentLookup = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitGrade = new System.Windows.Forms.Button();
-            this.btnLoadCourses = new System.Windows.Forms.Button();
-            this.btnDropCourse = new System.Windows.Forms.Button();
+            this.dgvAddFinalGrades = new System.Windows.Forms.DataGridView();
+            this.lblEarnedPoints = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lblStudentLookup = new System.Windows.Forms.Label();
+            this.lnlStudentID = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbDropCourse = new System.Windows.Forms.ComboBox();
             this.lblProfessorDisplayCoursesTaught.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesBeingTaught)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.lblCurrentAssignments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddFinalGrades)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProfessorDisplayCoursesTaught
             // 
+            this.lblProfessorDisplayCoursesTaught.Controls.Add(this.cbDropCourse);
             this.lblProfessorDisplayCoursesTaught.Controls.Add(this.lblProfessorCourses);
             this.lblProfessorDisplayCoursesTaught.Controls.Add(this.btnDropCourse);
             this.lblProfessorDisplayCoursesTaught.Controls.Add(this.btnLoadCourses);
             this.lblProfessorDisplayCoursesTaught.Controls.Add(this.lblProfessorID);
-            this.lblProfessorDisplayCoursesTaught.Controls.Add(this.textBox1);
-            this.lblProfessorDisplayCoursesTaught.Controls.Add(this.dataGridView1);
+            this.lblProfessorDisplayCoursesTaught.Controls.Add(this.txtProfessorID);
+            this.lblProfessorDisplayCoursesTaught.Controls.Add(this.dgvCoursesBeingTaught);
             this.lblProfessorDisplayCoursesTaught.Location = new System.Drawing.Point(12, 12);
             this.lblProfessorDisplayCoursesTaught.Name = "lblProfessorDisplayCoursesTaught";
             this.lblProfessorDisplayCoursesTaught.Size = new System.Drawing.Size(715, 278);
@@ -72,32 +72,34 @@
             this.lblProfessorDisplayCoursesTaught.TabStop = false;
             this.lblProfessorDisplayCoursesTaught.Text = "Course Lookup";
             // 
-            // reg_dbDataSet
+            // lblProfessorCourses
             // 
-            this.reg_dbDataSet.DataSetName = "reg_dbDataSet";
-            this.reg_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.lblProfessorCourses.AutoSize = true;
+            this.lblProfessorCourses.Location = new System.Drawing.Point(417, 25);
+            this.lblProfessorCourses.Name = "lblProfessorCourses";
+            this.lblProfessorCourses.Size = new System.Drawing.Size(121, 13);
+            this.lblProfessorCourses.TabIndex = 3;
+            this.lblProfessorCourses.Text = "Course(s) Being Taught:";
             // 
-            // sectionsBindingSource
+            // btnDropCourse
             // 
-            this.sectionsBindingSource.DataMember = "Sections";
-            this.sectionsBindingSource.DataSource = this.reg_dbDataSet;
+            this.btnDropCourse.Location = new System.Drawing.Point(67, 219);
+            this.btnDropCourse.Name = "btnDropCourse";
+            this.btnDropCourse.Size = new System.Drawing.Size(106, 31);
+            this.btnDropCourse.TabIndex = 4;
+            this.btnDropCourse.Text = "Drop Course";
+            this.btnDropCourse.UseVisualStyleBackColor = true;
+            this.btnDropCourse.Click += new System.EventHandler(this.btnLoadSubmissions_Click);
             // 
-            // dataGridView1
+            // btnLoadCourses
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.reg_dbDataSet;
-            this.dataGridView1.Location = new System.Drawing.Point(264, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(410, 209);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(114, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.btnLoadCourses.Location = new System.Drawing.Point(67, 97);
+            this.btnLoadCourses.Name = "btnLoadCourses";
+            this.btnLoadCourses.Size = new System.Drawing.Size(106, 31);
+            this.btnLoadCourses.TabIndex = 4;
+            this.btnLoadCourses.Text = "Load Courses";
+            this.btnLoadCourses.UseVisualStyleBackColor = true;
+            this.btnLoadCourses.Click += new System.EventHandler(this.btnLoadSubmissions_Click);
             // 
             // lblProfessorID
             // 
@@ -108,14 +110,32 @@
             this.lblProfessorID.TabIndex = 2;
             this.lblProfessorID.Text = "Professor ID:";
             // 
-            // lblProfessorCourses
+            // txtProfessorID
             // 
-            this.lblProfessorCourses.AutoSize = true;
-            this.lblProfessorCourses.Location = new System.Drawing.Point(417, 25);
-            this.lblProfessorCourses.Name = "lblProfessorCourses";
-            this.lblProfessorCourses.Size = new System.Drawing.Size(121, 13);
-            this.lblProfessorCourses.TabIndex = 3;
-            this.lblProfessorCourses.Text = "Course(s) Being Taught:";
+            this.txtProfessorID.Location = new System.Drawing.Point(114, 60);
+            this.txtProfessorID.Name = "txtProfessorID";
+            this.txtProfessorID.Size = new System.Drawing.Size(100, 20);
+            this.txtProfessorID.TabIndex = 1;
+            // 
+            // dgvCoursesBeingTaught
+            // 
+            this.dgvCoursesBeingTaught.AutoGenerateColumns = false;
+            this.dgvCoursesBeingTaught.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCoursesBeingTaught.DataSource = this.reg_dbDataSet;
+            this.dgvCoursesBeingTaught.Location = new System.Drawing.Point(264, 41);
+            this.dgvCoursesBeingTaught.Name = "dgvCoursesBeingTaught";
+            this.dgvCoursesBeingTaught.Size = new System.Drawing.Size(410, 209);
+            this.dgvCoursesBeingTaught.TabIndex = 0;
+            // 
+            // reg_dbDataSet
+            // 
+            this.reg_dbDataSet.DataSetName = "reg_dbDataSet";
+            this.reg_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.reg_dbDataSet;
             // 
             // btnLoadSubmissions
             // 
@@ -131,9 +151,7 @@
             // 
             this.lblCurrentAssignments.Controls.Add(this.btnSubmitGrade);
             this.lblCurrentAssignments.Controls.Add(this.btnLoadSubmissions);
-            this.lblCurrentAssignments.Controls.Add(this.dataGridView2);
-            this.lblCurrentAssignments.Controls.Add(this.label1);
-            this.lblCurrentAssignments.Controls.Add(this.textBox4);
+            this.lblCurrentAssignments.Controls.Add(this.dgvAddFinalGrades);
             this.lblCurrentAssignments.Controls.Add(this.lblEarnedPoints);
             this.lblCurrentAssignments.Controls.Add(this.textBox3);
             this.lblCurrentAssignments.Controls.Add(this.lblStudentLookup);
@@ -146,45 +164,39 @@
             this.lblCurrentAssignments.TabStop = false;
             this.lblCurrentAssignments.Text = "Course Assignments";
             // 
-            // dataGridView2
+            // btnSubmitGrade
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(238, 44);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(436, 220);
-            this.dataGridView2.TabIndex = 0;
+            this.btnSubmitGrade.Location = new System.Drawing.Point(67, 196);
+            this.btnSubmitGrade.Name = "btnSubmitGrade";
+            this.btnSubmitGrade.Size = new System.Drawing.Size(106, 31);
+            this.btnSubmitGrade.TabIndex = 4;
+            this.btnSubmitGrade.Text = "Submit Grade";
+            this.btnSubmitGrade.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // dgvAddFinalGrades
             // 
-            this.textBox2.Location = new System.Drawing.Point(114, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // lnlStudentID
-            // 
-            this.lnlStudentID.AutoSize = true;
-            this.lnlStudentID.Location = new System.Drawing.Point(21, 58);
-            this.lnlStudentID.Name = "lnlStudentID";
-            this.lnlStudentID.Size = new System.Drawing.Size(61, 13);
-            this.lnlStudentID.TabIndex = 2;
-            this.lnlStudentID.Text = "Student ID:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(114, 148);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
+            this.dgvAddFinalGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAddFinalGrades.Location = new System.Drawing.Point(238, 44);
+            this.dgvAddFinalGrades.Name = "dgvAddFinalGrades";
+            this.dgvAddFinalGrades.Size = new System.Drawing.Size(436, 220);
+            this.dgvAddFinalGrades.TabIndex = 0;
             // 
             // lblEarnedPoints
             // 
             this.lblEarnedPoints.AutoSize = true;
-            this.lblEarnedPoints.Location = new System.Drawing.Point(21, 151);
+            this.lblEarnedPoints.Location = new System.Drawing.Point(21, 156);
             this.lblEarnedPoints.Name = "lblEarnedPoints";
-            this.lblEarnedPoints.Size = new System.Drawing.Size(73, 13);
+            this.lblEarnedPoints.Size = new System.Drawing.Size(76, 13);
             this.lblEarnedPoints.TabIndex = 2;
-            this.lblEarnedPoints.Text = "Earned Points";
+            this.lblEarnedPoints.Text = "Earned Grade:";
+            this.lblEarnedPoints.Click += new System.EventHandler(this.lblEarnedPoints_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(114, 153);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 1;
             // 
             // lblStudentLookup
             // 
@@ -195,50 +207,29 @@
             this.lblStudentLookup.TabIndex = 2;
             this.lblStudentLookup.Text = "Student Lookup:";
             // 
-            // textBox4
+            // lnlStudentID
             // 
-            this.textBox4.Location = new System.Drawing.Point(114, 177);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 1;
+            this.lnlStudentID.AutoSize = true;
+            this.lnlStudentID.Location = new System.Drawing.Point(21, 58);
+            this.lnlStudentID.Name = "lnlStudentID";
+            this.lnlStudentID.Size = new System.Drawing.Size(61, 13);
+            this.lnlStudentID.TabIndex = 2;
+            this.lnlStudentID.Text = "Student ID:";
             // 
-            // label1
+            // textBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Total Points:";
+            this.textBox2.Location = new System.Drawing.Point(114, 55);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
             // 
-            // btnSubmitGrade
+            // cbDropCourse
             // 
-            this.btnSubmitGrade.Location = new System.Drawing.Point(67, 210);
-            this.btnSubmitGrade.Name = "btnSubmitGrade";
-            this.btnSubmitGrade.Size = new System.Drawing.Size(106, 31);
-            this.btnSubmitGrade.TabIndex = 4;
-            this.btnSubmitGrade.Text = "Submit Grade";
-            this.btnSubmitGrade.UseVisualStyleBackColor = true;
-            // 
-            // btnLoadCourses
-            // 
-            this.btnLoadCourses.Location = new System.Drawing.Point(67, 97);
-            this.btnLoadCourses.Name = "btnLoadCourses";
-            this.btnLoadCourses.Size = new System.Drawing.Size(106, 31);
-            this.btnLoadCourses.TabIndex = 4;
-            this.btnLoadCourses.Text = "Load Courses";
-            this.btnLoadCourses.UseVisualStyleBackColor = true;
-            this.btnLoadCourses.Click += new System.EventHandler(this.btnLoadSubmissions_Click);
-            // 
-            // btnDropCourse
-            // 
-            this.btnDropCourse.Location = new System.Drawing.Point(67, 219);
-            this.btnDropCourse.Name = "btnDropCourse";
-            this.btnDropCourse.Size = new System.Drawing.Size(106, 31);
-            this.btnDropCourse.TabIndex = 4;
-            this.btnDropCourse.Text = "Drop Course";
-            this.btnDropCourse.UseVisualStyleBackColor = true;
-            this.btnDropCourse.Click += new System.EventHandler(this.btnLoadSubmissions_Click);
+            this.cbDropCourse.FormattingEnabled = true;
+            this.cbDropCourse.Location = new System.Drawing.Point(67, 174);
+            this.cbDropCourse.Name = "cbDropCourse";
+            this.cbDropCourse.Size = new System.Drawing.Size(106, 21);
+            this.cbDropCourse.TabIndex = 5;
             // 
             // ProfessorGradeForm
             // 
@@ -252,12 +243,12 @@
             this.Text = "ProfessorGradeForm";
             this.lblProfessorDisplayCoursesTaught.ResumeLayout(false);
             this.lblProfessorDisplayCoursesTaught.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesBeingTaught)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.lblCurrentAssignments.ResumeLayout(false);
             this.lblCurrentAssignments.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddFinalGrades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,22 +258,21 @@
         private System.Windows.Forms.GroupBox lblProfessorDisplayCoursesTaught;
         private reg_dbDataSet reg_dbDataSet;
         private System.Windows.Forms.BindingSource sectionsBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCoursesBeingTaught;
         private System.Windows.Forms.Label lblProfessorCourses;
         private System.Windows.Forms.Label lblProfessorID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtProfessorID;
         private System.Windows.Forms.Button btnLoadSubmissions;
         private System.Windows.Forms.GroupBox lblCurrentAssignments;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvAddFinalGrades;
         private System.Windows.Forms.Label lblEarnedPoints;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label lnlStudentID;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblStudentLookup;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnSubmitGrade;
         private System.Windows.Forms.Button btnLoadCourses;
         private System.Windows.Forms.Button btnDropCourse;
+        private System.Windows.Forms.ComboBox cbDropCourse;
     }
 }
