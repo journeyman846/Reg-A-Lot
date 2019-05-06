@@ -181,6 +181,10 @@ namespace Reg_A_Lot
                         MessageBox.Show("You have already registered for this course.");
                     }
 
+                    // Refreshes the CoursesRegistered Table
+                    coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+                    dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+                    dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
 
                 }
 
@@ -196,8 +200,28 @@ namespace Reg_A_Lot
             {
                 if (cbDropCourse.SelectedItem.ToString() != null)
                 {
-                    int courseID = int.Parse(cbDropCourse.SelectedItem.ToString());
-                    database.DeleteRegistration(courseID);
+                    string courseID = cbDropCourse.SelectedItem.ToString();
+                    dropCourses = database.Read("SELECT ID FROM Registrations WHERE CourseID=" + courseID);
+                    for (int i = 0; i < dropCourses.Rows.Count; i++)
+                    {
+                        string IDValues = dropCourses.Rows[i][0].ToString();
+
+                        if (IDValues == courseID.ToString())
+                        {
+                            MessageBox.Show(IDValues);
+                            int ID = int.Parse(IDValues);
+                            database.DeleteRegistration(ID);
+                        }
+                    }
+                    //MessageBox.Show(courseID.ToString());
+                    //int id = int.Parse(dropCourses.ToString());
+                    //database.DeleteRegistration(id);
+                    //database.DeleteRegistration(courseID);
+
+                    // Refreshes the CoursesRegisteredTable
+                    coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+                    dgvStudentViewRegisteredCourses.DataSource = coursesTable;
+                    dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
                 }
             }
             else if (dialog == DialogResult.No)
