@@ -50,6 +50,7 @@ namespace Reg_A_Lot
             txtStudentID.Text = userID;
             studentsTable = database.Read("SELECT * FROM Students WHERE ID=" + userID);
 
+            // Polulating the textbox with students informations from the database
             txtFirstName.Text = studentsTable.Rows[0][1].ToString();
             txtLastName.Text = studentsTable.Rows[0][2].ToString();
             txtAge.Text = studentsTable.Rows[0][3].ToString();
@@ -194,8 +195,11 @@ namespace Reg_A_Lot
         // Students Drop a Course
         private void btnDropCourse_Click(object sender, EventArgs e)
         {
+            // Asking the user if they are sure they want to drop selected course
             DialogResult dialog = MessageBox.Show("Are you sure you want to drop this course?",
                                   "Drop Course", MessageBoxButtons.YesNo);
+
+            // Depending on the user's selection will be the outcome of this code
             if (dialog == DialogResult.Yes)
             {
                 if (cbDropCourse.SelectedItem.ToString() != null)
@@ -210,7 +214,7 @@ namespace Reg_A_Lot
                         // The actual pulling from the ID Values
                         string IDValues = dropCourses.Rows[i][0].ToString();
 
-                        // Checking if IdValues and CourseID are a match to select correct course to drop
+                        // Checking if IDValues and CourseID are a match to select correct course to drop
                         if (IDValues == IDValues && courseID == courseID)
                         {
                             // Parsing and deleting of the specified course
