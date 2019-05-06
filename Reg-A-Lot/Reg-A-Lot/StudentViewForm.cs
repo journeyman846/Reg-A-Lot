@@ -205,10 +205,9 @@ namespace Reg_A_Lot
                     for (int i = 0; i < dropCourses.Rows.Count; i++)
                     {
                         string IDValues = dropCourses.Rows[i][0].ToString();
-
+                        MessageBox.Show(IDValues);
                         if (IDValues == courseID.ToString())
                         {
-                            MessageBox.Show(IDValues);
                             int ID = int.Parse(IDValues);
                             database.DeleteRegistration(ID);
                         }
