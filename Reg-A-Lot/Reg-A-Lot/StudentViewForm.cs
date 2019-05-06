@@ -77,10 +77,10 @@ namespace Reg_A_Lot
             // to the student
             courseIDValues = database.Read("SELECT ID FROM Courses");
             List<string> cpv = new List<string>();
-            for (int y = 0; y <= 6; y++)
+            for (int i = 0; i < courseIDValues.Rows.Count; i++)
             {
 
-                cpv.Add(courseIDValues.Rows[y][0].ToString());
+                cpv.Add(courseIDValues.Rows[i][0].ToString());
 
             }
 
