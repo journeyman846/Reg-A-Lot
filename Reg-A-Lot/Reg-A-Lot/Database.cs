@@ -94,7 +94,7 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
             
         }
-        public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
+        public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
             SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CoursePrefix, @CourseNumber, @CourseName, @Times, @Seats, @Professor)", connection);
@@ -105,10 +105,11 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Times", courseTimes);
             sqlCommand.Parameters.AddWithValue("@Seats", courseSeats);
             sqlCommand.Parameters.AddWithValue("@Professor", professor);
+            sqlCommand.Parameters.AddWithValue("@Price", price);
             sqlCommand.ExecuteScalar();
 
         }
-        public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor)
+        public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
             SqlCommand sqlCommand = new SqlCommand("UPDATE Courses Set CoursePrefix=@CoursePrefix, CourseNumber=@CourseNumber, CourseName=@CourseName, Times=@Times, Seats=@Seats, Professor=@Professor where ID=@ID", connection);
@@ -119,6 +120,7 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Times", courseTimes);
             sqlCommand.Parameters.AddWithValue("@Seats", courseSeats);
             sqlCommand.Parameters.AddWithValue("@Professor", professor);
+            sqlCommand.Parameters.AddWithValue("@Price", price);
             connection.Open();
             sqlCommand.ExecuteScalar();
         }

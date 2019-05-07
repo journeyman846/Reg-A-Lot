@@ -28,7 +28,7 @@ namespace Reg_A_Lot
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
             try
             {

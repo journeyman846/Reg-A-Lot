@@ -26,13 +26,13 @@ namespace Reg_A_Lot
 
         public AdminForm()
         {
-           
+
             InitializeComponent();
             RefreshDataGrid();
             // The below code populates the drop down for the courses form
-            CourseProfessorBox.DataSource = professorTable;
-            CourseProfessorBox.ValueMember = "ID";
-            CourseProfessorBox.DisplayMember = "LastName";
+            courseProfessorBox.DataSource = professorTable;
+            courseProfessorBox.ValueMember = "ID";
+            courseProfessorBox.DisplayMember = "LastName";
 
         }
         private void RefreshDataGrid()
@@ -44,8 +44,10 @@ namespace Reg_A_Lot
             studentTable = database.Read("Select * From Students");
             professorTable = database.Read("Select * From Professors");
             registrationTable = database.Read("Select * From Registrations");
+
             userGridView.DataSource = userTable;
             userGridView.RowHeadersVisible = false;
+            userGridView.ClearSelection();
             courseGridView.DataSource = courseTable;
             courseGridView.RowHeadersVisible = false;
             studentGridView.DataSource = studentTable;
@@ -56,7 +58,7 @@ namespace Reg_A_Lot
             regGridView.RowHeadersVisible = false;
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void searchUserButton_Click(object sender, EventArgs e)
         {
             // Search for user
 
@@ -83,19 +85,21 @@ namespace Reg_A_Lot
 
 
         }
-        
-        private void button1_Click(object sender, EventArgs e)
+
+        private void addUserButton_Click(object sender, EventArgs e)
         {
-            database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text, 0 , 0);
+            // Add a user
+            database.InsertUser(usernameBox.Text, passwordBox.Text, roleBox.Text, 0, 0);
             MessageBox.Show("User added successfully!");
             RefreshDataGrid();
             usernameBox.Clear();
             passwordBox.Clear();
-            roleBox.Items.Clear();
+            //roleBox.Items.Clear();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void deleteUserButton_Click(object sender, EventArgs e)
         {
+            // Delete a user
             var id = 0;
             if (int.TryParse(idBox.Text, out id))
             {
@@ -109,7 +113,7 @@ namespace Reg_A_Lot
                         RefreshDataGrid();
                         usernameBox.Clear();
                         passwordBox.Clear();
-                        roleBox.Items.Clear();
+                        //roleBox.Items.Clear();
                     }
 
 
@@ -125,13 +129,37 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void updateUserButton_Click(object sender, EventArgs e)
         {
+            // Update user
             var id = 0;
             var userID = 0;
+
+
+
             if (int.TryParse(idBox.Text, out id))
             {
-                if (int.TryParse(UserIDBox.Text, out userID))
+                if (roleBox.Text != "Administrator")
+                {
+                    if (int.TryParse(userIDBox.Text, out userID))
+                    {
+                        try
+                        {
+                            database.UpdateUser(usernameBox.Text, passwordBox.Text, roleBox.Text, userID, id);
+                            MessageBox.Show("User " + id + " Updated!");
+                            RefreshDataGrid();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("ID not found.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid User ID number.");
+                    }
+                }
+                else
                 {
                     try
                     {
@@ -144,10 +172,7 @@ namespace Reg_A_Lot
                         MessageBox.Show("ID not found.");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Please enter a valid  User ID number.");
-                }
+
             }
             else
             {
@@ -161,22 +186,30 @@ namespace Reg_A_Lot
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void addCourseButton_Click(object sender, EventArgs e)
         {
-
+            // add course
             var courseNumber = 0;
+            var coursePrice = 0.0;
 
-            if (int.TryParse(CourseNumberBox.Text, out courseNumber))
+            if (int.TryParse(courseNumberBox.Text, out courseNumber))
             {
-                database.InsertCourse(CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
-                MessageBox.Show("Course added successfully!");
-                CourseIDBox1.Clear();
-                CoursePrefixBox.Clear();
-                CourseNumberBox.Clear();
-                CourseNameBox.Clear();
-                CourseTimesBox.Clear();
-                CourseSeatsBox.Clear();
-                // CourseProfessorBox.Items.Clear();
+                if (double.TryParse(coursePriceBox.Text, out coursePrice))
+                {
+                    database.InsertCourse(coursePrefixBox.Text, courseNumber, courseNameBox.Text, courseTimesBox.Text, courseSeatsBox.Text, courseProfessorBox.Text, coursePrice);
+                    MessageBox.Show("Course added successfully!");
+                    courseIDBox2.Clear();
+                    coursePrefixBox.Clear();
+                    courseNumberBox.Clear();
+                    courseNameBox.Clear();
+                    courseTimesBox.Clear();
+                    courseSeatsBox.Clear();
+                    // CourseProfessorBox.Items.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Course Price");
+                }
             }
             else
             {
@@ -191,30 +224,40 @@ namespace Reg_A_Lot
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void updateCourseButton_Click(object sender, EventArgs e)
         {
+            // update course 
             var id = 0;
             var courseNumber = 0;
-            if (int.TryParse(CourseIDBox.Text, out id))
+            var coursePrice = 0.0;
+            if (int.TryParse(courseIDBox1.Text, out id))
             {
-                if (int.TryParse(CourseNumberBox.Text, out courseNumber))
+                if (int.TryParse(courseNumberBox.Text, out courseNumber))
                 {
-                    try
+                    if (double.TryParse(coursePriceBox.Text, out coursePrice))
                     {
-                        database.UpdateCourse(id, CoursePrefixBox.Text, courseNumber, CourseNameBox.Text, CourseTimesBox.Text, CourseSeatsBox.Text, CourseProfessorBox.Text);
-                        MessageBox.Show("User " + id + " Updated!");
-                        RefreshDataGrid();
-                        CourseIDBox1.Clear();
-                        CoursePrefixBox.Clear();
-                        CourseNumberBox.Clear();
-                        CourseNameBox.Clear();
-                        CourseTimesBox.Clear();
-                        CourseSeatsBox.Clear();
-                        // CourseProfessorBox.Items.Clear();
+                        try
+                        {
+                            database.UpdateCourse(id, coursePrefixBox.Text, courseNumber, courseNameBox.Text, courseTimesBox.Text, courseSeatsBox.Text, courseProfessorBox.Text, coursePrice);
+                            MessageBox.Show("Course " + id + " Updated!");
+                            RefreshDataGrid();
+                            courseIDBox2.Clear();
+                            coursePrefixBox.Clear();
+                            courseNumberBox.Clear();
+                            courseNameBox.Clear();
+                            courseTimesBox.Clear();
+                            courseSeatsBox.Clear();
+                            coursePriceBox.Clear();
+                            // CourseProfessorBox.Items.Clear();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("ID not found.");
+                        }
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("ID not found.");
+                        MessageBox.Show("Invalid Course Price");
                     }
                 }
                 else
@@ -227,12 +270,14 @@ namespace Reg_A_Lot
             {
                 MessageBox.Show("Please enter a valid ID number.");
             }
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void deleteCourseButton_Click(object sender, EventArgs e)
         {
+            // delete course
             var id = 0;
-            if (int.TryParse(CourseIDBox.Text, out id))
+            if (int.TryParse(courseIDBox1.Text, out id))
             {
                 try
                 {
@@ -242,12 +287,12 @@ namespace Reg_A_Lot
                         database.DeleteCourse(id);
                         MessageBox.Show("Course " + id + " deleted successfully!");
                         RefreshDataGrid();
-                        CourseIDBox1.Clear();
-                        CoursePrefixBox.Clear();
-                        CourseNumberBox.Clear();
-                        CourseNameBox.Clear();
-                        CourseTimesBox.Clear();
-                        CourseSeatsBox.Clear();
+                        courseIDBox2.Clear();
+                        coursePrefixBox.Clear();
+                        courseNumberBox.Clear();
+                        courseNameBox.Clear();
+                        courseTimesBox.Clear();
+                        courseSeatsBox.Clear();
                         // CourseProfessorBox.Items.Clear();
                     }
 
@@ -266,21 +311,23 @@ namespace Reg_A_Lot
             RefreshDataGrid();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void searchCourseButton_Click(object sender, EventArgs e)
         {
+            // search courses
             var id = 0;
-            if (int.TryParse(CourseIDBox.Text, out id))
+            if (int.TryParse(courseIDBox1.Text, out id))
             {
                 try
                 {
                     courseTable = database.Read("Select * From courses where ID='" + id + "'");
-                    CourseIDBox1.Text = courseTable.Rows[0][0].ToString();
-                    CoursePrefixBox.Text = courseTable.Rows[0][1].ToString();
-                    CourseNumberBox.Text = courseTable.Rows[0][2].ToString();
-                    CourseNameBox.Text = courseTable.Rows[0][3].ToString();
-                    CourseTimesBox.Text = courseTable.Rows[0][4].ToString();
-                    CourseSeatsBox.Text = courseTable.Rows[0][5].ToString();
-                    CourseProfessorBox.Text = courseTable.Rows[0][6].ToString();
+                    courseIDBox2.Text = courseTable.Rows[0][0].ToString();
+                    coursePrefixBox.Text = courseTable.Rows[0][1].ToString();
+                    courseNumberBox.Text = courseTable.Rows[0][2].ToString();
+                    courseNameBox.Text = courseTable.Rows[0][3].ToString();
+                    courseTimesBox.Text = courseTable.Rows[0][4].ToString();
+                    courseSeatsBox.Text = courseTable.Rows[0][5].ToString();
+                    courseProfessorBox.Text = courseTable.Rows[0][6].ToString();
+                    coursePriceBox.Text = courseTable.Rows[0][7].ToString();
                 }
                 catch
                 {
@@ -294,20 +341,20 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void addStudentButton_Click(object sender, EventArgs e)
         {
             // Insert Student
             var age = 0;
 
-            if (int.TryParse(StudentAgeBox.Text, out age))
+            if (int.TryParse(studentAgeBox.Text, out age))
             {
-                database.InsertStudent(StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, StudentPhoneBox.Text);
-                StudentFirstNameBox.Clear();
-                StudentLastNameBox.Clear();
-                StudentAgeBox.Clear();
-                StudentEmailBox.Clear();
-                StudentAddressBox.Clear();
-                StudentPhoneBox.Clear();
+                database.InsertStudent(studentFirstNameBox.Text, studentLastNameBox.Text, age, studentEmailBox.Text, studentAddressBox.Text, studentPhoneBox.Text);
+                studentFirstNameBox.Clear();
+                studentLastNameBox.Clear();
+                studentAgeBox.Clear();
+                studentEmailBox.Clear();
+                studentAddressBox.Clear();
+                studentPhoneBox.Clear();
 
 
 
@@ -321,26 +368,26 @@ namespace Reg_A_Lot
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void updateStudentButton_Click(object sender, EventArgs e)
         {
             // Update Student
             var id = 0;
             var age = 0;
-            if (int.TryParse(StudentIDBox.Text, out id))
+            if (int.TryParse(studentIDBox.Text, out id))
             {
-                if (int.TryParse(StudentAgeBox.Text, out age))
+                if (int.TryParse(studentAgeBox.Text, out age))
                 {
                     try
                     {
-                        database.UpdateStudent(id, StudentFirstNameBox.Text, StudentLastNameBox.Text, age, StudentEmailBox.Text, StudentAddressBox.Text, StudentPhoneBox.Text);
+                        database.UpdateStudent(id, studentFirstNameBox.Text, studentLastNameBox.Text, age, studentEmailBox.Text, studentAddressBox.Text, studentPhoneBox.Text);
                         MessageBox.Show("Student " + id + " Updated!");
                         RefreshDataGrid();
-                        StudentFirstNameBox.Clear();
-                        StudentLastNameBox.Clear();
-                        StudentAgeBox.Clear();
-                        StudentEmailBox.Clear();
-                        StudentAddressBox.Clear();
-                        StudentPhoneBox.Clear();
+                        studentFirstNameBox.Clear();
+                        studentLastNameBox.Clear();
+                        studentAgeBox.Clear();
+                        studentEmailBox.Clear();
+                        studentAddressBox.Clear();
+                        studentPhoneBox.Clear();
                     }
                     catch
                     {
@@ -359,22 +406,22 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void studentSearchButton_Click(object sender, EventArgs e)
         {
             // Student search 
             var id = 0;
-            if (int.TryParse(StudentIDBox.Text, out id))
+            if (int.TryParse(studentIDBox.Text, out id))
             {
                 try
                 {
                     studentTable = database.Read("Select * From students where ID='" + id + "'");
-                    StudentIDBox.Text = studentTable.Rows[0][0].ToString();
-                    StudentFirstNameBox.Text = studentTable.Rows[0][1].ToString();
-                    StudentLastNameBox.Text = studentTable.Rows[0][2].ToString();
-                    StudentAgeBox.Text = studentTable.Rows[0][3].ToString();
-                    StudentEmailBox.Text = studentTable.Rows[0][4].ToString();
-                    StudentAddressBox.Text = studentTable.Rows[0][5].ToString();
-                    StudentPhoneBox.Text = studentTable.Rows[0][6].ToString();
+                    studentIDBox.Text = studentTable.Rows[0][0].ToString();
+                    studentFirstNameBox.Text = studentTable.Rows[0][1].ToString();
+                    studentLastNameBox.Text = studentTable.Rows[0][2].ToString();
+                    studentAgeBox.Text = studentTable.Rows[0][3].ToString();
+                    studentEmailBox.Text = studentTable.Rows[0][4].ToString();
+                    studentAddressBox.Text = studentTable.Rows[0][5].ToString();
+                    studentPhoneBox.Text = studentTable.Rows[0][6].ToString();
                 }
                 catch
                 {
@@ -388,10 +435,11 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void deleteStudentButton_Click(object sender, EventArgs e)
         {
+            // delete student 
             var id = 0;
-            if (int.TryParse(StudentIDBox.Text, out id))
+            if (int.TryParse(studentIDBox.Text, out id))
             {
                 try
                 {
@@ -401,12 +449,12 @@ namespace Reg_A_Lot
                         database.DeleteStudent(id);
                         MessageBox.Show("Student " + id + " deleted successfully!");
                         RefreshDataGrid();
-                        StudentFirstNameBox.Clear();
-                        StudentLastNameBox.Clear();
-                        StudentAgeBox.Clear();
-                        StudentEmailBox.Clear();
-                        StudentAddressBox.Clear();
-                        StudentPhoneBox.Clear();
+                        studentFirstNameBox.Clear();
+                        studentLastNameBox.Clear();
+                        studentAgeBox.Clear();
+                        studentEmailBox.Clear();
+                        studentAddressBox.Clear();
+                        studentPhoneBox.Clear();
                     }
 
 
@@ -424,14 +472,14 @@ namespace Reg_A_Lot
             RefreshDataGrid();
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void addProfessorButton_Click(object sender, EventArgs e)
         {
             // Add professor
-            database.InsertProfessor(ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text, ProfessorEmailBox.Text, ProfessorFaxBox.Text, ProfessorAddressBox.Text, ProfessorPhoneBox.Text);
+            database.InsertProfessor(professorFirstNameBox.Text, professorLastNameBox.Text, professorEmailBox.Text, professorFaxBox.Text, professorAddressBox.Text, professorPhoneBox.Text);
             MessageBox.Show("Professor added successfully");
             RefreshDataGrid();
-            ProfessorFirstNameBox.Clear();
-            ProfessorLastNameBox.Clear();
+            professorFirstNameBox.Clear();
+            professorLastNameBox.Clear();
 
         }
 
@@ -448,22 +496,22 @@ namespace Reg_A_Lot
             form1.Show();
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void searchProfessorButton_Click(object sender, EventArgs e)
         {
             //Search for professor
             var id = 0;
-            if (int.TryParse(ProfessorIDBox.Text, out id))
+            if (int.TryParse(professorIDBox.Text, out id))
             {
                 try
                 {
                     professorTable = database.Read("Select * From professors where ID='" + id + "'");
-                   
-                    ProfessorFirstNameBox.Text = professorTable.Rows[0][1].ToString();
-                    ProfessorLastNameBox.Text = professorTable.Rows[0][2].ToString();
-                    ProfessorEmailBox.Text = professorTable.Rows[0][3].ToString();
-                    ProfessorFaxBox.Text = professorTable.Rows[0][4].ToString();                    
-                    ProfessorAddressBox.Text = professorTable.Rows[0][5].ToString();
-                    ProfessorPhoneBox.Text = professorTable.Rows[0][6].ToString();
+
+                    professorFirstNameBox.Text = professorTable.Rows[0][1].ToString();
+                    professorLastNameBox.Text = professorTable.Rows[0][2].ToString();
+                    professorEmailBox.Text = professorTable.Rows[0][3].ToString();
+                    professorFaxBox.Text = professorTable.Rows[0][4].ToString();
+                    professorAddressBox.Text = professorTable.Rows[0][5].ToString();
+                    professorPhoneBox.Text = professorTable.Rows[0][6].ToString();
                 }
                 catch
                 {
@@ -477,31 +525,31 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void updateProfessorButton_Click(object sender, EventArgs e)
         {
             // Update professor
             var id = 0;
 
-            if (int.TryParse(ProfessorIDBox.Text, out id))
+            if (int.TryParse(professorIDBox.Text, out id))
             {
-                
-                    try
-                    {
-                        database.UpdateProfessor(id, ProfessorFirstNameBox.Text, ProfessorLastNameBox.Text, ProfessorEmailBox.Text, ProfessorFaxBox.Text, ProfessorAddressBox.Text, ProfessorPhoneBox.Text);
-                        MessageBox.Show("Professor " + id + " Updated!");
-                        RefreshDataGrid();
-                        ProfessorFirstNameBox.Clear();
-                        ProfessorLastNameBox.Clear();
-                        ProfessorFaxBox.Clear();
-                        ProfessorEmailBox.Clear();
-                        ProfessorAddressBox.Clear();
-                        ProfessorPhoneBox.Clear();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("ID not found.");
-                    }
-                
+
+                try
+                {
+                    database.UpdateProfessor(id, professorFirstNameBox.Text, professorLastNameBox.Text, professorEmailBox.Text, professorFaxBox.Text, professorAddressBox.Text, professorPhoneBox.Text);
+                    MessageBox.Show("Professor " + id + " Updated!");
+                    RefreshDataGrid();
+                    professorFirstNameBox.Clear();
+                    professorLastNameBox.Clear();
+                    professorFaxBox.Clear();
+                    professorEmailBox.Clear();
+                    professorAddressBox.Clear();
+                    professorPhoneBox.Clear();
+                }
+                catch
+                {
+                    MessageBox.Show("ID not found.");
+                }
+
 
             }
             else
@@ -510,11 +558,11 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void deleteProfessorButton_Click(object sender, EventArgs e)
         {
             // Delete professor
             var id = 0;
-            if (int.TryParse(ProfessorIDBox.Text, out id))
+            if (int.TryParse(professorIDBox.Text, out id))
             {
                 try
                 {
@@ -524,12 +572,12 @@ namespace Reg_A_Lot
                         database.DeleteProfessor(id);
                         MessageBox.Show("Professor " + id + " deleted successfully!");
                         RefreshDataGrid();
-                        ProfessorFirstNameBox.Clear();
-                        ProfessorLastNameBox.Clear();
-                        ProfessorFaxBox.Clear();
-                        ProfessorEmailBox.Clear();
-                        ProfessorAddressBox.Clear();
-                        ProfessorPhoneBox.Clear();
+                        professorFirstNameBox.Clear();
+                        professorLastNameBox.Clear();
+                        professorFaxBox.Clear();
+                        professorEmailBox.Clear();
+                        professorAddressBox.Clear();
+                        professorPhoneBox.Clear();
                     }
 
 
@@ -547,13 +595,13 @@ namespace Reg_A_Lot
             RefreshDataGrid();
         }
 
-        private void button19_Click(object sender, EventArgs e)
+        private void addRegistrationButton_Click(object sender, EventArgs e)
         {
             // Add Registration
             var studentID = 0;
             var courseID = 0;
             var isActive = false;
-            if(regIsActiveBox.Text == "True")
+            if (regIsActiveBox.Text == "True")
             {
                 isActive = true;
             }
@@ -579,8 +627,9 @@ namespace Reg_A_Lot
             regCourseIDBox.Clear();
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void updateRegistrationButton_Click(object sender, EventArgs e)
         {
+            // update registration
             var id = 0;
             var studentID = 0;
             var courseID = 0;
@@ -613,9 +662,9 @@ namespace Reg_A_Lot
                 regCourseIDBox.Clear();
             }
         }
-  
 
-                private void button16_Click(object sender, EventArgs e)
+
+        private void deleteRegistrationButton_Click(object sender, EventArgs e)
         {
             // Delete Registration
             var id = 0;
