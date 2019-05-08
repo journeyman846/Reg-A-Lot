@@ -29,6 +29,11 @@ namespace Reg_A_Lot
         DataTable courseIDValues = new DataTable();
         DataTable studentsTable = new DataTable();
         DataTable gradesTable = new DataTable();
+        DataTable studentName = new DataTable();
+        DataTable studentAddress = new DataTable();
+        DataTable studentCourseSelection = new DataTable();
+        DataTable studentPayment = new DataTable();
+
 
 
         public string userID { get; set; }
@@ -233,6 +238,21 @@ namespace Reg_A_Lot
             {
                 // No changes
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            studentName = database.Read("SELECT FirstName,LastName FROM Students WHERE ID=" + userID);
+            studentAddress = database.Read("SELECT Address FROM Students WHERE ID=" + userID);
+            studentCourseSelection = database.Read("SELECT CourseName FROM Courses,Registrations" +
+                "WHERE Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
+            studentPayment = database.Read("SELECT SUM (CoursePrice) FROM Courses WHERE " +
+                "Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
+            string billingStatement = "Billing Statement";
+            string message = studentName + "\n" + studentAddress + "\nCourses Registered for:\n" +studentCourseSelection
+                +"\nPayment Due:"+ studentPayment;
+            MessageBox.Show(message, billingStatement);
+            
         }
     }
 }
