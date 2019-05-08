@@ -47,7 +47,6 @@ namespace Reg_A_Lot
 
             userGridView.DataSource = userTable;
             userGridView.RowHeadersVisible = false;
-            userGridView.ClearSelection();
             courseGridView.DataSource = courseTable;
             courseGridView.RowHeadersVisible = false;
             studentGridView.DataSource = studentTable;

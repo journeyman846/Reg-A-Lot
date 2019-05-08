@@ -242,17 +242,33 @@ namespace Reg_A_Lot
 
         private void button1_Click(object sender, EventArgs e)
         {
-            studentName = database.Read("SELECT FirstName,LastName FROM Students WHERE ID=" + userID);
-            studentAddress = database.Read("SELECT Address FROM Students WHERE ID=" + userID);
-            studentCourseSelection = database.Read("SELECT CourseName FROM Courses,Registrations" +
-                "WHERE Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
-            studentPayment = database.Read("SELECT SUM (CoursePrice) FROM Courses WHERE " +
-                "Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
-            string billingStatement = "Billing Statement";
-            string message = studentName + "\n" + studentAddress + "\nCourses Registered for:\n" +studentCourseSelection
-                +"\nPayment Due:"+ studentPayment;
-            MessageBox.Show(message, billingStatement);
+            //studentName = database.Read("SELECT FirstName,LastName FROM Students WHERE ID=" + userID);
+            //studentAddress = database.Read("SELECT Address FROM Students WHERE ID=" + userID);
+            //studentCourseSelection = database.Read("SELECT CourseName FROM Courses,Registrations" +
+            //    "WHERE Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
+            //studentPayment = database.Read("SELECT SUM (CoursePrice) FROM Courses WHERE " +
+            //    "Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
+            //string billingStatement = "Billing Statement";
+            //string message = studentName + "\n" + studentAddress + "\nCourses Registered for:\n" +studentCourseSelection
+            //    +"\nPayment Due:"+ studentPayment;
+
+            //MessageBox.Show(message, billingStatement);
+            DataTable billing = new DataTable();
+            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+            double[] array = new double[coursesTable.Rows.Count];
             
+            for (int i = 0; i < coursesTable.Rows.Count; i++)
+            {
+
+                array[i] = double.Parse(coursesTable.Rows[i][0].ToString());
+                
+
+
+                
+            }
+            var result = string.Join(",", array);
+            billing = database.Read("Select SUM(CoursePrice) FROM Courses Where ID in (" + result + ")");
+            MessageBox.Show("You owe " + billing.Rows[0][0].ToString());
         }
     }
 }

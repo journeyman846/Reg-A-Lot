@@ -46,5 +46,12 @@ namespace Reg_A_Lot
             this.Hide();
             login.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ProfessorGradeForm login = new ProfessorGradeForm();
+            this.Hide();
+            login.Show();
+        }
     }
 }

@@ -39,9 +39,8 @@ namespace Reg_A_Lot
         }
         private void StudentViewForm_Load(object sender, EventArgs e)
         {
-            txtProfessorID.Text = userID;
-            professorsTable = database.Read("SELECT * FROM Professors WHERE ID=" + userID); ;
-
+            
+            
             // Loads Registered Courses into the registered Courses table
             coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE ProfessorID=" + userID + " AND IsActive=1)");
             dgvCoursesBeingTaught.DataSource = registerCoursesTable;
@@ -108,6 +107,14 @@ namespace Reg_A_Lot
         private void lblEarnedPoints_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ProfessorGradeForm_Load(object sender, EventArgs e)
+        {
+            txtProfessorID.Text = userID;
+            var lastName = database.Read("SELECT LastName FROM Professors WHERE ID=" + userID);
+            professorsTable = database.Read("SELECT * from Courses WHERE Professor='" + lastName.Rows[0][0].ToString() + "'");
+            dgvCoursesBeingTaught.DataSource = professorsTable;
         }
     }
 }

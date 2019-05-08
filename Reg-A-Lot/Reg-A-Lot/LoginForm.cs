@@ -56,12 +56,12 @@ namespace Reg_A_Lot
                     }
                     else if (role == "Professor")
                     {
-                        ProfessorForm professorForm = new ProfessorForm();
+                        ProfessorGradeForm professorGradeForm = new ProfessorGradeForm();
 
-                        professorForm.userName = unameBox.Text;
-                        professorForm.userID = userID;
+                        professorGradeForm.userName = unameBox.Text;
+                        professorGradeForm.userID = userID;
                         this.Hide();
-                        professorForm.Show();
+                        professorGradeForm.Show();
                     }
                     else if (role == "Administrator")
                     {
