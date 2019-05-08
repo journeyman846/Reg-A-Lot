@@ -254,9 +254,10 @@ namespace Reg_A_Lot
 
             //MessageBox.Show(message, billingStatement);
             DataTable billing = new DataTable();
+            // Get all the current active courses and put them in a datatable
             coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
             double[] array = new double[coursesTable.Rows.Count];
-            
+            // Put the registered class IDs into an array
             for (int i = 0; i < coursesTable.Rows.Count; i++)
             {
 
@@ -266,7 +267,9 @@ namespace Reg_A_Lot
 
                 
             }
+            // make the array in a format for the sql statment ie: 230,260,270
             var result = string.Join(",", array);
+            // Sum up the column Course price for those IDs
             billing = database.Read("Select SUM(CoursePrice) FROM Courses Where ID in (" + result + ")");
             MessageBox.Show("You owe " + billing.Rows[0][0].ToString());
         }
