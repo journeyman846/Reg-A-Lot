@@ -59,17 +59,7 @@ namespace Reg_A_Lot
             this.Close();
         }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
+        
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -131,24 +121,13 @@ namespace Reg_A_Lot
 
         // Instantiation of an SQL objct and Professor object
         SqlConnection connection = new SqlConnection();
-        Professor professorRegistration = new Professor();
         Database database = new Database();
 
         private void btnProfessorRegister_Click(object sender, EventArgs e)
         {
-            // Logging of Professor information to the Professer class variable
-            professorRegistration.FirstName = txtProfessorFirstName.Text;
-            professorRegistration.LastName = txtProfessorLastName.Text;
-            professorRegistration.Email = txtProfessorEmail.Text;
-            professorRegistration.Fax = txtProfessorFax.Text;
-            professorRegistration.Address = txtProfessorAddress.Text;
-            professorRegistration.PhoneNumber = txtProfessorPhoneNumber.Text;
-            professorRegistration.UserName = txtProfessorUsername.Text;
-            professorRegistration.Password = txtProfessorPassword.Text;
-
-
+            
             // Adding Professor demographics to table, and clearing text boxes
-            var professorID = database.InsertProfessor(professorRegistration.FirstName, professorRegistration.LastName, professorRegistration.Email, professorRegistration.Fax, professorRegistration.Address, professorRegistration.PhoneNumber);
+            var professorID = database.InsertProfessor(txtProfessorFirstName.Text, txtProfessorLastName.Text, txtProfessorEmail.Text, txtProfessorFax.Text, txtProfessorEmail.Text, txtProfessorPhoneNumber.Text);
             txtProfessorFirstName.Clear();
             txtProfessorLastName.Clear();
             txtProfessorEmail.Clear();
@@ -157,7 +136,7 @@ namespace Reg_A_Lot
             txtProfessorPhoneNumber.Clear();
 
             // Adding Professor username and password to Users table and clearing text boxes
-            database.InsertUser(professorRegistration.UserName, professorRegistration.Password, "Professor", 0, professorID);
+            database.InsertUser(txtProfessorUsername.Text, txtProfessorPassword.Text, "Professor", 0, professorID);
             txtProfessorUsername.Clear();
             txtProfessorPassword.Clear();
 

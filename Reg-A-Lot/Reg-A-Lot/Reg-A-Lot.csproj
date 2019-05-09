@@ -79,8 +79,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Person.cs" />
-    <Compile Include="Professor.cs" />
     <Compile Include="ProfessorForm.cs">
       <SubType>Form</SubType>
     </Compile>

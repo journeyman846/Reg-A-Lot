@@ -18,7 +18,6 @@ namespace Reg_A_Lot
         DataTable professorsTable = new DataTable();
         SqlConnection connection = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
-        Professor professorConnect = new Professor();
         ProfessorForm professorRegistrationForm = new ProfessorForm();
         DataTable coursesTable = new DataTable();
         DataTable coursesFilledTable = new DataTable();

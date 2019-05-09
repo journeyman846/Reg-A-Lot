@@ -68,7 +68,7 @@ namespace Reg_A_Lot
             dgvCourseRegisterOrDrop.RowHeadersVisible = false;
 
             // Loads Grades into the grade table
-            gradesTable = database.Read("SELECT Grade FROM Registrations WHERE StudentID=" + userID);
+            gradesTable = database.Read("SELECT CourseID, Grade FROM Registrations WHERE StudentID=" + userID);
             dgvViewFinalGrades.DataSource = gradesTable;
             dgvViewFinalGrades.RowHeadersVisible = false;
 
@@ -128,7 +128,7 @@ namespace Reg_A_Lot
         private void btnRefreshGrades_Click(object sender, EventArgs e)
         {
             // Refreshing the Students Grades
-            gradesTable = database.Read("SELECT Grade FROM Registrations WHERE StudentID=" + userID);
+            gradesTable = database.Read("SELECT CourseID, Grade FROM Registrations WHERE StudentID=" + userID);
             dgvViewFinalGrades.DataSource = gradesTable;
             dgvViewFinalGrades.RowHeadersVisible = false;
 

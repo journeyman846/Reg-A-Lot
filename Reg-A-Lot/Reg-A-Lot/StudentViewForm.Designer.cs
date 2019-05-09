@@ -130,7 +130,7 @@
             // 
             // btnRefreshGrades
             // 
-            this.btnRefreshGrades.Location = new System.Drawing.Point(452, 352);
+            this.btnRefreshGrades.Location = new System.Drawing.Point(431, 352);
             this.btnRefreshGrades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefreshGrades.Name = "btnRefreshGrades";
             this.btnRefreshGrades.Size = new System.Drawing.Size(137, 48);
@@ -249,17 +249,17 @@
             this.dgvViewFinalGrades.AllowUserToDeleteRows = false;
             this.dgvViewFinalGrades.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvViewFinalGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvViewFinalGrades.Location = new System.Drawing.Point(441, 48);
+            this.dgvViewFinalGrades.Location = new System.Drawing.Point(376, 48);
             this.dgvViewFinalGrades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvViewFinalGrades.Name = "dgvViewFinalGrades";
             this.dgvViewFinalGrades.ReadOnly = true;
-            this.dgvViewFinalGrades.Size = new System.Drawing.Size(158, 296);
+            this.dgvViewFinalGrades.Size = new System.Drawing.Size(251, 299);
             this.dgvViewFinalGrades.TabIndex = 19;
             // 
             // lblCourseGrades
             // 
             this.lblCourseGrades.AutoSize = true;
-            this.lblCourseGrades.Location = new System.Drawing.Point(439, 22);
+            this.lblCourseGrades.Location = new System.Drawing.Point(388, 22);
             this.lblCourseGrades.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCourseGrades.Name = "lblCourseGrades";
             this.lblCourseGrades.Size = new System.Drawing.Size(159, 20);
