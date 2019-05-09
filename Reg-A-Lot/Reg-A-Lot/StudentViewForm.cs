@@ -17,7 +17,6 @@ namespace Reg_A_Lot
         SqlConnection connection = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         Database database = new Database();
-        Student studentConnect = new Student();
         StudentForm studentRegistrationForm = new StudentForm();
         DataTable coursesTable = new DataTable();
         DataTable coursesFilledTable = new DataTable();
@@ -262,11 +261,26 @@ namespace Reg_A_Lot
             {
                 array[i] = double.Parse(coursesTable.Rows[i][0].ToString());
             }
+
+            
+
+
             // make the array in a format for the sql statment ie: 230,260,270
             var result = string.Join(",", array);
             // Sum up the column Course price for those IDs
             billing = database.Read("Select SUM(CoursePrice) FROM Courses Where ID in (" + result + ")");
-            MessageBox.Show("You owe " + billing.Rows[0][0].ToString());
+
+            string total = billing.Rows[0][0].ToString();
+            string firstName = studentsTable.Rows[0][1].ToString();
+            string lastName = studentsTable.Rows[0][2].ToString();
+            string address = studentsTable.Rows[0][5].ToString();
+            
+
+            MessageBox.Show(" Name: " + firstName + " " + lastName +
+                            "\n Address: " + address +
+                            "\n You owe the department: " + total +
+                            "\n For courses: " + result);
+
         }
     }
 }

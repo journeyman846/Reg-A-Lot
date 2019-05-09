@@ -99,7 +99,6 @@ namespace Reg_A_Lot
 
         // Instantiating a SQL object and instantiating a Student object
         SqlConnection connection = new SqlConnection();
-        Student studentRegistration = new Student();
         Database database = new Database();
 
         private void btnStudentRegister_Click(object sender, EventArgs e)
@@ -108,23 +107,14 @@ namespace Reg_A_Lot
             // Saving the student's registration information to the Student class variables
             try
             {
-                studentRegistration.FirstName = txtStudentFirstName.Text;
-                studentRegistration.LastName = txtStudentLastName.Text;
-                studentRegistration.Age = int.Parse(txtStudentAge.Text);
-                studentRegistration.Email = txtStudentEmail.Text;
-                studentRegistration.Address = txtStudentAddress.Text;
-                studentRegistration.PhoneNumber = txtStudentPhoneNumber.Text;
-                studentRegistration.UserName = txtStudentUserName.Text;
-                studentRegistration.Password = txtStudentPassword.Text;
-
                 // Adding the Student demographics to the Students table and clearing the text boxes
                 // studentID is being returned from the InsertStudent method
                 // studentID will be passed into the InsertUser table
-                var studentID = database.InsertStudent(studentRegistration.FirstName, studentRegistration.LastName, studentRegistration.Age, studentRegistration.Email, studentRegistration.Address, studentRegistration.PhoneNumber);
+                var studentID = database.InsertStudent(txtStudentFirstName.Text, txtStudentLastName.Text, int.Parse(txtStudentAge.Text), txtStudentEmail.Text, txtStudentAddress.Text, txtStudentPhoneNumber.Text);
                 
 
                 // Adding the Student UserName, Password, Role, and ID to the Users Table 
-                database.InsertUser(studentRegistration.UserName, studentRegistration.Password, "Student", studentID , 0);
+                database.InsertUser(txtStudentUserName.Text, txtStudentPassword.Text, "Student", studentID , 0);
                 
             }
             catch(ArgumentNullException ane)

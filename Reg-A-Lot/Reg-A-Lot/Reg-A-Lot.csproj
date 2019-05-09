@@ -106,7 +106,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>reg_dbDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Student.cs" />
     <Compile Include="StudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
