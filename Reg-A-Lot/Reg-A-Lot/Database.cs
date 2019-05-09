@@ -11,7 +11,7 @@ namespace Reg_A_Lot
 {
     class Database
     {
-
+        // Reading from the database (queries)
         public DataTable Read(string query)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -21,6 +21,8 @@ namespace Reg_A_Lot
             sda.Fill(dt);
             return dt;
         }
+
+        // Insert User into Database
         public void InsertUser(string username, string password, string role, int studentID, int professorID)
         {
             // Insert user will take the StudentID created when registering and insert it into the user table. 
@@ -31,6 +33,7 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Username", username);
             sqlCommand.Parameters.AddWithValue("@Password", password);
             sqlCommand.Parameters.AddWithValue("@Role", role);
+
             // Check if studentID or professorID will be null
             if(studentID > 0)
             {
@@ -52,6 +55,7 @@ namespace Reg_A_Lot
 
         }
 
+        // Update User Info
         public void UpdateUser(string username, string password, string role, int userID, int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -60,6 +64,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Username", username);
             sqlCommand.Parameters.AddWithValue("@Password", password);
             sqlCommand.Parameters.AddWithValue("@Role", role);
+
+            // Logically Check if Student, Professor, or Admin
             if(role == "Student")
             {
                 sqlCommand.Parameters.AddWithValue("@StudentID", userID);
@@ -85,6 +91,8 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
+        
+        // Delete User from Database
         public void DeleteUser(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -94,6 +102,8 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
             
         }
+
+        // Insert Course into Database
         public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price, bool isActive)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -110,6 +120,8 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
 
         }
+
+        // Update Course Info
         public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price, bool isActive)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -126,6 +138,8 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
+
+        // Delete Course from Database
         public void DeleteCourse(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -134,6 +148,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.ExecuteScalar();
         }
+
+        // Insert Student into Database
         public int InsertStudent(string firstName, string lastName, int age, string email, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -148,6 +164,8 @@ namespace Reg_A_Lot
             var studentID = (int)sqlCommand.ExecuteScalar();
             return studentID;
         }
+
+        // Update Student's Info
         public void UpdateStudent(int id, string firstName, string lastName, int age, string email, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -163,6 +181,8 @@ namespace Reg_A_Lot
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
+
+        // Delete Student from the Database
         public void DeleteStudent(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -171,6 +191,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.ExecuteScalar();
         }
+
+        // Insert Professor into Database
         public int InsertProfessor(string firstName, string lastName, string email, string fax, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -186,6 +208,8 @@ namespace Reg_A_Lot
             return professorID;
 
         }
+
+        // Update Professor Info
         public void UpdateProfessor(int id, string firstName, string lastName, string email, string fax, string address, string phone)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -199,6 +223,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Phone", phone);
             sqlCommand.ExecuteScalar();
         }
+
+        // Delete Professor from Database
         public void DeleteProfessor(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -208,6 +234,8 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
 
         }
+
+        // Insert Course Registration into Database
         public int InsertRegistration(int studentID, int courseID, string grade)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -221,6 +249,7 @@ namespace Reg_A_Lot
 
         }
 
+        // Update Course Registration
         public void UpdateRegistration(int studentID, int courseID, string grade, int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
@@ -232,6 +261,8 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.ExecuteScalar();
         }
+
+        // Delete Course Registration
         public void DeleteRegistration(int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");

@@ -12,6 +12,7 @@ namespace Reg_A_Lot
 {
     public partial class AdminForm : Form
     {
+        // Declaring any variables, Datatables, and objects needed for the class
         Database database = new Database();
         DataTable userTable = new DataTable();
         DataTable courseTable = new DataTable();
@@ -93,7 +94,6 @@ namespace Reg_A_Lot
             RefreshDataGrid();
             usernameBox.Clear();
             passwordBox.Clear();
-            //roleBox.Items.Clear();
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)
@@ -112,7 +112,6 @@ namespace Reg_A_Lot
                         RefreshDataGrid();
                         usernameBox.Clear();
                         passwordBox.Clear();
-                        //roleBox.Items.Clear();
                     }
 
 
@@ -180,10 +179,7 @@ namespace Reg_A_Lot
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void addCourseButton_Click(object sender, EventArgs e)
         {

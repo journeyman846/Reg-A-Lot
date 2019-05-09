@@ -587,7 +587,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Professor\'s Information";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnProfessorRegister
             // 
@@ -695,7 +694,6 @@
             this.txtProfessorEmail.Name = "txtProfessorEmail";
             this.txtProfessorEmail.Size = new System.Drawing.Size(190, 20);
             this.txtProfessorEmail.TabIndex = 1;
-            this.txtProfessorEmail.TextChanged += new System.EventHandler(this.txtProfessorEmail_TextChanged);
             // 
             // txtProfessorAddress
             // 
@@ -704,7 +702,6 @@
             this.txtProfessorAddress.Name = "txtProfessorAddress";
             this.txtProfessorAddress.Size = new System.Drawing.Size(190, 43);
             this.txtProfessorAddress.TabIndex = 1;
-            this.txtProfessorAddress.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // txtProfessorPassword
             // 
@@ -749,7 +746,6 @@
             this.lblProfessorEmail.Size = new System.Drawing.Size(35, 13);
             this.lblProfessorEmail.TabIndex = 0;
             this.lblProfessorEmail.Text = "Email:";
-            this.lblProfessorEmail.Click += new System.EventHandler(this.lblProfessorEmail_Click);
             // 
             // lblProfessorPassword
             // 
@@ -813,7 +809,6 @@
             this.lblProfessorFax.Size = new System.Drawing.Size(27, 13);
             this.lblProfessorFax.TabIndex = 0;
             this.lblProfessorFax.Text = "Fax:";
-            this.lblProfessorFax.Click += new System.EventHandler(this.lblProfessorEmail_Click);
             // 
             // txtProfessorFax
             // 
@@ -821,7 +816,6 @@
             this.txtProfessorFax.Name = "txtProfessorFax";
             this.txtProfessorFax.Size = new System.Drawing.Size(190, 20);
             this.txtProfessorFax.TabIndex = 1;
-            this.txtProfessorFax.TextChanged += new System.EventHandler(this.txtProfessorEmail_TextChanged);
             // 
             // ProfessorForm
             // 

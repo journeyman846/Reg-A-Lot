@@ -32,9 +32,6 @@ namespace Reg_A_Lot
         DataTable studentAddress = new DataTable();
         DataTable studentCourseSelection = new DataTable();
         DataTable studentPayment = new DataTable();
-
-
-
         public string userID { get; set; }
         public string userName { get; set; }
 
@@ -241,17 +238,6 @@ namespace Reg_A_Lot
 
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            //studentName = database.Read("SELECT FirstName,LastName FROM Students WHERE ID=" + userID);
-            //studentAddress = database.Read("SELECT Address FROM Students WHERE ID=" + userID);
-            //studentCourseSelection = database.Read("SELECT CourseName FROM Courses,Registrations" +
-            //    "WHERE Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
-            //studentPayment = database.Read("SELECT SUM (CoursePrice) FROM Courses WHERE " +
-            //    "Registrations.CourseID = Courses.ID AND Registrations.StudentID=" + userID);
-            //string billingStatement = "Billing Statement";
-            //string message = studentName + "\n" + studentAddress + "\nCourses Registered for:\n" +studentCourseSelection
-            //    +"\nPayment Due:"+ studentPayment;
-
-            //MessageBox.Show(message, billingStatement);
             DataTable billing = new DataTable();
             // Get all the current active courses and put them in a datatable
             coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID +")");
@@ -270,6 +256,7 @@ namespace Reg_A_Lot
             // Sum up the column Course price for those IDs
             billing = database.Read("Select SUM(CoursePrice) FROM Courses Where ID in (" + result + ")");
 
+            // Saving the billing notification info to local variables
             string total = billing.Rows[0][0].ToString();
             string firstName = studentsTable.Rows[0][1].ToString();
             string lastName = studentsTable.Rows[0][2].ToString();

@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+/// <summary>
+///                 THIS PART OF THE PROJECT IS NOT FINISHED!
+/// </summary>
 namespace Reg_A_Lot
 {
     public partial class ProfessorGradeForm : Form

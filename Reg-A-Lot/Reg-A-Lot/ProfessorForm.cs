@@ -13,7 +13,7 @@ namespace Reg_A_Lot
 {
     public partial class ProfessorForm : Form
     {
-
+        // Declaring any variables needed for this class
         public string userID { get; set; }
         public string userName { get; set; }
 
@@ -99,25 +99,6 @@ namespace Reg_A_Lot
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblProfessorEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtProfessorEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         // Instantiation of an SQL objct and Professor object
         SqlConnection connection = new SqlConnection();

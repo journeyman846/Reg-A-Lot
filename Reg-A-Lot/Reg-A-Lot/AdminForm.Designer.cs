@@ -574,7 +574,6 @@
             this.courseProfessorBox.Name = "courseProfessorBox";
             this.courseProfessorBox.Size = new System.Drawing.Size(132, 24);
             this.courseProfessorBox.TabIndex = 33;
-            this.courseProfessorBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // deleteCourseButton
             // 
