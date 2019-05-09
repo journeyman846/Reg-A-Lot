@@ -190,12 +190,21 @@ namespace Reg_A_Lot
             // add course
             var courseNumber = 0;
             var coursePrice = 0.0;
+            var isActive = false;
+            if (yesRadioButton.Checked)
+            {
+                isActive = true;
+            }
+            else if (noRadioButton.Checked)
+            {
+                isActive = false;
+            }
 
             if (int.TryParse(courseNumberBox.Text, out courseNumber))
             {
                 if (double.TryParse(coursePriceBox.Text, out coursePrice))
                 {
-                    database.InsertCourse(coursePrefixBox.Text, courseNumber, courseNameBox.Text, courseTimesBox.Text, courseSeatsBox.Text, courseProfessorBox.Text, coursePrice);
+                    database.InsertCourse(coursePrefixBox.Text, courseNumber, courseNameBox.Text, courseTimesBox.Text, courseSeatsBox.Text, courseProfessorBox.Text, coursePrice, isActive);
                     MessageBox.Show("Course added successfully!");
                     courseIDBox2.Clear();
                     coursePrefixBox.Clear();
@@ -229,6 +238,15 @@ namespace Reg_A_Lot
             var id = 0;
             var courseNumber = 0;
             var coursePrice = 0.0;
+            var isActive = false;
+            if (yesRadioButton.Checked)
+            {
+                isActive = true;
+            }
+            else if (noRadioButton.Checked)
+            {
+                isActive = false;
+            }
             if (int.TryParse(courseIDBox1.Text, out id))
             {
                 if (int.TryParse(courseNumberBox.Text, out courseNumber))
@@ -237,7 +255,7 @@ namespace Reg_A_Lot
                     {
                         try
                         {
-                            database.UpdateCourse(id, coursePrefixBox.Text, courseNumber, courseNameBox.Text, courseTimesBox.Text, courseSeatsBox.Text, courseProfessorBox.Text, coursePrice);
+                            database.UpdateCourse(id, coursePrefixBox.Text, courseNumber, courseNameBox.Text, courseTimesBox.Text, courseSeatsBox.Text, courseProfessorBox.Text, coursePrice, isActive);
                             MessageBox.Show("Course " + id + " Updated!");
                             RefreshDataGrid();
                             courseIDBox2.Clear();
@@ -247,13 +265,13 @@ namespace Reg_A_Lot
                             courseTimesBox.Clear();
                             courseSeatsBox.Clear();
                             coursePriceBox.Clear();
-                            // CourseProfessorBox.Items.Clear();
-                        }
-                        catch
-                        {
-                            MessageBox.Show("ID not found.");
-                        }
+                        // CourseProfessorBox.Items.Clear();
                     }
+                        catch
+                    {
+                        MessageBox.Show("ID not found.");
+                    }
+                }
                     else
                     {
                         MessageBox.Show("Invalid Course Price");
@@ -491,8 +509,8 @@ namespace Reg_A_Lot
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             // When the form is closed redirect to the main form--final product should go back to login
-            Form1 form1 = new Form1();
-            form1.Show();
+            LoginForm login = new LoginForm();
+            login.Show();
         }
 
         private void searchProfessorButton_Click(object sender, EventArgs e)
@@ -599,16 +617,11 @@ namespace Reg_A_Lot
             // Add Registration
             var studentID = 0;
             var courseID = 0;
-            var isActive = false;
-            if (regIsActiveBox.Text == "True")
-            {
-                isActive = true;
-            }
             if (int.TryParse(regStudentIDBox.Text, out studentID))
             {
                 if (int.TryParse(regCourseIDBox.Text, out courseID))
                 {
-                    database.InsertRegistration(studentID, courseID, regGradeBox.Text, isActive);
+                    database.InsertRegistration(studentID, courseID, regGradeBox.Text);
 
                     MessageBox.Show("Registration added successfully");
                 }
@@ -632,19 +645,15 @@ namespace Reg_A_Lot
             var id = 0;
             var studentID = 0;
             var courseID = 0;
-            var isActive = false;
+            
 
             if (int.TryParse(regIDBox.Text, out id))
             {
-                if (regIsActiveBox.Text == "True")
-                {
-                    isActive = true;
-                }
                 if (int.TryParse(regStudentIDBox.Text, out studentID))
                 {
                     if (int.TryParse(regCourseIDBox.Text, out courseID))
                     {
-                        database.UpdateRegistration(studentID, courseID, regGradeBox.Text, isActive, id);
+                        database.UpdateRegistration(studentID, courseID, regGradeBox.Text, id);
                         MessageBox.Show("Registration updated successfully");
                     }
                     else
@@ -708,7 +717,6 @@ namespace Reg_A_Lot
                     regStudentIDBox.Text = registrationTable.Rows[0][1].ToString();
                     regCourseIDBox.Text = registrationTable.Rows[0][2].ToString();
                     regGradeBox.Text = registrationTable.Rows[0][3].ToString();
-                    regIsActiveBox.Text = studentTable.Rows[0][4].ToString();
                 }
                 catch
                 {

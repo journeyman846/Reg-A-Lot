@@ -94,10 +94,10 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
             
         }
-        public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price)
+        public void InsertCourse( string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price, bool isActive)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CoursePrefix, @CourseNumber, @CourseName, @Times, @Seats, @Professor)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Courses Values (@CoursePrefix, @CourseNumber, @CourseName, @Times, @Seats, @Professor, @IsActive)", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@CoursePrefix", coursePrefix);
             sqlCommand.Parameters.AddWithValue("@CourseNumber", courseNumber);
@@ -106,13 +106,14 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Seats", courseSeats);
             sqlCommand.Parameters.AddWithValue("@Professor", professor);
             sqlCommand.Parameters.AddWithValue("@Price", price);
+            sqlCommand.Parameters.AddWithValue("@IsActive", isActive);
             sqlCommand.ExecuteScalar();
 
         }
-        public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price)
+        public void UpdateCourse(int id, string coursePrefix, int courseNumber, string courseName, string courseTimes, string courseSeats, string professor, double price, bool isActive)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("UPDATE Courses Set CoursePrefix=@CoursePrefix, CourseNumber=@CourseNumber, CourseName=@CourseName, Times=@Times, Seats=@Seats, Professor=@Professor where ID=@ID", connection);
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Courses Set CoursePrefix=@CoursePrefix, CourseNumber=@CourseNumber, CourseName=@CourseName, Times=@Times, Seats=@Seats, Professor=@Professor, IsActive=@IsActive WHERE ID=@ID", connection);
             sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.Parameters.AddWithValue("@CoursePrefix", coursePrefix);
             sqlCommand.Parameters.AddWithValue("@CourseNumber", courseNumber);
@@ -121,6 +122,7 @@ namespace Reg_A_Lot
             sqlCommand.Parameters.AddWithValue("@Seats", courseSeats);
             sqlCommand.Parameters.AddWithValue("@Professor", professor);
             sqlCommand.Parameters.AddWithValue("@Price", price);
+            sqlCommand.Parameters.AddWithValue("@IsActive", isActive);
             connection.Open();
             sqlCommand.ExecuteScalar();
         }
@@ -206,29 +208,27 @@ namespace Reg_A_Lot
             sqlCommand.ExecuteScalar();
 
         }
-        public int InsertRegistration(int studentID, int courseID, string grade, bool isActive)
+        public int InsertRegistration(int studentID, int courseID, string grade)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("INSERT into Registrations OUTPUT INSERTED.ID Values (@StudentID, @CourseID, @Grade, @IsActive)", connection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Registrations OUTPUT INSERTED.ID Values (@StudentID, @CourseID, @Grade)", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@StudentID", studentID);
             sqlCommand.Parameters.AddWithValue("@CourseID", courseID);
             sqlCommand.Parameters.AddWithValue("@Grade", grade);
-            sqlCommand.Parameters.AddWithValue("@IsActive", isActive);
             var registrationID = (int)sqlCommand.ExecuteScalar();
             return registrationID;
 
         }
 
-        public void UpdateRegistration(int studentID, int courseID, string grade, bool isActive, int id)
+        public void UpdateRegistration(int studentID, int courseID, string grade, int id)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\reg_db.mdf;Integrated Security=True");
-            SqlCommand sqlCommand = new SqlCommand("UPDATE Registrations Set StudentID=@StudentID, CourseID=@CourseID, Grade=@Grade, IsActive=@IsActive where ID=@id", connection);
+            SqlCommand sqlCommand = new SqlCommand("UPDATE Registrations Set StudentID=@StudentID, CourseID=@CourseID, Grade=@Grade where ID=@id", connection);
             connection.Open();
             sqlCommand.Parameters.AddWithValue("@StudentID", studentID);
             sqlCommand.Parameters.AddWithValue("@CourseID", courseID);
             sqlCommand.Parameters.AddWithValue("@Grade", grade);
-            sqlCommand.Parameters.AddWithValue("@IsActive", isActive);
             sqlCommand.Parameters.AddWithValue("@ID", id);
             sqlCommand.ExecuteScalar();
         }

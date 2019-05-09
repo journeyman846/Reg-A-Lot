@@ -64,7 +64,7 @@ namespace Reg_A_Lot
             txtPhoneNumber.Text = studentsTable.Rows[0][6].ToString();
 
             // Loads Courses into the referred Course table
-            registerCoursesTable = database.Read("SELECT * FROM Courses");
+            registerCoursesTable = database.Read("SELECT * FROM Courses WHERE IsActive=1");
             dgvCourseRegisterOrDrop.DataSource = registerCoursesTable;
             dgvCourseRegisterOrDrop.RowHeadersVisible = false;
 
@@ -138,7 +138,7 @@ namespace Reg_A_Lot
         private void btnRefreshCourses_Click(object sender, EventArgs e)
         {
             // Refreshing the Students Registered Courses
-            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + ")");
             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
         }
@@ -155,7 +155,7 @@ namespace Reg_A_Lot
 
             {
                 // Check if the Seat and Seats filled are equal
-                if (int.Parse(coursesFilledTable.Rows[0][5].ToString()) == int.Parse(coursesFilledTable.Rows[0][8].ToString()))
+                if (int.Parse(coursesFilledTable.Rows[0][5].ToString()) == int.Parse(coursesFilledTable.Rows[0][9].ToString()))
                 {
                     // Displaying if seats are full
                     MessageBox.Show("You cannot register for this course, the seats are filled.");
@@ -180,7 +180,7 @@ namespace Reg_A_Lot
                     // This will run if a match was not found in the for each loop
                     if (found == false)
                     {
-                        database.InsertRegistration(newUserID, newCourseID, "", true);
+                        database.InsertRegistration(newUserID, newCourseID, "");
                     }
                     else
                     {
@@ -188,7 +188,7 @@ namespace Reg_A_Lot
                     }
 
                     // Refreshes the CoursesRegistered Table
-                    coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+                    coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + ")");
                     dgvStudentViewRegisteredCourses.DataSource = coursesTable;
                     dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
 
@@ -227,7 +227,7 @@ namespace Reg_A_Lot
                             database.DeleteRegistration(ID);
 
                             // Refreshes the CoursesRegisteredTable
-                            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+                            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + ")");
                             dgvStudentViewRegisteredCourses.DataSource = coursesTable;
                             dgvStudentViewRegisteredCourses.RowHeadersVisible = false;
                         }
@@ -255,17 +255,12 @@ namespace Reg_A_Lot
             //MessageBox.Show(message, billingStatement);
             DataTable billing = new DataTable();
             // Get all the current active courses and put them in a datatable
-            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID + " AND IsActive=1)");
+            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE StudentID=" + userID +")");
             double[] array = new double[coursesTable.Rows.Count];
             // Put the registered class IDs into an array
             for (int i = 0; i < coursesTable.Rows.Count; i++)
             {
-
                 array[i] = double.Parse(coursesTable.Rows[i][0].ToString());
-                
-
-
-                
             }
             // make the array in a format for the sql statment ie: 230,260,270
             var result = string.Join(",", array);
