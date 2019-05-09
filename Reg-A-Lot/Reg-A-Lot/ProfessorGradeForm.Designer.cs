@@ -42,6 +42,10 @@
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLoadSubmissions = new System.Windows.Forms.Button();
             this.lblCurrentAssignments = new System.Windows.Forms.GroupBox();
+            this.cbCourseGrade = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbCourseOfGrade = new System.Windows.Forms.ComboBox();
+            this.lbCourseGrade = new System.Windows.Forms.Label();
             this.btnSubmitGrade = new System.Windows.Forms.Button();
             this.dgvAddFinalGrades = new System.Windows.Forms.DataGridView();
             this.lblEarnedPoints = new System.Windows.Forms.Label();
@@ -49,10 +53,8 @@
             this.lblStudentLookup = new System.Windows.Forms.Label();
             this.lnlStudentID = new System.Windows.Forms.Label();
             this.txtStudentID = new System.Windows.Forms.TextBox();
-            this.lbCourseGrade = new System.Windows.Forms.Label();
-            this.cbCourseOfGrade = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbCourseGrade = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtStudentGradeID = new System.Windows.Forms.TextBox();
             this.lblProfessorDisplayCoursesTaught.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesBeingTaught)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reg_dbDataSet)).BeginInit();
@@ -182,6 +184,8 @@
             // 
             // lblCurrentAssignments
             // 
+            this.lblCurrentAssignments.Controls.Add(this.label2);
+            this.lblCurrentAssignments.Controls.Add(this.txtStudentGradeID);
             this.lblCurrentAssignments.Controls.Add(this.cbCourseGrade);
             this.lblCurrentAssignments.Controls.Add(this.label1);
             this.lblCurrentAssignments.Controls.Add(this.cbCourseOfGrade);
@@ -202,6 +206,40 @@
             this.lblCurrentAssignments.TabIndex = 1;
             this.lblCurrentAssignments.TabStop = false;
             this.lblCurrentAssignments.Text = "Course Assignments";
+            // 
+            // cbCourseGrade
+            // 
+            this.cbCourseGrade.FormattingEnabled = true;
+            this.cbCourseGrade.Location = new System.Drawing.Point(171, 119);
+            this.cbCourseGrade.Name = "cbCourseGrade";
+            this.cbCourseGrade.Size = new System.Drawing.Size(148, 28);
+            this.cbCourseGrade.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Course:";
+            // 
+            // cbCourseOfGrade
+            // 
+            this.cbCourseOfGrade.FormattingEnabled = true;
+            this.cbCourseOfGrade.Location = new System.Drawing.Point(171, 270);
+            this.cbCourseOfGrade.Name = "cbCourseOfGrade";
+            this.cbCourseOfGrade.Size = new System.Drawing.Size(148, 28);
+            this.cbCourseOfGrade.TabIndex = 6;
+            // 
+            // lbCourseGrade
+            // 
+            this.lbCourseGrade.AutoSize = true;
+            this.lbCourseGrade.Location = new System.Drawing.Point(32, 270);
+            this.lbCourseGrade.Name = "lbCourseGrade";
+            this.lbCourseGrade.Size = new System.Drawing.Size(64, 20);
+            this.lbCourseGrade.TabIndex = 5;
+            this.lbCourseGrade.Text = "Course:";
             // 
             // btnSubmitGrade
             // 
@@ -226,17 +264,16 @@
             // lblEarnedPoints
             // 
             this.lblEarnedPoints.AutoSize = true;
-            this.lblEarnedPoints.Location = new System.Drawing.Point(32, 285);
+            this.lblEarnedPoints.Location = new System.Drawing.Point(32, 314);
             this.lblEarnedPoints.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEarnedPoints.Name = "lblEarnedPoints";
             this.lblEarnedPoints.Size = new System.Drawing.Size(114, 20);
             this.lblEarnedPoints.TabIndex = 2;
             this.lblEarnedPoints.Text = "Earned Grade:";
-            this.lblEarnedPoints.Click += new System.EventHandler(this.lblEarnedPoints_Click);
             // 
             // txtEarnedGrade
             // 
-            this.txtEarnedGrade.Location = new System.Drawing.Point(171, 277);
+            this.txtEarnedGrade.Location = new System.Drawing.Point(171, 306);
             this.txtEarnedGrade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEarnedGrade.Name = "txtEarnedGrade";
             this.txtEarnedGrade.Size = new System.Drawing.Size(148, 26);
@@ -270,39 +307,23 @@
             this.txtStudentID.Size = new System.Drawing.Size(148, 26);
             this.txtStudentID.TabIndex = 1;
             // 
-            // lbCourseGrade
+            // label2
             // 
-            this.lbCourseGrade.AutoSize = true;
-            this.lbCourseGrade.Location = new System.Drawing.Point(32, 241);
-            this.lbCourseGrade.Name = "lbCourseGrade";
-            this.lbCourseGrade.Size = new System.Drawing.Size(64, 20);
-            this.lbCourseGrade.TabIndex = 5;
-            this.lbCourseGrade.Text = "Course:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 240);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Student ID:";
             // 
-            // cbCourseOfGrade
+            // txtStudentGradeID
             // 
-            this.cbCourseOfGrade.FormattingEnabled = true;
-            this.cbCourseOfGrade.Location = new System.Drawing.Point(171, 241);
-            this.cbCourseOfGrade.Name = "cbCourseOfGrade";
-            this.cbCourseOfGrade.Size = new System.Drawing.Size(148, 28);
-            this.cbCourseOfGrade.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Course:";
-            // 
-            // cbCourseGrade
-            // 
-            this.cbCourseGrade.FormattingEnabled = true;
-            this.cbCourseGrade.Location = new System.Drawing.Point(171, 119);
-            this.cbCourseGrade.Name = "cbCourseGrade";
-            this.cbCourseGrade.Size = new System.Drawing.Size(148, 28);
-            this.cbCourseGrade.TabIndex = 6;
+            this.txtStudentGradeID.Location = new System.Drawing.Point(171, 236);
+            this.txtStudentGradeID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtStudentGradeID.Name = "txtStudentGradeID";
+            this.txtStudentGradeID.Size = new System.Drawing.Size(148, 26);
+            this.txtStudentGradeID.TabIndex = 7;
             // 
             // ProfessorGradeForm
             // 
@@ -354,5 +375,7 @@
         private System.Windows.Forms.Label lbCourseGrade;
         private System.Windows.Forms.ComboBox cbCourseGrade;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtStudentGradeID;
     }
 }

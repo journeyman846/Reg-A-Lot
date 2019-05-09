@@ -12,15 +12,7 @@ namespace Reg_A_Lot
 {
     public partial class ProfessorGradeForm : Form
     {
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lblEarnedPoints_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         Database database = new Database();
         DataTable professorsTable = new DataTable();
@@ -53,24 +45,6 @@ namespace Reg_A_Lot
             professorsTable = database.Read("Select * From Professors");
             dgvCoursesBeingTaught.DataSource = professorsTable;
             dgvCoursesBeingTaught.RowHeadersVisible = false;
-        }
-
-        private void btnDropCourse_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Are you sure you want to drop this course?",
-                                  "Drop Course", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                if (cbAddCourse.SelectedItem.ToString() != null)
-                {
-                    int courseID = int.Parse(cbAddCourse.SelectedItem.ToString());
-                    database.DeleteRegistration(courseID);
-                }
-            }
-            else if (dialog == DialogResult.No)
-            {
-                // No changes
-            }
         }
 
         private void ProfessorGradeForm_Load(object sender, EventArgs e)
@@ -107,22 +81,84 @@ namespace Reg_A_Lot
                 cbCourseGrade.Items.Add(ID.ToString());
             }
         }
+        
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btnDropCourse_Click(object sender, EventArgs e)
+        {
+            // Asking the user if they are sure they want to drop selected course
+            DialogResult dialog = MessageBox.Show("Are you sure you want to drop this course from your schedule?",
+                                  "Drop Course", MessageBoxButtons.YesNo);
+
+            // Depending on the user's selection will be the outcome of this code
+            if (dialog == DialogResult.Yes)
+            {
+                if (cbDropCourse.SelectedItem.ToString() != null)
+                {
+                    string courseID = cbDropCourse.SelectedItem.ToString();
+                    dropCourses = database.Read("SELECT ID FROM Registrations WHERE CourseID=" + courseID + "AND ProfessorID=" + txtProfessorID.Text);
+
+
+                    // Loop pulling ID values from the Registrations Table
+                    for (int i = 0; i < dropCourses.Rows.Count; i++)
+                    {
+                        // The actual pulling from the ID Values
+                        string IDValues = dropCourses.Rows[i][0].ToString();
+
+                        // Checking if IDValues and CourseID are a match to select correct course to drop
+                        if (IDValues == IDValues && courseID == courseID)
+                        {
+                            // Parsing and deleting of the specified course
+                            int ID = int.Parse(IDValues);
+                            database.DeleteRegistration(ID);
+
+                            // Refreshes the CoursesRegisteredTable
+                            coursesTable = database.Read("Select * from Courses where ID in (SELECT CourseID FROM Registrations WHERE Professor=" + userID);
+                            dgvCoursesBeingTaught.DataSource = coursesTable;
+                            dgvCoursesBeingTaught.RowHeadersVisible = false;
+                        }
+                    }
+                }
+            }
+            else if (dialog == DialogResult.No)
+            {
+                // No changes
+            }
+        }
 
         private void btnLoadSubmissions_Click(object sender, EventArgs e)
         {
             string studentID = txtStudentID.Text;
             string courseID = cbCourseOfGrade.Text;
-            loadStudentGradeSubmissions = database.Read("SELECT Grade FROM Registrations WHERE StudentID=" 
-                                                        + studentID + "AND CourseID=" + courseID + 
-                                                        "AND SELECT Professor FROM Courses WHERE CourseID=" 
-                                                        + courseID);
-            dgvAddFinalGrades.DataSource = gradesTable;
-            dgvAddFinalGrades.RowHeadersVisible = false;
+
+            loadStudentGradeSubmissions = database.Read("SELECT Grade FROM Registrations WHERE StudentID="
+                                                            + studentID + "AND CourseID=" + courseID);
+            if (loadStudentGradeSubmissions == null)
+            {
+                MessageBox.Show("Student is not registered for this course.");
+            }
+            else
+            {
+                loadStudentGradeSubmissions = database.Read("SELECT Grade FROM Registrations WHERE StudentID="
+                                                            + studentID + "AND CourseID=" + courseID);
+                dgvAddFinalGrades.DataSource = gradesTable;
+                dgvAddFinalGrades.RowHeadersVisible = false;
+            }
         }
 
         private void btnSubmitGrade_Click(object sender, EventArgs e)
         {
+            string studentGradeID = txtStudentGradeID.Text;
+            string courseID = cbCourseOfGrade.Text;
 
+            loadStudentGradeSubmissions = database.Read("SELECT Grade FROM Registrations WHERE StudentID="
+                                                            + studentGradeID + "AND CourseID=" + courseID);
+
+            loadStudentGradeSubmissions.Rows[0][0] = txtEarnedGrade.Text;
         }
     }
 }

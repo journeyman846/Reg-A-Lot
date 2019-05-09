@@ -54,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCourse1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBilling = new System.Windows.Forms.Button();
             this.cbDropCourse = new System.Windows.Forms.ComboBox();
             this.cbSelectCourse = new System.Windows.Forms.ComboBox();
             this.btnDropCourse = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.btnRegisterForCourses = new System.Windows.Forms.Button();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reg_dbDataSet = new Reg_A_Lot.reg_dbDataSet();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblStudentDisplayCoursesRegistered.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentViewRegisteredCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewFinalGrades)).BeginInit();
@@ -330,7 +330,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnBilling);
             this.groupBox1.Controls.Add(this.cbDropCourse);
             this.groupBox1.Controls.Add(this.cbSelectCourse);
             this.groupBox1.Controls.Add(this.btnDropCourse);
@@ -345,6 +345,16 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Changes";
+            // 
+            // btnBilling
+            // 
+            this.btnBilling.Location = new System.Drawing.Point(1023, 140);
+            this.btnBilling.Name = "btnBilling";
+            this.btnBilling.Size = new System.Drawing.Size(196, 39);
+            this.btnBilling.TabIndex = 16;
+            this.btnBilling.Text = "Billing";
+            this.btnBilling.UseVisualStyleBackColor = true;
+            this.btnBilling.Click += new System.EventHandler(this.btnBilling_Click);
             // 
             // cbDropCourse
             // 
@@ -420,16 +430,6 @@
             this.reg_dbDataSet.DataSetName = "reg_dbDataSet";
             this.reg_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1023, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 39);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Billing";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // StudentViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -489,6 +489,6 @@
         private System.Windows.Forms.Button btnRefreshCourses;
         private System.Windows.Forms.ComboBox cbSelectCourse;
         private System.Windows.Forms.ComboBox cbDropCourse;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBilling;
     }
 }

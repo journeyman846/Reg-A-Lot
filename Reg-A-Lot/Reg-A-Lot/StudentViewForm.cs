@@ -239,7 +239,7 @@ namespace Reg_A_Lot
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBilling_Click(object sender, EventArgs e)
         {
             //studentName = database.Read("SELECT FirstName,LastName FROM Students WHERE ID=" + userID);
             //studentAddress = database.Read("SELECT Address FROM Students WHERE ID=" + userID);
